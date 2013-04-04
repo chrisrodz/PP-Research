@@ -1,5 +1,6 @@
 *.acn
 *.acr
+.DS_Store
 *.alg
 *.aux
 *.bbl
