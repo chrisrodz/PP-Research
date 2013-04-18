@@ -11,6 +11,7 @@
 \newtheorem{example}{Ejemplo}
 \newtheorem{definition}{Definici\'on}
 \newtheorem{proposition}{Proposici\'on}
+\newtheorem{lemma}{Lemma}
 
 \title{Informe t\'ecnico sobre una clase de polinomios de permutaci\'on}
 
@@ -51,6 +52,24 @@ Sea $p \equiv 1 \bmod{3}$. Nosotros consideramos el polinomio $ F(x) = x^{\frac{
 
 Procedemos a estudiar la cantidad de pares $(a,b)$ que nos producen polinomios de permutaci\'on, y maneras de hallar estos pares.
 
+\section{Pares de $a$ y $b$}
+
+Sabemos que si $F(x)$ es un polinomio de permutaci\'on, entonces $F(x) = 0$ si y solo si $x=0$. Tambi\'en sabemos que $\alpha^n \neq 0 $ para toda $n \in \mathbb{F}_{p}$. Ahora con $F(x)=0$ podemos obtener algunas condiciones en los pares $(a,b)$ tal que $F(x)$ no es de permutaci\'on.
+
+\begin{lemma}
+	Sea $F(x) = x(x^{\frac{p-1}{2}}+ax^{\frac{p-1}{6}}+b)$. Utilizando las $6$ clases que describimos arriba, se obtiene que los siguientes pares de $(a,b)$ no producen una permutaci\'on:
+\end{lemma}
+
+\begin{itemize}
+	\item $F(\alpha^{6k}) = 0 \rightarrow [a,-1-a]$
+	\item $F(\alpha^{6k+1}) = 0 \rightarrow [a,1-a\alpha^{\frac{p-1}{6}}]$
+	\item $F(\alpha^{6k+2}) = 0 \rightarrow [a,-1-a\alpha^{\frac{p-1}{3}}]$
+	\item $F(\alpha^{6k+3}) = 0 \rightarrow [a,1+a]$
+	\item $F(\alpha^{6k+4}) = 0 \rightarrow [a,-1-a\alpha^{2*\frac{p-1}{3}}]$
+	\item $F(\alpha^{6k+5}) = 0 \rightarrow [a,1-a\alpha^{5*\frac{p-1}{6}}]$ 
+\end{itemize}
+
+
 \section{Cantidad de permutaciones}\label{orto}
 
 Ejemplos que hemos calculado nos llevan a la siguiente conjetura:
@@ -77,8 +96,6 @@ En el caso de $p=31$ hemos podido demostrar esta conjetura. Hallamos una corresp
 	i-3, & 3 \leq i \leq 5
 	\end{cases}
 	$$
-
-	\clearpage
 	
 	Primero note que 
 	\begin{align*}
@@ -105,11 +122,6 @@ En el caso de $p=31$ hemos podido demostrar esta conjetura. Hallamos una corresp
 \end{proof}
 
 Nuestra demostraci\'on utiliza el hecho de que $\frac{p-1}{2} = \frac{30}{2}=15$ es impar. En la generalizaci\'on debe existir otra variable que haga que funcione cuando $\frac{p-1}{2}$ sea par. 
-
-
-\section{Pares de $a$ y $b$}
-
-Aqui van los lemas que dan algunas condiciones para posibles pares de $(a,b)$. Es lo que estabamos trabajando antes de comenzar lo del $(a,-b)$.
 
 
 \begin{thebibliography}{}
