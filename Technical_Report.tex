@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+
+\hoffset=-0.125in
+
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\newtheorem{conjecture}{Conjetura}
+\newtheorem{example}{Ejemplo}
+\newtheorem{definition}{Definici\'on}
+\newtheorem{proposition}{Proposici\'on}
+
+\title{Informe t\'ecnico sobre una clase de polinomios de permutaci\'on}
+
+\author{Christian A. Rodr\'{\i}guez \\ Alex D. Santos \\ Universidad de Puerto Rico \\ Recinto de R\'{\i}o Piedras \\ Departamento de Ciencia de C\'omputos}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+El abstract lo dejamos para el final
+
+\end{abstract}
+
+\section{Preliminares}\label{intro}
+
+Aqu\'{\i} van todos los preliminares sobre polinomios de permutación y un poco sobre la motivación de Francis a escoger el polinomio que estamos estudiando.
+
+\section{Nuestra clase de polinomios}\label{pp}
+
+Sea $p \equiv 1 \bmod{3}$. Nosotros consideramos el polinomio $ F(x) = x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx $ definido sobre $\mathbb{F}_{p}$. Estudiamos maneras de hallar pares de $(a,b) \in \mathbb{F}_{p}$ tales que $F(x)$ sea un polinomio de permutaci\'on. Sabemos que todos los valores en $\mathbb{F}_{p}$ pueden ser expresados como una potencia de la ra\'{\i}z primitiva $\alpha$. La manera en que estudiamos esta clase de polinomios es considerando $x=\alpha^{n}$ para alg\'un $n \in \mathbb{F}_{p}$. Esto es, consideramos $ F(\alpha^{n}) = (\alpha^{n})^{\frac{p+1}{2}} + a(\alpha^{n})^{\frac{p+5}{6}} + b\alpha^{n} $. Tambi\'en note que podemos factorizar $x$, cambiando nuestro polinomio a $F(x) = x(x^{\frac{p-1}{2}}+ax^{\frac{p-1}{6}}+b)$ M\'as a\'un utilizamos el algoritmo de divisi\'on para particionar $\mathbb{F}_{p}$ en $6$ clases. Es decir, consideramos $n = 6k+r$ donde $0 \leq r \leq 5$ y $0 \leq k \leq \frac{p-1}{6}$. Ahora $F(x)$ es particionado en $6$ clases:
+
+\begin{itemize}
+	\item
+		$F(\alpha^{6k}) = \alpha^{6k}(1+a+b)$
+	\item
+		$F(\alpha^{6k+1})= \alpha^{6k}(-\alpha+a\alpha^{\frac{p+5}{6}}+b\alpha)$
+	\item
+		$F(\alpha^{6k+2})=\alpha^{6k}(\alpha^{2}+a\alpha^{\frac{p+5}{3}}+b\alpha^{2})$
+	\item
+		$F(\alpha^{6k+3})=\alpha^{6k}(-\alpha^{3}-a\alpha^{3}+b\alpha^{3})$
+	\item
+		$F(\alpha^{6k+4})=\alpha^{6k}(\alpha^{4}+a\alpha^{2\frac{p+5}{3}}+b\alpha^{4})$
+	\item
+		$F(\alpha^{6k+5})=\alpha^{6k}(-\alpha^{5}+a\alpha^{5\frac{p+5}{6}}+b\alpha^{5})$ 
+\end{itemize}
+
+Procedemos a estudiar la cantidad de pares $(a,b)$ que nos producen polinomios de permutaci\'on, y maneras de hallar estos pares.
+
+\section{Cantidad de permutaciones}\label{orto}
+
+Ejemplos que hemos calculado nos llevan a la siguiente conjetura:
+\begin{conjecture}
+	Considere el polinomio $F(x)$. Si $(a,b)$ produce una permutaci\'on, entonces $(a,-b)$ tambi\'en produce una permutaci\'on.
+\end{conjecture}
+
+En el caso de $p=31$ hemos podido demostrar esta conjetura. Hallamos una correspondencia entre las clases de arriba al evaluar el polinomio en $(a,b)$ y al evaluarlo en $(a,-b)$, de esta manera demostrando que cuando uno de los pares produce un polinomio de permutaci\'on el otro tambi\'en.
+
+\begin{proof}
+	Sea $P_{31}(x,a,b) = x(x^{\frac{p-1}{2}}+ax^{\frac{p-1}{6}}+b)$ definido sobre $\mathbb{F}_{31}$. Demostraremos que $P_{31}(\alpha^{6k+i},a,b) = P_{31}(\alpha^{6l+j},a,-b)$ donde
+	$$
+	l =
+	\begin{cases}
+	k+2 \bmod{5}, & 0 \leq i \leq 2 \\
+	k+3 \bmod{5}, & 3 \leq i \leq 5
+	\end{cases}
+	$$
+	,
+	$$
+	j =
+	\begin{cases}
+	i+3, & 0 \leq i \leq 2 \\
+	i-3, & 3 \leq i \leq 5
+	\end{cases}
+	$$
+
+	\clearpage
+	
+	Primero note que 
+	\begin{align*}
+	&P_{31}(\alpha^{6k+i},a,b) \\
+	&=\alpha^{6k+i}((\alpha^{6k+i})^{\frac{p-2}{2}}+a(\alpha^{6k+i})^{\frac{p-1}{6}}+b) \\
+	&=\alpha^{6k+i}((-1)^{i}+a\alpha^{i\frac{p-1}{6}}+b)
+	\end{align*}
+
+	Tambi\'en note que
+	\begin{align*}
+	&6(k+2)+i+3=6k+12+i+3=6k+i+15 \\
+	&6(k+3)+i-3=6k+18+i-3=6k+i+15
+	\end{align*}
+
+	Finalmente:
+	\begin{align*}
+	&P_{31}(\alpha^{6l+j},a,-b)	\\
+	&= -\alpha^{6k+i}((-\alpha^{6k+i})^\frac{p-1}{2}+a(-\alpha^6k+i)^\frac{p-1}{6}-b) \\
+	&= -\alpha^{6k+i}((-1)^{\frac{p-1}{2}}(\alpha^{6k+i})^\frac{p-1}{2}+a(-1)^{\frac{p-1}{6}}(\alpha^6k+i)^\frac{p-1}{6}-b) \\
+	&= -\alpha^{6k+i}(-(-1)^{i}-a\alpha^{i\frac{p-1}{6}}-b) \\
+	&= \alpha^{6k+i}((-1)^{i}+a\alpha^{i\frac{p-1}{6}}+b) \\
+	\end{align*}
+	
+\end{proof}
+
+Nuestra demostraci\'on utiliza el hecho de que $\frac{p-1}{2} = \frac{30}{2}=15$ es impar. En la generalizaci\'on debe existir otra variable que haga que funcione cuando $\frac{p-1}{2}$ sea par. 
+
+
+\section{Pares de $a$ y $b$}
+
+Aqui van los lemas que dan algunas condiciones para posibles pares de $(a,b)$. Es lo que estabamos trabajando antes de comenzar lo del $(a,-b)$.
+
+
+\begin{thebibliography}{}
+
+Necesitamos a\~nadir referencias.
+
+\end{thebibliography}
+
+\end{document}
