@@ -13,7 +13,7 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
 
-\title{Technical Report on a Class of Permutation Polynomials}
+\title{On a Class of Permutation Polynomials}
 
 \author{Christian A. Rodr\'{\i}guez \\ Alex D. Santos \\ University of Puerto Rico \\ Rio Piedras Campus \\ Department of Computer Science}
 \date{}
@@ -29,42 +29,28 @@ El abstract lo dejamos para el final
 
 \section{Introduction}\label{intro}
 
-We are studying the coefficients $a$ and $b$ that make a polynomial a permutation polynomial. Let $p \equiv 1 \bmod{3}$. We consider the polynomial $F(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ defined over a finite field $\mathbb{F}_{q}$. \\
+Let $\mathbb{F}_{q}$ be the Finite Field with $q=p^{r}$ elements, where $p$ is a prime. We are studying the coefficients $a$ and $b$ that make polynomials of the form $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ a permutation polynomial where $a,b \in \mathbb{F}_{q}^{\times}$. \\
 \\
 1. Results on binomials \\
 2. Francis' motivation to chose $F(x)$ \\
 \\
-Recall that all elements in $\mathbb{F}_{q}$ can be expressed as a power of the primitive root $\alpha \in \mathbb{F}_{q}$. Our approach in studying $F(x)$ is to use the division algorithm to consider $x=\alpha^{n}$ where $n=6k+r$. This partitions $F(x)$ into 6 classes:
-
-\begin{itemize}
-	\item
-		$F(\alpha^{6k}) = \alpha^{6k}(1+a+b)$
-	\item
-		$F(\alpha^{6k+1})= \alpha^{6k}(-\alpha+a\alpha^{\frac{p+5}{6}}+b\alpha)$
-	\item
-		$F(\alpha^{6k+2})=\alpha^{6k}(\alpha^{2}+a\alpha^{\frac{p+5}{3}}+b\alpha^{2})$
-	\item
-		$F(\alpha^{6k+3})=\alpha^{6k}(-\alpha^{3}-a\alpha^{3}+b\alpha^{3})$
-	\item
-		$F(\alpha^{6k+4})=\alpha^{6k}(\alpha^{4}+a\alpha^{2\frac{p+5}{3}}+b\alpha^{4})$
-	\item
-		$F(\alpha^{6k+5})=\alpha^{6k}(-\alpha^{5}+a\alpha^{5\frac{p+5}{6}}+b\alpha^{5})$ 
-\end{itemize}
-
+Recall that all elements in $\mathbb{F}_{q}^{\times}$ can be expressed as a power of the primitive root $\alpha \in \mathbb{F}_{q}$. Our approach in studying $F(x)$ is to use the division algorithm to consider $x=\alpha^{n}$ where $n=6k+r, r=0,...,5$. If $F_{a,b}(x)$ is a permutation, this partitions $\mathbb{F}_{q}^{\times}$ into 6 classes: $F_{a,b}(\alpha^{6k+r})$ for $r=0,...,5$
 
 
 \section{Preliminaries}\label{prelim}
 
-We study polynomials defined over finite fields.
+\begin{definition}
+	A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto.
+\end{definition}
+
+We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. This is, polynomials that permute the elements of $\mathbb{F}_{q}$
 
 \begin{definition}
 	A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^{r}$, $p$ prime is a field with $q$ elements.
 \end{definition}
 
 Specifically, we study polynomials that permute the elements of the field. This is, polynomials that when evaluated over the field produce all elements in the field.
-\begin{definition}
-	A polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $\mathbb{F}_{q}$.
-\end{definition}
+
 
 Our approach in studying these permutation polynomials utilizes two important concepts. The first is primitive roots of finite fields.
 \begin{definition}
@@ -73,16 +59,31 @@ Our approach in studying these permutation polynomials utilizes two important co
 
 The second important concept is the Division Algorithm.
 \begin{theorem}[Division Algorithm]
-	Given integers $a$ and $b$, with $b>0$ there exists unique integers $q$ and $r$ satisfying $a=qb+r$, $0 \leq r < b$
+	Given integers $a$ and $b$, with $b>0$ there exists unique integers $q$ and $r$ satisfying $a=qb+r$, $0 \leq r < |b|$
 \end{theorem}
 
-\section{The amount of Permutation Polynomials of our class is divisible by $2$}\label{divby2}
+We mentioned that using primitive roots and the division algorithm we could partition $\mathbb{F}_{q}$ into $6$ sets. We now define a notation for these sets.
+
+\begin{definition}
+	$A_{i}=\lbrace F(\alpha^{6k+i}) \mid k=0,...,\frac{p-1}{6}\rbrace$
+\end{definition}
+
+Also note that the elements of each of these sets are distinct, as we show in the following lemma:
+\begin{lemma}
+	For $i=1,...,5$ $\left\vert A_{i} \right\vert = \frac{p-1}{6}$
+\end{lemma}
+
+\begin{proof}
+	Falta pasar el proof de esto.
+\end{proof}
+
+\section{The number of Permutation Polynomials $x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ over $\mathbb{F}_{q}$ is even}\label{divby2}
 
 
 In our study of possible pairs $(a,b)$ that produce permutation polynomials, examples we have calculated led us to the following conjecture.
-\begin{conjecture}
+\begin{proposition}
 	Consider the polynomial $F(x)$. If $(a,b)$ produces a permutation, then $(a,-b)$ also produces a permutation.
-\end{conjecture}
+\end{proposition}
 
 In the case of $q=31$ we have proved this conjecture. We found a correspondence between the classes we defined above by evaluating our polynomial in $(a,b)$ and $(a,-b)$. This way we proved that whenever one of the pairs produces a permutation polynomial, so does the other.
 
