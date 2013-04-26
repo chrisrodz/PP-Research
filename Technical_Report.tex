@@ -31,8 +31,11 @@ El abstract lo dejamos para el final
 
 Let $\mathbb{F}_{q}$ be the Finite Field with $q=p^{r}$ elements, where $p$ is a prime. We are studying the coefficients $a$ and $b$ that make polynomials of the form $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ a permutation polynomial where $a,b \in \mathbb{F}_{q}^{\times}$. \\
 \\
-1. Results on binomials \\
-2. Francis' motivation to chose $F(x)$ \\
+It is known that polynomials of the form $x^{d}$ defined over $\mathbb{F}_{q}$ permute $\mathbb{F}_{q}$ if and only if $gdc(d,q-1)=1$. Also, for polynomials of the form $f(x)=x^{\frac{q+1}{2}}+ax$ defined over $\mathbb{F}_{q}$ with $a \in \mathbb{F}_{q}$ if $q=p$ then $f(x)$ is a permutation polynomial if $a^{2}-1$ is a quadratic residue. If $q\neq p$ then $f(x)$ never permutes $\mathbb{F}_{q}$.\\
+\\
+Masuda-Zeive studied polynomials of the form $f(x)=x^{d_{1}}+ax^{d_{2}}$ defined over $\mathbb{F}_{p}$ with $a\neq 0$ and discovered that if $f(x)$ is a permutation polynomial then $gcd(p-1,d_{1}-d_{2})>\sqrt{p}-1$. He also discovered that if $f(x)$ permutes $\mathbb{F}_{p}$ then $p-1\leq (d_{1}-1)max\lbrace d_{2},gcd(d_{1}-d_{2},p-1) \rbrace$. Note that this second condition only improves on the first when $d_{2}=1$ and $d_{1}-1 \mid p-1$ \\
+\\
+It is from these previous results that Francis Castro started studying polynomials of the form $x^{\frac{p-1}{3}}+ax$ and $x^{\frac{p-1}{6}}+ax$, but to no avail. Then he suggested the study of our family of polynomials: $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ \\
 \\
 Recall that all elements in $\mathbb{F}_{q}^{\times}$ can be expressed as a power of the primitive root $\alpha \in \mathbb{F}_{q}$. Our approach in studying $F(x)$ is to use the division algorithm to consider $x=\alpha^{n}$ where $n=6k+r, r=0,...,5$. If $F_{a,b}(x)$ is a permutation, this partitions $\mathbb{F}_{q}^{\times}$ into 6 classes: $F_{a,b}(\alpha^{6k+r})$ for $r=0,...,5$
 
@@ -65,16 +68,24 @@ The second important concept is the Division Algorithm.
 We mentioned that using primitive roots and the division algorithm we could partition $\mathbb{F}_{q}$ into $6$ sets. We now define a notation for these sets.
 
 \begin{definition}
-	$A_{i}=\lbrace F(\alpha^{6k+i}) \mid k=0,...,\frac{p-1}{6}\rbrace$
+	$A_{i}=\lbrace F_{a,b}(\alpha^{6k+i}) \mid k=0,...,\frac{p-1}{6}\rbrace$
 \end{definition}
-
 Also note that the elements of each of these sets are distinct, as we show in the following lemma:
+\pagebreak
 \begin{lemma}
 	For $i=1,...,5$ $\left\vert A_{i} \right\vert = \frac{p-1}{6}$
 \end{lemma}
 
 \begin{proof}
-	Falta pasar el proof de esto.
+	Suppose that $F_{a,b}(\alpha^{6k+i})=F_{a,b}(\alpha^{6l+i})$ with $k<l\leq \frac{p-1}{6}$. Note that:
+	\begin{align*}
+	&F_{a,b}(\alpha^{6k+i})=F_{a,b}(\alpha^{6l+i}) \\
+	&\alpha^{6k+i}((\alpha^{6k+i})^{\frac{p-1}{2}}+a(\alpha^{6k+i})^{\frac{p-1}{6}}+b) = \alpha^{6l+i}((\alpha^{6l+i})^{\frac{p-1}{2}}+a(\alpha^{6l+i})^{\frac{p-1}{6}}+b) \\
+	&\alpha^{6k+i}((-1)^{i}+a(\alpha^{i*\frac{p-1}{6}})+b) = \alpha^{6l+i}((-1)^{i}+a(\alpha^{i*\frac{p-1}{6}})+b) \\
+	&\alpha^{6k+i} = \alpha^{6l+i} \\
+	&\alpha^{6k} = \alpha^{6l}
+	\end{align*}
+	This is a contradiction, since $\alpha^{i} \neq \alpha^{j}$ for all $i \neq j$, $i,j \leq p-1$. Now we know all elements in $A_{i}$ are distinct and since we have $\frac{p-1}{6}$ elements, then $\left\vert A_{i} \right\vert = \frac{p-1}{6}$.
 \end{proof}
 
 \section{The number of Permutation Polynomials $x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ over $\mathbb{F}_{q}$ is even}\label{divby2}
@@ -109,7 +120,7 @@ In the case of $q=31$ we have proved this conjecture. We found a correspondence 
 	First note that
 	\begin{align*}
 	&P_{31}(\alpha^{6k+i},a,b) \\
-	&=\alpha^{6k+i}((\alpha^{6k+i})^{\frac{p-2}{2}}+a(\alpha^{6k+i})^{\frac{p-1}{6}}+b) \\
+	&=\alpha^{6k+i}((\alpha^{6k+i})^{\frac{p-1}{2}}+a(\alpha^{6k+i})^{\frac{p-1}{6}}+b) \\
 	&=\alpha^{6k+i}((-1)^{i}+a\alpha^{i\frac{p-1}{6}}+b)
 	\end{align*}
 
