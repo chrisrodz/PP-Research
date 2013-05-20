@@ -1,0 +1,179 @@
+
+
+\documentclass{beamer}
+
+
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+
+
+}
+
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[utf8]{inputenc}
+% or whatever
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{ourproblem}{Our Problem}
+
+
+\title
+{A class of Permutation Polynomials}
+
+\author
+{Christian Rodriguez\\
+Alex D. Santos}
+
+\institute[]
+{
+  Department of Computer Science\\
+  University of Puerto Rico, Rio Piedras
+}
+
+\date
+{\today}
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{Introduction}
+
+\subsection{The polynomial}
+
+\begin{frame}{The polynomial}
+
+
+$$F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$$
+
+
+\begin{ourproblem}
+Let $p \equiv 1 \bmod 3$. Find $a$ and $b$ such that $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ is a permutation polynomial over $\mathbb{F}_{p}$.
+\end{ourproblem}
+
+
+\end{frame}
+
+\begin{frame}{The polynomial}
+
+Let $N_p$ be the number of permutation polynomials of the type $F_{a,b}(x)=x^{\frac{p-1}{2}+1}+ax^{\frac{p-1}{6}+1}+bx$ of $\mathbb{F}_{p}$.
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+  $p$ & $N_p$ \\ \hline
+  13 & 18 \\ \hline
+  19& 0 \\ \hline
+  31 & 18  \\ \hline
+  37 & 12 \\ \hline
+  43 & 36 \\ \hline
+  61 & 30 \\ \hline
+  67 & 108 \\ \hline
+  73 & 54 \\ \hline
+  79 & 48 \\ \hline
+  97 & 102 \\ \hline
+  103 & 72 \\  \hline
+  109 & 120 \\ \hline
+  \end{tabular}
+\begin{tabular}{|c|c|}\hline
+  $p$ & $N_p$ \\ \hline
+  127 & 234 \\ \hline
+  139 & 270 \\ \hline
+  151 &  276 \\ \hline
+  157 & 438\\ \hline
+  163 & 378 \\ \hline
+  181 & 552 \\ \hline
+  193 & 612 \\ \hline
+  199 & 624 \\ \hline
+  211 & 756 \\ \hline
+  223 & 540 \\ \hline
+  229 & 858 \\ \hline
+  241 & 828 \\ \hline
+  \end{tabular}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{The polynomial}
+
+\begin{conjecture}
+Let $p \equiv 1 \bmod 3$. The number of Permutation Polynomials over $\mathbb{F}_{p}$ of the form $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ is divisible by $6$.
+\end{conjecture}
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+In the case $p=31$ we have: $F_{a,b}(x)=x^{16} + ax^{6} + bx$. For the following $[a,b]$ $F(x)$ is a permutation polynomial:
+$$[2, 7], [2, 24], [10, 7] [10, 24], [16,13], [16, 18],$$
+$$[17, 5], [17, 26], [18, 13], [18, 18], [19, 7], [19, 24],$$
+$$[22, 5], [22, 26], [23, 5], [23, 26], [28, 13], [28, 18]$$
+
+In the case $p=37$ we have: $F_{a,b}(x)=x^{16} + ax^{6} + bx$. For the following $[a,b]$ $F(x)$ is a permutation polynomial:
+
+$$[11, 5], [11, 32], [18, 17] [18, 20], [24,17], [24, 20],$$
+$$[27, 5], [27, 32], [32, 17], [32, 20], [36, 5], [36, 32],$$
+
+
+\end{frame}
+
+\begin{frame}{Conjectures}
+
+\begin{conjecture}
+	Consider the polynomial $F(x)$. If $(a,b)$ produces a permutation, then $(a,-b)$ also produces a permutation.
+\end{conjecture}
+
+\begin{conjecture}
+	The number of Permutation Polynomials over $\mathbb{F}_{p}$ of the form $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ is divisible by $3$.
+\end{conjecture}
+
+\end{frame}
+
+\begin{frame}{Approach}
+Our approach in studying $F(x)$ is to use the division algorithm to consider $x=\alpha^{n}$ where $n=6k+r, r=0,...,5$.
+\linebreak
+\linebreak
+We expect that if $F_{a,b}(x)$ is a permutation, this partitions $\mathbb{F}_{q}^{\times}$ into 6 classes: $F_{a,b}(\alpha^{6k+r})$ for $r=0,...,5$
+\end{frame}
+
+\begin{frame}{Results}
+
+
+  \begin{definition}
+	$A_{i}=\lbrace F_{a,b}(\alpha^{6k+i}) \mid k=0,...,\frac{p-1}{6}\rbrace$
+\end{definition}
+
+\begin{lemma}
+	For $i=1,...,5$ $\left\vert A_{i} \right\vert = \frac{p-1}{6}$
+\end{lemma}
+
+\end{frame}
+
+\end{document}
+
+

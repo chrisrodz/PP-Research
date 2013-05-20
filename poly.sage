@@ -1,6 +1,3 @@
-count = 0 # cuente los PP
-
-l = [] # Guarda los PP evaluados para verificar que no se repitan los resultados
 
 p = 139 # Tamano del  cuerpo
 
