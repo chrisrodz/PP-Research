@@ -1,3 +1,7 @@
+
+# Esta función calcula la cantidad de polinomios de permutación F_a,b(x) dado un primo p.
+# Lo hace de una manera forzada, usando casi nada de sage
+
 def calcula(p):
         if not(is_prime(p) and p%6==1):
                 return

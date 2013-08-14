@@ -6,7 +6,7 @@ p = 139 # Tamano del  cuerpo
 
 k = GF(p) # Crea el CF
 
-R.<x> = PolynomialRing(GF(p),1,"x")
+R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando
 
 for a in range(1, p): # Fija a
         for b in range(1, p): # Fija b
