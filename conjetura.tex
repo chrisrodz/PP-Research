@@ -22,7 +22,7 @@
 \maketitle
 
 Alex y Yo demostramos la conjetura, aunque esta medio chapusiao por ahora. Lo importante es que tenemos la idea:
-\begin{theorem}
+\begin{theorem}\label{thm:impar}
 Sea $p$ un primo y $d = 2\cdot m$, $m$ primo impar tal que $d\mid p-1$. Sea $F_{\alpha^i,\alpha^j}(x)$ polinomio de permutación en $\mathbb{F}_p$. Tenemos que $(\alpha^{\frac{p-1}{2}-\left(m+2\right)}\cdot F_{\alpha^i,\alpha^j}(\alpha^l)) = F_{\alpha^{i+\frac{p-1}{m}},\alpha^{j+\frac{p-1}{2}}}(\alpha^{k})$ donde $k,l \in \mathbb{F}_p^\times$ y $l=k+m+2$    
 \end{theorem}
 
@@ -60,9 +60,20 @@ $ = -\alpha^{-m-2}\cdot \alpha^{l}((-1)^{l}+\alpha^{i}\cdot (\alpha^{l})^{\frac{
 $ = (-\alpha^{-m-2}) \cdot F_{\alpha^i,\alpha^j}(\alpha^l)$
 \end{proof}
 
+Utilizando esta conjetura, demostramos el lemita sobre la cantidad de polinomios de permutacion de la forma $F_{a,b}(x)$:
+
+\begin{lemma}
+    Sea $p$ un primo y $d=2\cdot m$ tal que $m$ es impar. Sea $n$ la cantidad de pares $[a,b]$ tal que $F_{a,b}(x)$ es un polinomio de permutacion en $\mathbb{F}_p$. Entonces tenemos que $d\mid n$.
+\end{lemma}
+
+\begin{proof}
+    Si $n=0$ es trivial, pues $d\mid 0$. Suponemos que $n\neq 0$. Sea $[a=\alpha^i,b=\alpha^j]$ un par tal que $F_{a,b}(x)$ es un polinomio de permutacion. Por el teorema~\ref{thm:impar} tenemos que $[\alpha^{i+\frac{p-1}{m}},\alpha^{j+\frac{p-1}{2}}]$ tambien produce un polinomio de permutacion. De nuevo por el teorema~\ref{thm:impar} tenemos que $[\alpha^{i+2\cdot \frac{p-1}{m}},\alpha^{j+2\cdot\frac{p-1}{2}}]$ nos produce un polinomio de permutacion. Nuestro argumento es que este proceso se puede repetir a lo sumo $d-1$ veces. En la repeticion $d$ obtenemos $[\alpha^{i+d\cdot\frac{p-1}{m}}=\alpha^i,\alpha^{j+d\cdot \frac{p-1}{2}}=\alpha^j]$. Por lo tanto por cada par $[a,b]$, obtenemos un conjunto de $d$ pare tal que cada par nos produce un polinomio de permutacion: $\left\{ [\alpha^i,\alpha^j],[\alpha^{i+\frac{p-1}{m}},\alpha^{j+\frac{p-1}{2}}], [\alpha^{i+2\cdot \frac{p-1}{m}},\alpha^{j+2\cdot \frac{p-1}{2}}], \cdots, [\alpha^{i+(d-1)\cdot \frac{p-1}{m}},\alpha^{j+(d-1)\cdot \frac{p-1}{2}}] \right\}$. Esto implica que la cantidad de pares es $n=d\cdot q, q \in \mathbb{N}$. Por lo tanto $d\mid n$.
+\end{proof}
+
+
 Tambien demostramos la conjetura cuando $m$ es par. Ahora si que somos los duros.
 
-\begin{theorem}
+\begin{theorem}\label{thm:par}
 Sea $p$ un primo y $d = 2\cdot m$, $m$ primo par tal que $d\mid p-1$. Sea $F_{\alpha^i,\alpha^j}(x)$ polinomio de permutación en $\mathbb{F}_p$. Tenemos que $(-\alpha^{-m-1}\cdot F_{\alpha^i,\alpha^j}(\alpha^l)) = F_{\alpha^{i+\frac{p-1}{d}},\alpha^{j+\frac{p-1}{2}}}(\alpha^{k})$ donde $k,l \in \mathbb{F}_p^\times$ y $l=k+m+1$    
 \end{theorem}
 
@@ -94,6 +105,16 @@ $ = -\alpha^{l-m-1}(-(-1)^{l-m-1}+\alpha^{i}\cdot (\alpha^{l})^{\frac{p-1}{d}}+\
 $ = -\alpha^{-m-1}\cdot \alpha^{l}((-1)^{l}+\alpha^{i}\cdot (\alpha^{l})^{\frac{p-1}{d}}+\alpha^{j})$
 
 $ = \left(-\alpha^{-m-1}\right)\cdot F_{\alpha^i,\alpha^j}(\alpha^l)$
+\end{proof}
+
+Para este caso tambien tenemos el lemita:
+
+\begin{lemma}
+    Sea $p$ un primo y $d=2\cdot m$ tal que $m$ es par. Sea $n$ la cantidad de pares $[a,b]$ tal que $F_{a,b}(x)$ es un polinomio de permutacion en $\mathbb{F}_p$. Entonces tenemos que $d\mid n$.
+\end{lemma}
+
+\begin{proof}
+    Si $n=0$ es trivial, pues $d\mid 0$. Suponemos que $n\neq 0$. Sea $[a=\alpha^i,b=\alpha^j]$ un par tal que $F_{a,b}(x)$ es un polinomio de permutacion. Por el teorema~\ref{thm:impar} tenemos que $[\alpha^{i+\frac{p-1}{d}},\alpha^{j+\frac{p-1}{2}}]$ tambien produce un polinomio de permutacion. De nuevo por el teorema~\ref{thm:par} tenemos que $[\alpha^{i+2\cdot \frac{p-1}{d}},\alpha^{j+2\cdot\frac{p-1}{2}}]$ nos produce un polinomio de permutacion. Nuestro argumento es que este proceso se puede repetir a lo sumo $d-1$ veces. En la repeticion $d$ obtenemos $[\alpha^{i+d\cdot\frac{p-1}{d}}=\alpha^i,\alpha^{j+d\cdot \frac{p-1}{2}}=\alpha^j]$. Por lo tanto por cada par $[a,b]$, obtenemos un conjunto de $d$ pare tal que cada par nos produce un polinomio de permutacion: $\left\{ [\alpha^i,\alpha^j],[\alpha^{i+\frac{p-1}{d}},\alpha^{j+\frac{p-1}{2}}], [\alpha^{i+2\cdot \frac{p-1}{d}},\alpha^{j+2\cdot \frac{p-1}{2}}], \cdots, [\alpha^{i+(d-1)\cdot \frac{p-1}{d}},\alpha^{j+(d-1)\cdot \frac{p-1}{2}}] \right\}$. Esto implica que la cantidad de pares es $n=d\cdot q, q \in \mathbb{N}$. Por lo tanto $d\mid n$.
 \end{proof}
 
 \end{document}
