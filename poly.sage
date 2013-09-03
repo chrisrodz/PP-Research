@@ -4,7 +4,7 @@ l = set() # Guarda los PP evaluados para verificar que no se repitan los resulta
 
 p = 139 # Tamano del  cuerpo
 
-k = GF(p) # Crea el CF
+k = GF(p) # Crea el CF 
 
 R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando
 
