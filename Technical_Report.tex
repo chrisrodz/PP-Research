@@ -70,10 +70,10 @@ We mentioned that using primitive roots and the division algorithm we could part
 \begin{definition}
 	$A_{i}=\lbrace F_{a,b}(\alpha^{6k+i}) \mid k=0,...,\frac{p-1}{6}\rbrace$
 \end{definition}
-Also note that the elements of each of these sets are distinct, as we show in the following lemma:
+Also note that the elements of each of these sets are either distinct or all $0$, as we show in the following lemma:
 \pagebreak
 \begin{lemma}
-	For $i=1,...,5$ $\left\vert A_{i} \right\vert = \frac{p-1}{6}$
+	For $i=1,...,5$, either $\left\vert A_{i} \right\vert = \frac{p-1}{6}$ or $A_{i} = \left\{ 0 \right\}$ 
 \end{lemma}
 
 \begin{proof}
@@ -81,11 +81,34 @@ Also note that the elements of each of these sets are distinct, as we show in th
 	\begin{align*}
 	&F_{a,b}(\alpha^{6k+i})=F_{a,b}(\alpha^{6l+i}) \\
 	&\alpha^{6k+i}((\alpha^{6k+i})^{\frac{p-1}{2}}+a(\alpha^{6k+i})^{\frac{p-1}{6}}+b) = \alpha^{6l+i}((\alpha^{6l+i})^{\frac{p-1}{2}}+a(\alpha^{6l+i})^{\frac{p-1}{6}}+b) \\
-	&\alpha^{6k+i}((-1)^{i}+a(\alpha^{i*\frac{p-1}{6}})+b) = \alpha^{6l+i}((-1)^{i}+a(\alpha^{i*\frac{p-1}{6}})+b) \\
+	&\alpha^{6k+i}((-1)^{i}+a(\alpha^{i\cdot \frac{p-1}{6}})+b) = \alpha^{6l+i}((-1)^{i}+a(\alpha^{i\cdot \frac{p-1}{6}})+b) \\
+	\end{align*}
+
+	Note that if $((-1)^{i}+a(\alpha^{i\cdot \frac{p-1}{6}})+b) = 0$ it is easy to see that $A_{i} = \left\{0\right\}$. Now if we assume that $((-1)^{i}+a(\alpha^{i\cdot \frac{p-1}{6}})+b) \neq 0$ then we get:
+	\begin{align*}
 	&\alpha^{6k+i} = \alpha^{6l+i} \\
 	&\alpha^{6k} = \alpha^{6l}
 	\end{align*}
-	This is a contradiction, since $\alpha^{i} \neq \alpha^{j}$ for all $i \neq j$, $i,j \leq p-1$. Now we know all elements in $A_{i}$ are distinct and since we have $\frac{p-1}{6}$ elements, then $\left\vert A_{i} \right\vert = \frac{p-1}{6}$.
+
+	This is a contradiction, since $\alpha^{i} \neq \alpha^{j}$ for all $i \neq j$, $i,j \leq p-1$. In this case all elements in $A_{i}$ are distinct and since we have $\frac{p-1}{6}$ elements, then $\left\vert A_{i} \right\vert = \frac{p-1}{6}$.
+\end{proof}
+
+\begin{lemma}
+	$F_{a,b}(x) = x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ over $\mathbb{F}_{q}$ is a permutation polynomial if and only if $A_{i} \cap A_{j} = \emptyset$ for all $i \neq j, 0 \leq i,j \leq 5 $
+\end{lemma}
+
+Francis y Yo demostramos el siguiente lemma. La demostracion es bastante sencilla:
+
+\begin{lemma}
+	Let $A_i$ and $A_j$ be two sets as defined previously. It must be the case that either $A_i \cap A_j = \emptyset$ or $A_i = A_j$
+\end{lemma}
+
+\begin{proof}
+	First we note that if $A_i = A_j = \left\{ 0 \right\}$ then the proof is trivial. Now for the case where $\left\vert A_i \right\vert = \left\vert A_j \right\vert = \frac{p-1}{6}$, suppose that $ A_i \cap A_j$ is not empty. This implies that there exists some $k,l \in \mathbb{F}_{q}$ such that 
+	$$\alpha^{6k+i}((\alpha^{6k+i})^{\frac{p-1}{2}}+a(\alpha^{6k+i})^{\frac{p-1}{6}}+b) = \alpha^{6l+j}((\alpha^{6l+j})^{\frac{p-1}{2}}+a(\alpha^{6l+j})^{\frac{p-1}{6}}+b)$$
+	Note that to we can multiply both sides by $\alpha^{6\cdot m}$ for $m=0,...,\frac{p-1}{6}$ to get $\frac{p-1}{6}$ distinct elements of the form:
+	$$\alpha^{6(k+m)+i}((\alpha^{6k+i})^{\frac{p-1}{2}}+a(\alpha^{6k+i})^{\frac{p-1}{6}}+b) = \alpha^{6(l+m)+j}((\alpha^{6l+j})^{\frac{p-1}{2}}+a(\alpha^{6l+j})^{\frac{p-1}{6}}+b)$$
+	Since we are in the case where  $\left\vert A_i \right\vert = \left\vert A_j \right\vert = \frac{p-1}{6}$ it follows that $A_i = A_j$
 \end{proof}
 
 \section{The number of Permutation Polynomials $x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ over $\mathbb{F}_{q}$ is even}\label{divby2}
