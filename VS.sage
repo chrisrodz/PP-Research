@@ -1,4 +1,4 @@
-count = 0 # cuente los PP
+count = 0 # cuente los PP 
 
 l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados
 
