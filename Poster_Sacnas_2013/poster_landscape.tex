@@ -8,7 +8,18 @@
 \usepackage{multirow}
 \usepackage{rotating}
 \usepackage{bm}
-\usepackage{url}
+\usepackage{url} 
+
+\usepackage{amsthm} 
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{example}{Example}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
 
 \usepackage{graphicx}
 \usepackage{multicol}
@@ -138,9 +149,9 @@
   % Eye Catcher
   {\includegraphics[height=5em]{images/graph_occluded.pdf}} 
   % Title
-  {\bf\textsc{GraphTrack: Fast and Globally Optimal Tracking in Videos}\vspace{0.5em}}
+  {\bf\textsc{On a Class of Permutation Polynomials}\vspace{0.1em}}
   % Authors
-  {\textsc{\{ Brian.Amberg and Thomas.Vetter \}@unibas.ch}}
+  {\textsc{Christian A. Rodr\'{\i}guez \& Alex D. Santos \\ University of Puerto Rico, Rio Piedras Campus \\ Department of Computer Science}}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
     \includegraphics[height=9.0em]{images/logo}
@@ -164,21 +175,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Problem}{name=problem,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   Special effects in movies require tracks of features through scenes. Tracks are found in
-   an interactive process. The artist marks a position, and the computer
-   proposes a track which is then further refined by the artist.
-
-   This is a difficult problem due to three aspects. 
-   \begin{enumerate}\compresslist
-      \item Appearance changes due to lighting and pose
-      \item Occlusions
-      \item Speed: Interactive editing requires faster than framerate calculation
-   \end{enumerate}
+   A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto. We are studying the coefficients $a$ and $b$ that make polynomials of the form $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ a permutation polynomial where $a,b \in \mathbb{F}_{q}^{\times}$. More specifically we study the family of polynomials: $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$. Our approach in studying $F(x)$ is to use the division algorithm to consider $x=\alpha^{n}$ where $n=6k+r, r=0,...,5$. If $F_{a,b}(x)$ is a permutation, this partitions $\mathbb{F}_{q}^{\times}$ into 6 classes: $F_{a,b}(\alpha^{6k+r})$ for $r=0,...,5$.
    \vspace{0.3em}
  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Contributions}{name=contribution,column=1,row=0,bottomaligned=problem}{
+  \headerbox{Contributions}{name=contribution,column=1,row=0,span=2}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    We formulated tracking as path search in a large graph, and solve it
    efficiently with a modificiation of Dijkstra's algorithm.  
@@ -191,91 +193,8 @@
    \item High-Efficiency implementation with up to 150 fps for a high
    resolution video
    \end{enumerate}
-   \vspace{0.3em}
-  }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Results}{name=results,column=2,span=2,row=0}{
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \drawvideo{5}{40}{%
-      \includegraphics[width=0.2\linewidth]{red-4-sec_000_rastered}%
-        \includegraphics[width=0.2\linewidth]{red-4-sec_024_rastered}%
-        \includegraphics[width=0.2\linewidth]{red-4-sec_048_rastered}%
-        \includegraphics[width=0.2\linewidth]{red-4-sec_072_rastered}%
-        \includegraphics[width=0.2\linewidth]{red-4-sec_095_rastered}%
-    }
-  \begin{tabular*}{\linewidth}{*{5}{@{}p{0.2\linewidth}@{}}}
-    {\hfill{}Frame 0\hfill{}} & {\hfill{}24\hfill{}} &  {\hfill{}48\hfill{}} &  {\hfill{}72\hfill{}} & {\hfill{}95\hfill{}}
-  \end{tabular*}
-  \\[1em]
-      \drawvideo{5}{40}{%
-        \includegraphics[width=0.2\linewidth]{giraffe-run-000-rastered}%
-          \includegraphics[width=0.2\linewidth]{giraffe-run-100-rastered}%
-          \includegraphics[width=0.2\linewidth]{giraffe-run-200-rastered}%
-          \includegraphics[width=0.2\linewidth]{giraffe-run-300-rastered}%
-          \includegraphics[width=0.2\linewidth]{giraffe-run-458-rastered}%
-      }
-  \begin{tabular*}{\linewidth}{*{5}{@{}p{0.2\linewidth}@{}}}
-    {\hfill{}Frame 0\hfill{}}  &
-    {\hfill{}100\hfill{}} &
-    {\hfill{}200\hfill{}} &
-    {\hfill{}300\hfill{}} &
-    {\hfill{}458\hfill{}} 
-  \end{tabular*}
-      \begin{multicols}{2}
-    Between one and three user clicks were needed to achieve accurate tracking for
-      the head sequence. Note the correct handling of the occluded ear, which
-      required only a single click. 
-
-      The eye of the running giraffe required eight user interactions, of which three
-      marked occlusions. 
-      \end{multicols}
-      \vspace{-0.6em}
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{References}{name=references,column=0,above=bottom}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \smaller
-    \bibliographystyle{ieee}
-    \renewcommand{\section}[2]{\vskip 0.05em}
-      \begin{thebibliography}{1}\itemsep=-0.01em
-      \setlength{\baselineskip}{0.4em}
-      \bibitem{amberg11:graphtrack}
-        B.~Amberg, T. Vetter.
-        \newblock {GraphTrack}: {F}ast and {G}lobally {O}ptimal {T}racking in {V}ideos
-        \newblock In {\em CVPR '11}
-      \bibitem{awf:tracking}
-        A.~Buchanan and A.~Fitzgibbon.
-        \newblock {I}nteractive {F}eature {T}racking using {K-D} {T}rees and {D}ynamic {P}rogramming.
-        \newblock In {\em CVPR '06}
-      \end{thebibliography}
-   \vspace{0.3em}
-  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{A Future Direction}{name=questions,column=1,span=2,aligned=references,above=bottom}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{multicols}{2}
-    We incorporated a background model, where a click informs us not only that `this is how the
-    patch looks like', but also for the rest of the frame, `this is how the patch
-    does not look like'. 
-    
-    Can we also \emph{efficiently} use a background tracks model, allowing us
-    to reason, `this would be a good track, but part of it can be better
-    explained by tracking another point'.
-  \end{multicols}
-   \vspace{0.3em}
-  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Source Code}{name=references,column=3,aligned=references,above=bottom}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  The source code and compiled executables with an interactive interface are available at \\
-  \url{http://www.cs.unibas.ch/personen/amberg_brian/graphtrack}
-   \vspace{0.3em}
-  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Speed}{name=speed,column=2,span=2,row=0,below=results,above=references}{
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{multicols}{2}
+   \begin{multicols}{2}
 \newcommand{\basiswidth}{0.22}
 \newcommand{\basisskip}{0.04} % (1-4*\basiswidth)/3
 \newcommand{\imagegrid}[1]{
@@ -329,24 +248,110 @@ Note that the preprocessing is not specific to the interestpoints tracked
 later. A single preprocessed video can therefore be used in many annotation
 sessions.
 \end{multicols}
-   \vspace{0.0em}
-  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Method}{name=method,column=0,below=problem,bottomaligned=speed}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \noindent{\centering\includegraphics[width=0.95\linewidth]{images/graph_occluded.pdf}\\}
-  \indent The cost is interpreted as a directed acyclic graph
-  with weights on the nodes and edges. The nodes encode candidate positions,
-  and the edges the transition costs between candidates. Additional edges
-  (dashed) allow occlusion transitions which skip frames.
 
-  The optimal track is found with a modification of Dijkstra's shortest path
-  search. The search was speed up by lower bounding the cost, and lazily
-  evaluating the accurate cost only where necessary to find the global optimum.
+   \vspace{0.3em}
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Results}{name=results,column=3,row=0,bottomaligned=problem}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \drawvideo{5}{40}{%
+      \includegraphics[width=0.2\linewidth]{red-4-sec_000_rastered}%
+        \includegraphics[width=0.2\linewidth]{red-4-sec_024_rastered}%
+        \includegraphics[width=0.2\linewidth]{red-4-sec_048_rastered}%
+        \includegraphics[width=0.2\linewidth]{red-4-sec_072_rastered}%
+        \includegraphics[width=0.2\linewidth]{red-4-sec_095_rastered}%
+    }
+  \begin{tabular*}{\linewidth}{*{5}{@{}p{0.2\linewidth}@{}}}
+    {\hfill{}Frame 0\hfill{}} & {\hfill{}24\hfill{}} &  {\hfill{}48\hfill{}} &  {\hfill{}72\hfill{}} & {\hfill{}95\hfill{}}
+  \end{tabular*}
+  \\[1em]
+      \drawvideo{5}{40}{%
+        \includegraphics[width=0.2\linewidth]{giraffe-run-000-rastered}%
+          \includegraphics[width=0.2\linewidth]{giraffe-run-100-rastered}%
+          \includegraphics[width=0.2\linewidth]{giraffe-run-200-rastered}%
+          \includegraphics[width=0.2\linewidth]{giraffe-run-300-rastered}%
+          \includegraphics[width=0.2\linewidth]{giraffe-run-458-rastered}%
+      }
+  \begin{tabular*}{\linewidth}{*{5}{@{}p{0.2\linewidth}@{}}}
+    {\hfill{}Frame 0\hfill{}}  &
+    {\hfill{}100\hfill{}} &
+    {\hfill{}200\hfill{}} &
+    {\hfill{}300\hfill{}} &
+    {\hfill{}458\hfill{}} 
+  \end{tabular*}
+      \begin{multicols}{2}
+    Between one and three user clicks were needed to achieve accurate tracking for
+      the head sequence. Note the correct handling of the occluded ear, which
+      required only a single click. 
+
+      The eye of the running giraffe required eight user interactions, of which three
+      marked occlusions. 
+      \end{multicols}
+      \vspace{-0.6em}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Method}{name=method,column=0,below=problem,bottomaligned=contribution}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+  A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto.
+\end{definition}
+
+We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. This is, polynomials that permute the elements of $\mathbb{F}_{q}$
+
+\begin{definition}
+  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^{r}$, $p$ prime is a field with $q$ elements.
+\end{definition}
+
+   \vspace{0.3em}
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{References}{name=references,column=0,below=method,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \smaller
+    \bibliographystyle{ieee}
+    \renewcommand{\section}[2]{\vskip 0.05em}
+      \begin{thebibliography}{1}\itemsep=-0.01em
+      \setlength{\baselineskip}{0.4em}
+      \bibitem{amberg11:graphtrack}
+        B.~Amberg, T. Vetter.
+        \newblock {GraphTrack}: {F}ast and {G}lobally {O}ptimal {T}racking in {V}ideos
+        \newblock In {\em CVPR '11}
+      \bibitem{awf:tracking}
+        A.~Buchanan and A.~Fitzgibbon.
+        \newblock {I}nteractive {F}eature {T}racking using {K-D} {T}rees and {D}ynamic {P}rogramming.
+        \newblock In {\em CVPR '06}
+      \end{thebibliography}
    \vspace{0.3em}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Background Model}{name=background model,column=1,below=problem,bottomaligned=speed}{
+  \headerbox{A Future Direction}{name=questions,column=1,span=2,aligned=references,above=bottom,below=contribution}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{multicols}{2}
+    We incorporated a background model, where a click informs us not only that `this is how the
+    patch looks like', but also for the rest of the frame, `this is how the patch
+    does not look like'. 
+    
+    Can we also \emph{efficiently} use a background tracks model, allowing us
+    to reason, `this would be a good track, but part of it can be better
+    explained by tracking another point'.
+  \end{multicols}
+   \vspace{0.3em}
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Source Code}{name=references,column=3,aligned=references,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  The source code and compiled executables with an interactive interface are available at \\
+  \url{http://www.cs.unibas.ch/personen/amberg_brian/graphtrack}
+   \vspace{0.3em}
+  }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Background Model}{name=background model,column=3,below=results,bottomaligned=contribution}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent\begin{tabular}{r@{\hspace{0.3em}}c@{\hspace{1.5em}}c@{}}
 & With & Without\\
@@ -358,15 +363,6 @@ sessions.
 %\includegraphics[width=0.40\linewidth]{candidates_giraffes_flank_bg}&
 %\includegraphics[width=0.40\linewidth]{candidates_giraffes_flank_no_bg}\\
 \end{tabular}
-  \indent We incorporate a background model, such that a click tells us not only `this
-  is how the landmark looks like', but also `this is how the landmark
-  does \emph{not} look like' for all other patches in that frame.
-
-  The figure contrasts the per frame evidence for each candidate patch with and
-  without a background model. Using the background model makes the correct
-  patch probable enough, that it is chosen. But note that global reasoning over
-  the entire path is still necessary, as the correct patch is not the most
-  probable patch in this frame.
    \vspace{0.3em}
   }
 
