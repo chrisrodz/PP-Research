@@ -1,4 +1,4 @@
-\documentclass[landscape,final,fontscale=0.225,paperwidth=67.5in,paperheight=45in]{baposter}
+\documentclass[landscape,final,paperwidth=48in,paperheight=36in]{baposter}
 
 \usepackage{calc}
 \usepackage{graphicx}
@@ -147,14 +147,14 @@
   linewidth=2pt
   }
   % Eye Catcher
-  {\includegraphics[height=5em]{images/graph_occluded.pdf}} 
+  {\includegraphics[height=8em,keepaspectratio=true]{images/logo_uprrp}} 
   % Title
   {\bf\textsc{On a Class of Permutation Polynomials}\vspace{0.1em}}
   % Authors
-  {\textsc{Christian A. Rodr\'{\i}guez \& Alex D. Santos \\ University of Puerto Rico, Rio Piedras Campus \\ Department of Computer Science}}
+  {\textsc{Christian A. Rodr\'{\i}guez \& Alex D. Santos \\ University of Puerto Rico, Rio Piedras \\ Department of Computer Science}}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
-    \includegraphics[height=9.0em]{images/logo}
+    \includegraphics[height=9em,keepaspectratio=true]{images/logo_ccom}
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -173,22 +173,22 @@
       \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Problem}{name=problem,column=0,row=0}{
+  \headerbox{Abstract}{name=abstract,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto. We are studying the coefficients $a$ and $b$ that make polynomials of the form $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ a permutation polynomial where $a,b \in \mathbb{F}_{q}^{\times}$. More specifically we study the family of polynomials: $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$. Our approach in studying $F(x)$ is to use the division algorithm to consider $x=\alpha^{n}$ where $n=6k+r, r=0,...,5$. If $F_{a,b}(x)$ is a permutation, this partitions $\mathbb{F}_{q}^{\times}$ into 6 classes: $F_{a,b}(\alpha^{6k+r})$ for $r=0,...,5$.
    \vspace{0.3em}
  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Contributions}{name=contribution,column=1,row=0,span=2}{
+  \headerbox{Value set of a class of polynomials}{name=contribution,column=1,row=0,span=2}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    We formulated tracking as path search in a large graph, and solve it
    efficiently with a modificiation of Dijkstra's algorithm.  
 
-   The method is based on \cite{awf:tracking}. Our main contributions are
+   The preliminaries is based on \cite{awf:tracking}. Our main contributions are
    \begin{enumerate}\compresslist
    \item Efficient incorporation of a background appearance model
-   \item Formulation as a shortest path problem
+   \item Formulation as a shortest path abstract
    \item (Correct) handling of occlusions
    \item High-Efficiency implementation with up to 150 fps for a high
    resolution video
@@ -224,7 +224,7 @@
 }
 \noindent\begin{tabular}{@{}ccc@{}}
 \begin{minipage}{0.3\linewidth}
-  \includegraphics[width=\linewidth]{basis-giraffe-example-frame}\\[1em]
+  \includegraphics[width=\linewidth]{logo_uprrp}\\[1em]
 \end{minipage}&
 \begin{minipage}{0.3\linewidth}
   \imagegrid{basis-giraffe-basis}
@@ -253,7 +253,7 @@ sessions.
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Results}{name=results,column=3,row=0,bottomaligned=problem}{
+\headerbox{Applications}{name=applications,column=3,row=0}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \drawvideo{5}{40}{%
       \includegraphics[width=0.2\linewidth]{red-4-sec_000_rastered}%
@@ -292,7 +292,7 @@ sessions.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Method}{name=method,column=0,below=problem,bottomaligned=contribution}{
+  \headerbox{Preliminaries}{name=preliminaries,column=0,below=abstract,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto.
@@ -304,30 +304,33 @@ We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. Th
   A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^{r}$, $p$ prime is a field with $q$ elements.
 \end{definition}
 
+\begin{definition}
+  A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto.
+\end{definition}
+
+We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. This is, polynomials that permute the elements of $\mathbb{F}_{q}$
+
+\begin{definition}
+  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^{r}$, $p$ prime is a field with $q$ elements.
+\end{definition}
+
+\begin{definition}
+  A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto.
+\end{definition}
+
+We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. This is, polynomials that permute the elements of $\mathbb{F}_{q}$
+
+\begin{definition}
+  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^{r}$, $p$ prime is a field with $q$ elements.
+\end{definition}
+
+
+
    \vspace{0.3em}
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{References}{name=references,column=0,below=method,above=bottom}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \smaller
-    \bibliographystyle{ieee}
-    \renewcommand{\section}[2]{\vskip 0.05em}
-      \begin{thebibliography}{1}\itemsep=-0.01em
-      \setlength{\baselineskip}{0.4em}
-      \bibitem{amberg11:graphtrack}
-        B.~Amberg, T. Vetter.
-        \newblock {GraphTrack}: {F}ast and {G}lobally {O}ptimal {T}racking in {V}ideos
-        \newblock In {\em CVPR '11}
-      \bibitem{awf:tracking}
-        A.~Buchanan and A.~Fitzgibbon.
-        \newblock {I}nteractive {F}eature {T}racking using {K-D} {T}rees and {D}ynamic {P}rogramming.
-        \newblock In {\em CVPR '06}
-      \end{thebibliography}
-   \vspace{0.3em}
-  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{A Future Direction}{name=questions,column=1,span=2,aligned=references,above=bottom,below=contribution}{
+  \headerbox{Conditions for permutations of the from $F_{a,b}(x)$}{name=questions,column=1,span=2,above=bottom,below=contribution}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{2}
     We incorporated a background model, where a click informs us not only that `this is how the
@@ -340,18 +343,9 @@ We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. Th
   \end{multicols}
    \vspace{0.3em}
   }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Source Code}{name=references,column=3,aligned=references,above=bottom}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  The source code and compiled executables with an interactive interface are available at \\
-  \url{http://www.cs.unibas.ch/personen/amberg_brian/graphtrack}
-   \vspace{0.3em}
-  }
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Background Model}{name=background model,column=3,below=results,bottomaligned=contribution}{
+  \headerbox{Future Work}{name=future work,column=3,below=applications}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent\begin{tabular}{r@{\hspace{0.3em}}c@{\hspace{1.5em}}c@{}}
 & With & Without\\
@@ -363,6 +357,14 @@ We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. Th
 %\includegraphics[width=0.40\linewidth]{candidates_giraffes_flank_bg}&
 %\includegraphics[width=0.40\linewidth]{candidates_giraffes_flank_no_bg}\\
 \end{tabular}
+   \vspace{0.3em}
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{References}{name=applications,column=3,above=bottom,below=future work}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  The source code and compiled executables with an interactive interface are available at \\
+  \url{http://www.cs.unibas.ch/personen/amberg_brian/graphtrack}
    \vspace{0.3em}
   }
 
