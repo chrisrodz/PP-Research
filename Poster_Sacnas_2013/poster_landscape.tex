@@ -1,4 +1,4 @@
-\documentclass[landscape,final,paperwidth=48in,paperheight=36in]{baposter}
+\documentclass[landscape,final,paperwidth=48in,paperheight=38in]{baposter}
 
 \usepackage{calc}
 \usepackage{graphicx}
@@ -14,6 +14,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
+\newtheorem{corollary}{Corollary}
 \newtheorem{conjecture}{Conjecture}
 \newtheorem{example}{Example}
 \newtheorem{definition}{Definition}
@@ -214,7 +215,7 @@
     From lemma~\ref{conjuntos_disjuntos} we know that for a fixed polynomial the sets $A_i$ are either distinct or equal. Finally from lemma~\ref{correspondencia} we have that up to $2d$ distinct polynomials of the form $F_{a,b}(x)$ have the same value set. This information gives us the following theorem:
 
     \begin{proposition}\label{el_teorema}
-      Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$. Then we have that the amount of polynomials of the form $F_{a,b}(x)$ such that $\left\vert V_{F} \right\vert = r\cdot \frac{q-1}{d} + 1, r \leq d$ is divisible by $d$ when $d$ is even and by $2d$ when $d$is odd.
+      Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$. Then we have that the amount of polynomials of the form $F_{a,b}(x)$ such that $\left\vert V_{F} \right\vert = r\cdot \frac{q-1}{d} + 1, r \leq d$ is divisible by $2d$ when $d$ is odd and by $d$ otherwise.
     \end{proposition}
 
   \end{multicols}
@@ -304,13 +305,38 @@ In our work we characterize $V_{f}$ for a specific class of polynomials defined 
   \headerbox{Conditions for permutations of the from $F_{a,b}(x)$}{name=questions,column=1,span=2,above=bottom,below=contribution}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{2}
-    We incorporated a background model, where a click informs us not only that `this is how the
-    patch looks like', but also for the rest of the frame, `this is how the patch
-    does not look like'. 
-    
-    Can we also \emph{efficiently} use a background tracks model, allowing us
-    to reason, `this would be a good track, but part of it can be better
-    explained by tracking another point'.
+    Permutation polynomials over finite fields are polynomials whose value set is equal to the field. Using our previous results we present work on when the family of polynomials of the form $F_{a,b}(x)$ is a permutation polynomial.
+
+    If we define the value set $V_{F}$ in terms of the sets $A_i$ then it follows from lemma~\ref{conjuntos_disjuntos} that all of the elements between these sets should be distinct for $F$ to be a permutation polynomial.
+
+    \begin{lemma}\label{PP_disjuntos}
+      Let $F_{a,b}(x)$ be a polynomial defined over $\mathbb{F}_{q}$ and $A_i$ the sets defined above. Then $F_{a,b}(x)$ is a permutation polynomial if and only if $A_i \cap A_j = \emptyset \ \forall\ i \neq j$ and $A_i \neq \left\{ 0 \right\} \ \forall \ i$
+    \end{lemma}
+
+    \begin{example}
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    \end{example}
+
+    Also, a particular case of proposition~\ref{el_teorema} is the case when $r=d$ and $\left\vert V_{F} \right\vert = q$, or $V_{F} = \mathbb{F}_{q}$. This case is exactly when $F_{a,b}(x)$ is a permutation polynomial over $\mathbb{F}_{q}$. And so it is easy to see that corollary~\ref{cantidad_pp} follows easily from proposition~\ref{el_teorema}.
+
+    \begin{corollary}\label{cantidad_pp}
+      The amount of permutation polynomials of the form $F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$ over $\mathbb{F}_{q}$ where $d \mid q-1$ is divisible by $2d$ for $d$ odd and by $d$ otherwise.
+    \end{corollary}
+
+    \begin{example}
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    \end{example}
+
   \end{multicols}
    \vspace{0.3em}
   }\label{Conditions for PP}
