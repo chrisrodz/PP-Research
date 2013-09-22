@@ -182,72 +182,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Value set of a class of polynomials}{name=contribution,column=1,row=0,span=2}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   We formulated tracking as path search in a large graph, and solve it
-   efficiently with a modificiation of Dijkstra's algorithm.  
-
-   The preliminaries is based on \cite{awf:tracking}. Our main contributions are
-   \begin{enumerate}\compresslist
-   \item Efficient incorporation of a background appearance model
-   \item Formulation as a shortest path abstract
-   \item (Correct) handling of occlusions
-   \item High-Efficiency implementation with up to 150 fps for a high
-   resolution video
-   \end{enumerate}
-
-   \begin{multicols}{2}
-\newcommand{\basiswidth}{0.22}
-\newcommand{\basisskip}{0.04} % (1-4*\basiswidth)/3
-\newcommand{\imagegrid}[1]{
-\begin{tabular}{@{}
-  c@{\hspace{\basisskip\linewidth}}%
-  c@{\hspace{\basisskip\linewidth}}%
-  c@{\hspace{\basisskip\linewidth}}%
-  c@{}}
-  %
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-01} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-02} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-03} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-04} \\
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-05} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-06} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-07} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-08} \\
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-09} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-10} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-11} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-12} \\
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-13} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-14} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-15} &
-\includegraphics[width=\basiswidth\linewidth,height=\basiswidth\linewidth,keepaspectratio]{#1-16} 
-\end{tabular}
-}
-\noindent\begin{tabular}{@{}ccc@{}}
-\begin{minipage}{0.3\linewidth}
-  \includegraphics[width=\linewidth]{logo_uprrp}\\[1em]
-\end{minipage}&
-\begin{minipage}{0.3\linewidth}
-  \imagegrid{basis-giraffe-basis}
-\end{minipage}&
-\begin{minipage}{0.3\linewidth}
-  \imagegrid{basis-giraffe-response}
-\end{minipage}\\
-\smaller Image &\smaller  Filter Bank &\smaller  Response
-\end{tabular}\\[1em]
-\indent{}Speed is achieved by preprocessing the video with an adaptive filter
-bank as in~\cite{awf:tracking}. Preprocessing was sped up significantly, but is
-still slower than realtime.
-
-This encodes the video into 16 byte per pixel feature vectors. We implemented
-an efficient search for similar patches using the SIMD hardware of modern
-processors, and only evaluate the cost on these candidate patches. (Typically
-200 patches per frame). Candidate search and reasoning are highly efficient
-resulting in an interactive system.
-
-Note that the preprocessing is not specific to the interestpoints tracked
-later. A single preprocessed video can therefore be used in many annotation
-sessions.
-\end{multicols}
 
    \vspace{0.3em}
   }
@@ -294,40 +228,41 @@ sessions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Preliminaries}{name=preliminaries,column=0,below=abstract,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}
-  A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto.
-\end{definition}
 
-We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. This is, polynomials that permute the elements of $\mathbb{F}_{q}$
+We are interested in studying sets known as Finite Fields.
 
 \begin{definition}
-  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^{r}$, $p$ prime is a field with $q$ elements.
+  A \textbf{Finite Field} $\mathbb{F}_{q}$ is a field with $q=p^r$ elements, where $p$ is a prime number.
 \end{definition}
+
+An important property of finite fields is the existence of a primitive root, a generator of the nonzero elements of $\mathbb{F}_q$.
 
 \begin{definition}
-  A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto.
+  A \textbf{primitive root} $\alpha \in \mathbb{F}_q$ is a generator for the multiplicative group $\mathbb{F}_{q}^{\times}$
 \end{definition}
 
-We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. This is, polynomials that permute the elements of $\mathbb{F}_{q}$
+\begin{example}
+  Consider the finite field $\mathbb{F}_{7}$. We have that: $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4, 3^5 = 5, 3^6 = 1$, so $3$ is a primitive root of $\mathbb{F}_{7}$.
+\end{example}
+
+We are interested in studying polynomials defined over finite fields. Specifically, our interest lies in the value set of these polynomials.
 
 \begin{definition}
-  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^{r}$, $p$ prime is a field with $q$ elements.
+  Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. Then the \textbf{value set} of $f$ is defined as $V_{f} = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$
 \end{definition}
+
+In our work we characterize $V_{f}$ for a specific class of polynomials defined over finite fields. From this characterization we can provide information on the amount of permutation polynomials of our class.
 
 \begin{definition}
-  A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto.
+  Consider a finite field $\mathbb{F}_{q}$. A polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is said to be a permutation polynomial if $V_{f} = \mathbb{F}_{q}$.
 \end{definition}
 
-We study permutation polynomials defined over finite fields $\mathbb{F}_{q}$. This is, polynomials that permute the elements of $\mathbb{F}_{q}$
-
-\begin{definition}
-  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^{r}$, $p$ prime is a field with $q$ elements.
-\end{definition}
-
-
+\begin{example}
+  Consider the polynomial $f(x) = x+3$ defined over $\mathbb{F}_{7}$. We have that $f(0) = 3, f(1) = 4, f(2) = 5, f(3) = 6, f(4) = 0, f(5) = 1, f(6) = 2$, so $f(x)$ is a permutation polynomial over $\mathbb{F}_{7}$
+\end{example}
 
    \vspace{0.3em}
-  }
+}  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Conditions for permutations of the from $F_{a,b}(x)$}{name=questions,column=1,span=2,above=bottom,below=contribution}{
