@@ -177,14 +177,50 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto. We are studying the coefficients $a$ and $b$ that make polynomials of the form $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ a permutation polynomial where $a,b \in \mathbb{F}_{q}^{\times}$. More specifically we study the family of polynomials: $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$. Our approach in studying $F(x)$ is to use the division algorithm to consider $x=\alpha^{n}$ where $n=6k+r, r=0,...,5$. If $F_{a,b}(x)$ is a permutation, this partitions $\mathbb{F}_{q}^{\times}$ into 6 classes: $F_{a,b}(\alpha^{6k+r})$ for $r=0,...,5$.
    \vspace{0.3em}
- }
+ }\label{Abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Value set of a class of polynomials}{name=contribution,column=1,row=0,span=2}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{multicols}{2}
+    Our interest is studying the value set of a specific class of permutation polynomials. The class of polynomials we consider is defined as follows:
+    $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$$
+    
+    Where $a,b \in \mathbb{F}_{q}$ and $d \mid q-1$. More formally, we would like to characterize the value set $V_{F}$ of $F_{a,b}(x)$ based on the parameters $a$ and $b$. It is easy to see that $F_{a,b}(0) = 0 \ \forall a,b \in \mathbb{F}_{q}$, it follows that $0$ is always in $V_{F}$. For a fixed pair $a,b$ we separate $V_{F} \setminus \left\{0\right\}$ into smaller subsets in the following way:
+
+    \begin{definition}
+      Let $F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$ be a polynomial defined over $\mathbb{F}_{q}$ where $d \mid q-1$. We define the sets $A_i = \left\{F_{a,b}(\alpha^{d\cdot k+i}) \mid k=0,...,\frac{q-1}{d}\right\}$ for $i=0,...,d-1$, where $\alpha$ is a primitive root of $\mathbb{F}_{q}$.
+    \end{definition}
+
+    Using properties of these sets we will characterize $V_{F}$. First we would like to note that for $i \neq j$ the sets $A_i$ and $A_j$ are either equal, or distinct.
+
+    \begin{lemma}\label{conjuntos_disjuntos}
+      Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$. For two sets $A_i$ and $A_j$ we must have that either $A_i \cap A_j = \emptyset$ or $A_i = A_j$.
+    \end{lemma}
+
+    Lemma~\ref{conjuntos_disjuntos} provides an immediate characterization of the value set and insight on conditions to make $F_{a,b}(x)$ a permutation polynomial. In our studies we also determine the size of the sets $A_i$.
+
+    \begin{lemma}\label{tamanos_conjuntos}
+      Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$ and $A_i$ be defined as above. We have that $\left\vert A_i \right\vert = \frac{q-1}{d}$ or $A_i = \left\{ 0 \right\}$
+    \end{lemma}
+
+    Now we are also interested in correlations between the pairs $a,b$ and the value sets of distinct polynomials of the for $F_{a,b}(x)$. We proved a lemma that gives us a correspondence among some of these polynomials. In other words, these polynomials have the same value set.
+
+    \begin{lemma}\label{correspondencia}
+      Let $F_{a,b}(x)$ defined over $\mathbb{F}_{q}$ and let $\alpha$ denote a primitive root of $\mathbb{F}_{q}$. If we write $a = \alpha^i$ and $b = \alpha^j$ then we have that
+      $$F_{\alpha^i,\alpha^j}(\alpha^k) = -\alpha \cdot F_{\alpha^{i+(d+2)\cdot \frac{q-1}{2d}}, \alpha^{j+\frac{q-1}{2}}}(\alpha^{k-1})$$
+    \end{lemma}
+
+    From lemma~\ref{conjuntos_disjuntos} we know that for a fixed polynomial the sets $A_i$ are either distinct or equal. Finally from lemma~\ref{correspondencia} we have that up to $2d$ distinct polynomials of the form $F_{a,b}(x)$ have the same value set. This information gives us the following theorem:
+
+    \begin{proposition}\label{el_teorema}
+      Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$. Then we have that the amount of polynomials of the form $F_{a,b}(x)$ such that $\left\vert V_{F} \right\vert = r\cdot \frac{q-1}{d} + 1, r \leq d$ is divisible by $d$ when $d$ is even and by $2d$ when $d$is odd.
+    \end{proposition}
+
+  \end{multicols}
 
    \vspace{0.3em}
-  }
+  }\label{Value sets}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Applications}{name=applications,column=3,row=0}{
@@ -223,7 +259,7 @@
       marked occlusions. 
       \end{multicols}
       \vspace{-0.6em}
-}
+}\label{Applications}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Preliminaries}{name=preliminaries,column=0,below=abstract,above=bottom}{
@@ -262,7 +298,7 @@ In our work we characterize $V_{f}$ for a specific class of polynomials defined 
 \end{example}
 
    \vspace{0.3em}
-}  
+}\label{Preliminaries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Conditions for permutations of the from $F_{a,b}(x)$}{name=questions,column=1,span=2,above=bottom,below=contribution}{
@@ -277,7 +313,7 @@ In our work we characterize $V_{f}$ for a specific class of polynomials defined 
     explained by tracking another point'.
   \end{multicols}
    \vspace{0.3em}
-  }
+  }\label{Conditions for PP}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Future Work}{name=future work,column=3,below=applications}{
@@ -293,7 +329,7 @@ In our work we characterize $V_{f}$ for a specific class of polynomials defined 
 %\includegraphics[width=0.40\linewidth]{candidates_giraffes_flank_no_bg}\\
 \end{tabular}
    \vspace{0.3em}
-  }
+  }\label{Future Work}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{References}{name=applications,column=3,above=bottom,below=future work}{
@@ -301,7 +337,7 @@ In our work we characterize $V_{f}$ for a specific class of polynomials defined 
   The source code and compiled executables with an interactive interface are available at \\
   \url{http://www.cs.unibas.ch/personen/amberg_brian/graphtrack}
    \vspace{0.3em}
-  }
+  }\label{References}
 
 \end{poster}
 
