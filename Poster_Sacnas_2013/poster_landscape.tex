@@ -17,6 +17,7 @@
 \newtheorem{corollary}{Corollary}
 \newtheorem{conjecture}{Conjecture}
 \newtheorem{example}{Example}
+\newtheorem*{definition*}{Definition}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 \newtheorem{lemma}{Lemma}
@@ -140,8 +141,8 @@
 %  textfont=\sc, An example of changing the text font
   headershape=roundedright,
   headershade=shadelr,
-  headerfont=\Large\bf\textsc, %Sans Serif
-  textfont={\setlength{\parindent}{1.5em}},
+  headerfont=\huge\textsc, %Sans Serif
+  textfont=\large{\setlength{\parindent}{1.5em}},
   boxshade=plain,
 %  background=shade-tb,
   background=plain,
@@ -176,12 +177,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Abstract}{name=abstract,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   A polynomial $f(x)$ defined over a set $A$ is called a \textbf{permutation polynomial} if $f(x)$ acts as a permutation over the elements of $A$. This is, if $f: A \rightarrow A$ is 1-1 and onto. We are studying the coefficients $a$ and $b$ that make polynomials of the form $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$ a permutation polynomial where $a,b \in \mathbb{F}_{q}^{\times}$. More specifically we study the family of polynomials: $F_{a,b}(x)=x^{\frac{p+1}{2}} + ax^{\frac{p+5}{6}} + bx$. Our approach in studying $F(x)$ is to use the division algorithm to consider $x=\alpha^{n}$ where $n=6k+r, r=0,...,5$. If $F_{a,b}(x)$ is a permutation, this partitions $\mathbb{F}_{q}^{\times}$ into 6 classes: $F_{a,b}(\alpha^{6k+r})$ for $r=0,...,5$.
+   Permutation polynomias over finite fields are important in many applications, for example in cryptography. We want to provide rich families of polynomials that are permutation polynomials. In particular we study polynomials of the form $F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q-1}{d}} + b\cdot x$ where $a,b \in \mathbb{F}_{q}$, $q=p^r$ $p$ prime and $d \mid q-1$.
+   
    \vspace{0.3em}
  }\label{Abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Value set of a class of polynomials}{name=contribution,column=1,row=0,span=2}{
+\headerbox{Problem}{name=problem,column=1,row=0,span=2}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      
+      {\Large We study the number of polynomials of the form $F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$ over finite fields that are permutation polynomials.}
+
+      \vspace{0.3em}
+}\label{Problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Value set of a class of polynomials}{name=contribution,column=1,span=2,below=problem}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{2}
     Our interest is studying the value set of a specific class of permutation polynomials. The class of polynomials we consider is defined as follows:
@@ -189,9 +200,9 @@
     
     Where $a,b \in \mathbb{F}_{q}$ and $d \mid q-1$. More formally, we would like to characterize the value set $V_{F}$ of $F_{a,b}(x)$ based on the parameters $a$ and $b$. It is easy to see that $F_{a,b}(0) = 0 \ \forall a,b \in \mathbb{F}_{q}$, it follows that $0$ is always in $V_{F}$. For a fixed pair $a,b$ we separate $V_{F} \setminus \left\{0\right\}$ into smaller subsets in the following way:
 
-    \begin{definition}
+    \begin{definition*}
       Let $F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$ be a polynomial defined over $\mathbb{F}_{q}$ where $d \mid q-1$. We define the sets $A_i = \left\{F_{a,b}(\alpha^{d\cdot k+i}) \mid k=0,...,\frac{q-1}{d}\right\}$ for $i=0,...,d-1$, where $\alpha$ is a primitive root of $\mathbb{F}_{q}$.
-    \end{definition}
+    \end{definition*}
 
     Using properties of these sets we will characterize $V_{F}$. First we would like to note that for $i \neq j$ the sets $A_i$ and $A_j$ are either equal, or distinct.
 
@@ -227,40 +238,47 @@
 \headerbox{Applications}{name=applications,column=3,row=0}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       Permutations of finite fields have many applications in Coding Theory and Cryptography. One such example is RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is defined as a permutation of the field $\mathbb{F}_{q}$ with the decryption operator defined as the inverse of this permutation. Both of these operators need to be efficiently computable, thus it is easy to see that expressing these operators in terms of permutation polynomials is simple and efficient.
-      \vspace{-0.6em}
+      \vspace{0.3em}
 }\label{Applications}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Preliminaries}{name=preliminaries,column=0,below=abstract,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{0.3em}
 
-We are interested in studying sets known as Finite Fields.
+\vspace{0.3em}
 
-\begin{definition}
-  A \textbf{Finite Field} $\mathbb{F}_{q}$ is a field with $q=p^r$ elements, where $p$ is a prime number.
-\end{definition}
+\begin{definition*}
+  A \textbf{permutation} of a set $A$ is an ordering of the elements of $A$. A function $f: A \rightarrow A$ gives a permutation of $A$ if and only if $f$ is one to one and onto.
+\end{definition*}
 
-An important property of finite fields is the existence of a primitive root, a generator of the nonzero elements of $\mathbb{F}_q$.
+\vspace{0.3em}
 
-\begin{definition}
+\begin{definition*}
+  A \textbf{Finite Field} $\mathbb{F}_{q}$, $q=p^r$, $p$ prime is a field with $q=p^r$ elements.
+\end{definition*}
+
+\vspace{0.3em}
+
+\begin{definition*}
   A \textbf{primitive root} $\alpha \in \mathbb{F}_q$ is a generator for the multiplicative group $\mathbb{F}_{q}^{\times}$
-\end{definition}
+\end{definition*}
 
 \begin{example}
   Consider the finite field $\mathbb{F}_{7}$. We have that: $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4, 3^5 = 5, 3^6 = 1$, so $3$ is a primitive root of $\mathbb{F}_{7}$.
 \end{example}
 
-We are interested in studying polynomials defined over finite fields. Specifically, our interest lies in the value set of these polynomials.
+\vspace{0.3em}
 
-\begin{definition}
+\begin{definition*}
   Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. Then the \textbf{value set} of $f$ is defined as $V_{f} = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$
-\end{definition}
+\end{definition*}
 
-In our work we characterize $V_{f}$ for a specific class of polynomials defined over finite fields. From this characterization we can provide information on the amount of permutation polynomials of our class.
+\vspace{0.3em}
 
-\begin{definition}
+\begin{definition*}
   Consider a finite field $\mathbb{F}_{q}$. A polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is said to be a permutation polynomial if $V_{f} = \mathbb{F}_{q}$.
-\end{definition}
+\end{definition*}
 
 \begin{example}
   Consider the polynomial $f(x) = x+3$ defined over $\mathbb{F}_{7}$. We have that $f(0) = 3, f(1) = 4, f(2) = 5, f(3) = 6, f(4) = 0, f(5) = 1, f(6) = 2$, so $f(x)$ is a permutation polynomial over $\mathbb{F}_{7}$
@@ -312,9 +330,14 @@ In our work we characterize $V_{f}$ for a specific class of polynomials defined 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Future Work}{name=future work,column=3,below=applications}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{0.3em}
 \begin{itemize}
-\item Verify if our results work for polynomials of the form $$(*)  F_{a,b}(x) = x^{\frac{q+1}{2}+m} + a\cdot x^{\frac{q+1}{d}+m} + b\cdot x^{m}$$ where $m \in \mathbb{F}_q$
-\item Verify if there exist conditions for the pair $[a, b]$ such that $(*)$ \& $(**)$ are permutation polynomials. $$(**)  F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$$
+\item Verify if our results work for polynomials of the form
+  \begin{equation}\label{f_a_la_m}
+    F_{a,b}(x) = x^{\frac{q+1}{2}+m} + a\cdot x^{\frac{q+1}{d}+m} + b\cdot x^{m}
+  \end{equation}
+  where $m \in \mathbb{F}_q$
+\item Verify if there exist conditions for the pair $[a, b]$ such that~\ref{f_a_la_m} \& ~\ref{polinomio} are permutation polynomials.
 \end{itemize}
    \vspace{0.3em}
   }\label{Future Work}
