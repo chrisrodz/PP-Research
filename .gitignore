@@ -1,6 +1,7 @@
 *.acn
 *.acr
 .DS_Store
+*.pyc
 *.alg
 *.aux
 *.bbl
