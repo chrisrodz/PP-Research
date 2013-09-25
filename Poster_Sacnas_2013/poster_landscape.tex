@@ -188,10 +188,10 @@
 \headerbox{Problem}{name=problem,column=1,row=0}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
        \vspace{0.3em}
-      {\Large To determine conditions in $a, b$ such that polynomials of the form 
+      {\Large Determine conditions in $a, b$ such that polynomials of the form 
       {\LARGE $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$$}
-      over a finite field $\mathbb{F}_{q}$ with $a,b \in \mathbb{F}_{q}$ and $d \mid q-1$ are permutation polynomials 
-      and determine how many there are for each $d$.}
+      defined over a finite field $\mathbb{F}_{q}$ where $a,b \in \mathbb{F}_{q}$, and $d \mid q-1$ are permutation polynomials 
+      and determine how many pairs exist for each $d$.}
 
       \vspace{0.3em}
 }\label{Problem}
@@ -206,8 +206,6 @@
         Fix $n \in \mathbb{N}$, $n \leq q$. The number of polynomials of the form $F_{a,b}(x)$ with $\left\vert V_{F_{a,b}} \right\vert = n$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
         \end{theorem}}
 
-    Our main result on permutation polynomials follows as a result of this theorem.
-
     {\Large \begin{corollary}
           The number of permutation polynomials  over $\mathbb{F}_{q}$ of the form $F_{a,b}(x)$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
         \end{corollary}}
@@ -216,18 +214,20 @@
 
     \vspace{1em}
     
-    {\Large \textbf{Construction}: Let $d|(q-1), d$ odd, and $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$ a permutation polynomial of $\mathbb{F}_{q}$, where $a=\alpha^i$, $b=\alpha^j$. Then $F_{a',b'}(x)$ is also a permutation polynomial for $[a',b'] \in \left\{ \alpha^{i+k (d+2) \frac{q-1}{2d}}, \alpha^{j+k \frac{q-1}{2}} \mid k=1,...,2d-1 \right\}$}
+    \textbf{Construction}: Let $d|(q-1), d$ odd, and $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$ a permutation polynomial of $\mathbb{F}_{q}$, where $a=\alpha^i$, $b=\alpha^j$. Then $F_{a',b'}(x)$ is also a permutation polynomial for $[a',b'] \in \left\{ \alpha^{i+k (d+2) \frac{q-1}{2d}}, \alpha^{j+k \frac{q-1}{2}} \mid k=1,...,2d-1 \right\}$
 
     \vspace{1em}
 
     \begin{example}
-      Fix $d = 3$ and $q = 37$. We know that $F_{4,31}(x) = x^{19} + 4 x^{\frac{38}{3}} + 31 x$ is a permutation polynomial over $\mathbb{F}_{37}$, and there are 12 permutation polynomials of this form. Since $4=2^2=\alpha^2, 31= 2^9=\alpha^9$, we obtain $5$ pairs $[a', b']$ and new permutation polynomials $F_{a',b'}(x)$ using our construction:
+      Fix $d = 3$ and $q = 43$. There exists $48$ pairs [$a,b$] such that $F_{a,b}(x) = x^{22} + a x^{\frac{44}{3}} + b x$. In particula we know that $F_{1,17}(x) = x^{19} + 1 x^{\frac{44}{3}} + 17 x$ is a permutation polynomial over $\mathbb{F}_{43}$. Using $1=3^{42}=\alpha^{42}, 17= 3^{38}=\alpha^{38}$, we obtain $5$ pairs $[a', b']$ and new permutation polynomials $F_{a',b'}(x)$ using our construction:
 
+      \vspace{-1.3em}
 
       \begin{align*}
-        &[7=\alpha^{2+5\cdot 6},6=\alpha^{9+18}], &[3=\alpha^{2+2(5\cdot 6)},31=\alpha^{9+2(18)}], \\
-        &[33=\alpha^{2+3(5\cdot 6)},6=\alpha^{9+3(18)}], &[30=\alpha^{2+4(5\cdot 6)},31=\alpha^{9+4(18)}], \\ 
-        &[34=\alpha^{2+5(5\cdot 6)},6=\alpha^{9+5(18)}]
+        &[7=\alpha^{42+5\cdot 7},26=\alpha^{38+21}], [6=\alpha^{42+2(5\cdot 7)},17=\alpha^{38+2(21)}], \\
+        &[42=\alpha^{42+3(5\cdot 7)},26=\alpha^{38+3(21)}], \\
+        &[36=\alpha^{42+4(5\cdot 7)},17=\alpha^{38+4(21)}], \\ 
+        &[37=\alpha^{42+5(5\cdot 7)},26=\alpha^{38+5(21)}]
       \end{align*}
     \end{example}
 
@@ -291,10 +291,8 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
   \headerbox{Motivation}{name=motivation,column=0,below=preliminaries, above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.3em}
-
-\vspace{0.3em}
   
-  Binomial produce permutations have been studied extensively. The next case to be studied is with trinomials. We have found that within the family of polynomials of the form $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$$ there are many permutation polynomials. We want to find conditions in $[a,b]$ that garanty that the polynomial is a permutation polynomial, and to count how many there are.
+  Binomials that produce permutations have been studied extensively. The next case to be studied is with trinomials. We have found that within the family of polynomials of the form $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$$ there are many permutation polynomials. We want to find conditions in $[a,b]$ that guarantee that the polynomial is a permutation polynomial. We also want to count how many permutation polynomials exist in this family.
 
    \vspace{0.3em}
 }\label{Motivation}
