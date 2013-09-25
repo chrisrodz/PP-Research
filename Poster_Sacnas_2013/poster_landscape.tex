@@ -122,7 +122,7 @@
   % Show grid to help with alignment
   grid=false,
   % Column spacing
-  colspacing=1em,
+  colspacing=1.5em,
   columns=3,
   % Color style
   bgColorOne=white,
@@ -187,7 +187,9 @@
 \headerbox{Problem}{name=problem,column=1,row=0}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
-      {\Large We study the number of polynomials of the form $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$$ over finite fields that are permutation polynomials.}
+      {\Large We study the number of polynomials of the form 
+      {\huge $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$$}
+      over a finite field $\mathbb{F}_{q}$ with $a,b \in \mathbb{F}_{q}$ and $d \mid q-1$ that are permutation polynomials.}
 
       \vspace{0.3em}
 }\label{Problem}
@@ -198,103 +200,33 @@
 
     The following theorem gives information on the amount of polynomials with the same value set.
 
-    \begin{theorem}\label{el_teorema}
-    Fix $n$, $n \in \mathbb{N}$, $n \leq q$. The number of polynomials of the form $F_{a,b}(x)$ with $\left\vert V_{F_{a,b}} \right\vert = n$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
-    \end{theorem}
+    {\Large \begin{theorem}\label{el_teorema}
+        Fix $n$, $n \in \mathbb{N}$, $n \leq q$. The number of polynomials of the form $F_{a,b}(x)$ with $\left\vert V_{F_{a,b}} \right\vert = n$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
+        \end{theorem}}
 
     Our main result on permutation polynomials follows as a result of this theorem.
 
-    \begin{corollary}
-      The number of permutation polynomials of the form $F_{a,b}(x)$ over $\mathbb{F}_{q}$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
-    \end{corollary}
+    {\Large \begin{corollary}
+          The number of permutation polynomials of the form $F_{a,b}(x)$ over $\mathbb{F}_{q}$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
+        \end{corollary}}
 
     Given parameters [$a,b$] that make $F_{a,b}(x)$ a permutation polynomial, we can construct the rest of the parameters that give permutation polynomials of this form as follows:
 
     \vspace{1em}
     
-    \textbf{Construction}: If  $F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$ is a permutation polynomial for $a=\alpha^i$, $b=\alpha^j$ then $F_{a',b'}(x) = x^{\frac{q+1}{2}} + a'\cdot x^{\frac{q+1}{d}} + b'\cdot x$ is also a permutation polynomial for [$a',b'$] $\in \left\{ \alpha^{i+k\cdot (d+2)\cdot \frac{q-1}{2d}}, \alpha^{j+k\cdot \frac{q-1}{2}} \mid k=1,...,2d-1 \right\}$
+    {\Large \textbf{Construction}: If  $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$ is a permutation polynomial for $a=\alpha^i$, $b=\alpha^j$ then $F_{a',b'}(x) = x^{\frac{q+1}{2}} + a' x^{\frac{q+1}{d}} + b' x$ is also a permutation polynomial for [$a',b'$] $\in \left\{ \alpha^{i+k (d+2) \frac{q-1}{2d}}, \alpha^{j+k \frac{q-1}{2}} \mid k=1,...,2d-1 \right\}$}
+
+    \vspace{1em}
 
     \begin{example}
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Fix $d = 3$ and $q = 37$. Let $F_{a,b}(x) = x^{19} + a x^{\frac{38}{3}} + b x$ be a polynomial over $\mathbb{F}_{37}$. We know that the parameters [$4=\alpha^2,31=\alpha^9$] make $F$ a permutation polynomial. Using these parameters we know $F$ is a permutation for the following pairs [$a',b'$]:
+
+      \begin{align*}
+        &[7=\alpha^{2+5\cdot 6},6=\alpha^{9+18}], &[3=\alpha^{2+2(5\cdot 6)},31=\alpha^{9+2(18)}], \\
+        &[33=\alpha^{2+3(5\cdot 6)},6=\alpha^{9+3(18)}], &[30=\alpha^{2+4(5\cdot 6)},31=\alpha^{9+4(18)}], \\ 
+        &[34=\alpha^{2+5(5\cdot 6)},6=\alpha^{9+5(18)}]
+      \end{align*}
     \end{example}
-
-  % \begin{multicols}{2}
-  %   Our interest is studying the value set of a specific class of permutation polynomials. The class of polynomials we consider is defined as follows:
-  %   $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$$
-    
-  %   Where $a,b \in \mathbb{F}_{q}$ and $d \mid q-1$. More formally, we would like to characterize the value set $V_{F}$ of $F_{a,b}(x)$ based on the parameters $a$ and $b$. It is easy to see that $F_{a,b}(0) = 0 \ \forall a,b \in \mathbb{F}_{q}$, it follows that $0$ is always in $V_{F}$. For a fixed pair $a,b$ we separate $V_{F} \setminus \left\{0\right\}$ into smaller subsets in the following way:
-
-  %   \begin{definition*}
-  %     Let $F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$ be a polynomial defined over $\mathbb{F}_{q}$ where $d \mid q-1$. We define the sets $A_l = \left\{F_{a,b}(\alpha^{d\cdot k+i}) \mid k=0,...,\frac{q-1}{d}\right\}$ for $i=0,...,d-1$, where $\alpha$ is a primitive root of $\mathbb{F}_{q}$.
-  %   \end{definition*}
-
-  %   Using properties of these sets we will characterize $V_{F}$. First we would like to note that for $i \neq j$ the sets $A_i$ and $A_k$ are either equal, or distinct.
-
-  %   \begin{lemma}\label{conjuntos_disjuntos}
-  %     Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$. For two sets $A_i$ and $A_j$ we must have that either $A_i \cap A_j = \emptyset$ or $A_i = A_j$.
-  %   \end{lemma}
-
-  %   Lemma~\ref{conjuntos_disjuntos} provides an immediate characterization of the value set and insight on conditions to make $F_{a,b}(x)$ a permutation polynomial. In our studies we also determine the size of the sets $A_i$.
-
-  %   \begin{lemma}\label{tamanos_conjuntos}
-  %     Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$ and $A_i$ be defined as above. We have that $\left\vert A_i \right\vert = \frac{q-1}{d}$ or $A_i = \left\{ 0 \right\}$
-  %   \end{lemma}
-
-  %   Now we are also interested in correlations between the pairs $a,b$ and the value sets of distinct polynomials of the for $F_{a,b}(x)$. We proved a lemma that gives us a correspondence among some of these polynomials. In other words, these polynomials have the same value set.
-
-  %   \begin{lemma}\label{correspondencia}
-  %     Let $F_{a,b}(x)$ defined over $\mathbb{F}_{q}$ and let $\alpha$ denote a primitive root of $\mathbb{F}_{q}$. If we write $a = \alpha^i$ and $b = \alpha^j$ then we have that
-  %     $$F_{\alpha^i,\alpha^j}(\alpha^k) = -\alpha \cdot F_{\alpha^{i+(d+2)\cdot \frac{q-1}{2d}}, \alpha^{j+\frac{q-1}{2}}}(\alpha^{k-1})$$
-  %   \end{lemma}
-
-  %   From lemma~\ref{conjuntos_disjuntos} we know that for a fixed polynomial the sets $A_i$ are either distinct or equal. Finally from lemma~\ref{correspondencia} we have that up to $2d$ distinct polynomials of the form $F_{a,b}(x)$ have the same value set. This information gives us the following theorem:
-
-  %   \begin{proposition}\label{el_teorema}
-  %     Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$. Then we have that the amount of polynomials of the form $F_{a,b}(x)$ such that $\left\vert V_{F} \right\vert = r\cdot \frac{q-1}{d} + 1, r \leq d$ is divisible by $2d$ when $d$ is odd and by $d$ otherwise.
-  %   \end{proposition}
-
-  % \end{multicols}
-
-    % \begin{multicols}{2}
-  %   Permutation polynomials over finite fields are polynomials whose value set is equal to the field. Using our previous results we present work on when the family of polynomials of the form $F_{a,b}(x)$ is a permutation polynomial.
-
-  %   If we define the value set $V_{F}$ in terms of the sets $A_i$ then it follows from lemma~\ref{conjuntos_disjuntos} that all of the elements between these sets should be distinct for $F$ to be a permutation polynomial.
-
-  %   \begin{lemma}\label{PP_disjuntos}
-  %     Let $F_{a,b}(x)$ be a polynomial defined over $\mathbb{F}_{q}$ and $A_i$ the sets defined above. Then $F_{a,b}(x)$ is a permutation polynomial if and only if $A_i \cap A_j = \emptyset \ \forall\ i \neq j$ and $A_i \neq \left\{ 0 \right\} \ \forall \ i$
-  %   \end{lemma}
-
-  %   \begin{example}
-  %     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  %     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  %     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  %     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  %     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  %     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  %   \end{example}
-
-  %   Also, a particular case of proposition~\ref{el_teorema} is the case when $r=d$ and $\left\vert V_{F} \right\vert = q$, or $V_{F} = \mathbb{F}_{q}$. This case is exactly when $F_{a,b}(x)$ is a permutation polynomial over $\mathbb{F}_{q}$. And so it is easy to see that corollary~\ref{cantidad_pp} follows easily from proposition~\ref{el_teorema}.
-
-  %   \begin{corollary}\label{cantidad_pp}
-  %     The amount of permutation polynomials of the form $F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$ over $\mathbb{F}_{q}$ where $d \mid q-1$ is divisible by $2d$ for $d$ odd and by $d$ otherwise.
-  %   \end{corollary}
-
-  %   \begin{example}
-  %     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  %     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  %     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  %     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  %     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  %     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  %   \end{example}
-
-  % \end{multicols}
-
 
    \vspace{0.3em}
   }\label{Results}
@@ -360,7 +292,7 @@
 To characterize which polynomials $F_{a,b}(x)$ are permutation polynomials, we are studying the value sets of $F_{a,b}(x)$. We divide the value set into subsets:
 
   \begin{definition*}
-      Let $F_{a,b}(x) = x^{\frac{q+1}{2}} + a\cdot x^{\frac{q+1}{d}} + b\cdot x$ be a polynomial defined over $\mathbb{F}_{q}$ where $d \mid q-1$. We define the sets $A_l = \left\{F_{a,b}(\alpha^{d\cdot k+i}) \mid k=0,...,\frac{q-1}{d}\right\}$ for $i=0,...,d-1$, where $\alpha$ is a primitive root of $\mathbb{F}_{q}$.
+      Let $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$ be a polynomial defined over $\mathbb{F}_{q}$ where $d \mid q-1$. We define the sets $A_l = \left\{F_{a,b}(\alpha^{d k+i}) \mid k=0,...,\frac{q-1}{d}\right\}$ for $i=0,...,d-1$, where $\alpha$ is a primitive root of $\mathbb{F}_{q}$.
     \end{definition*}
 
     For these subsets we have proved the following lemmas
@@ -381,7 +313,7 @@ To characterize which polynomials $F_{a,b}(x)$ are permutation polynomials, we a
 
     \begin{itemize}
       \item Find necessary and sufficient conditions on the coefficients $a=\alpha^i$, $b=\alpha^j$ such that $A_l \cap A_k = \emptyset$
-      \item Study our results on the family of polynomials of the form $F_{a,b}(x) = x^{\frac{q+1}{2}+m} + a\cdot x^{\frac{q+1}{d}+m} + b\cdot x^{m}$
+      \item Study our results on the family of polynomials of the form $F_{a,b}(x) = x^{\frac{q+1}{2}+m} + a x^{\frac{q+1}{d}+m} + b x^{m}$
     \end{itemize}
 
 
