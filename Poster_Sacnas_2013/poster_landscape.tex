@@ -122,7 +122,7 @@
   % Show grid to help with alignment
   grid=false,
   % Column spacing
-  colspacing=1.5em,
+  colspacing=1em,
   columns=3,
   % Color style
   bgColorOne=gray,
@@ -238,7 +238,7 @@
 \headerbox{Applications}{name=applications,column=2,row=0}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \vspace{0.3em}     
- Permutations of finite fields have many applications in Coding Theory and Cryptography. One such example is RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is defined as a permutation of the field $\mathbb{F}_{q}$ with the decryption operator defined as the inverse of this permutation. Both of these operators need to be efficiently computable, thus it is easy to see that expressing these operators in terms of permutation polynomials is simple and efficient.
+ An example of permutation polynomials over finite fields RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is a permutation of the field $\mathbb{F}_{q}$ and needs to be efficiently computable. It is easy to see that expressing this operator in terms of a permutation polynomial is simple and efficient.
       \vspace{0.3em}
 }\label{Applications}
 
@@ -302,7 +302,7 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.3em}
 
-Once we have one permutation polynomial, we can construct $d$ or $2d$ of them (depending on the parity of $d$). We now need to characterize which polynomials $F_{a,b}(x)$ are permutation polynomials. For this,  we are studying the size of the value sets of $F_{a,b}(x)$. We divide the value set into subsets:
+With a permutation polynomial, we can construct $d$ or $2d$ of them (depending on the parity of $d$). We need to characterize which polynomials are permutation polynomials. For this,  we are studying the size of the value sets of $F_{a,b}(x)$. We divide the value set into subsets:
 
   \begin{definition*}
       Let $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$ be a polynomial defined over $\mathbb{F}_{q}$ where $d \mid q-1$. We define the sets $A_l = \left\{F_{a,b}(\alpha^{d k+i}) \mid k=0,...,\frac{q-1}{d}\right\}$ for $i=0,...,d-1$, where $\alpha$ is a primitive root of $\mathbb{F}_{q}$.
@@ -318,14 +318,10 @@ Once we have one permutation polynomial, we can construct $d$ or $2d$ of them (d
       Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$. The sets $A_l$ defined  above are such that, for $l \not = k , \ A_l \cap A_k = \emptyset$ or $A_l = A_k$.
     \end{lemma}
 
-
-
     \begin{proposition}
       Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$ and $A_l$ be defined as above. $F_{a,b}(x)$ is a permutation polynomial if and only if $A_l \cap A_k = \emptyset$ for $ 0 \leq l,k \leq d-1$. 
     \end{proposition}
-
     \textbf{Aim:}
-
     \begin{itemize}
       \item Find necessary and sufficient conditions on the coefficients $a=\alpha^i$, $b=\alpha^j$ such that $A_l \cap A_k = \emptyset$
       \item Study our results on the family of polynomials of the form $F_{a,b}(x) = x^{\frac{q+1}{2}+m} + a x^{\frac{q+1}{d}+m} + b x^{m}$
@@ -338,8 +334,11 @@ Once we have one permutation polynomial, we can construct $d$ or $2d$ of them (d
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{References}{name=applications,column=2,above=bottom,below=future work}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  The source code and compiled executables with an interactive interface are available at \\
-  \url{http://www.cs.unibas.ch/personen/amberg_brian/graphtrack}
+  {\small \begin{itemize}
+      \item Lidl, Rudolf, and Harald Niederreiter. \textit{Finite Fields}. Reading, Mass.: Addison-Wesley Pub. Co., Advanced Book Program/World Science Division, 1983. Print. 
+      \item Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
+      \item Mullen, G., Stevens H. \textit{Polynomial Functions (mod $m$)}. Acta Math. Hung. 44(3-4) (1984), 237-241.
+    \end{itemize}}
    \vspace{0.3em}
   }\label{References}
 
