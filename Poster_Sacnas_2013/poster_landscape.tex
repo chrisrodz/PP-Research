@@ -154,7 +154,7 @@
   % Title
   {\bf\textsc{On a Class of Permutation Polynomials}\vspace{0.1em}}
   % Authors
-  {\color{white}{\textsc{Christian A. Rodr\'{\i}guez \& Alex D. Santos \\ University of Puerto Rico, Rio Piedras \\ Department of Computer Science}}}
+  {\color{white}{\textsc{Christian A. Rodr\'{\i}guez; Alex D. Santos; Ivelisse Rubio; Francis Castro; \\ Department of Computer Science, \\ University of Puerto Rico, Rio Piedras Campus}}}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
     \includegraphics[height=9em,keepaspectratio=true]{images/logo_ccom}
@@ -178,7 +178,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Abstract}{name=abstract,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   Permutation polynomials over finite fields are important in many applications, for example in cryptography. We want to provide families of polynomials that are rich in permutation polynomials. In particular we study polynomials of the form $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$, where $a,b \in \mathbb{F}_{q}$, $q=p^r$, $p$ prime and $d \mid (q-1)$.
+ \vspace{0.3em}  
+ Permutation polynomials over finite fields are important in many applications, for example in cryptography. We want to provide families of polynomials that are rich in permutation polynomials. In particular we study polynomials of the form $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$, where $a,b \in \mathbb{F}_{q}$, $q=p^r$, $p$ prime, and $d \mid (q-1)$.
    
    \vspace{0.3em}
  }\label{Abstract}
@@ -186,10 +187,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Problem}{name=problem,column=1,row=0}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      {\Large We study the number of polynomials of the form 
-      {\huge $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$$}
-      over a finite field $\mathbb{F}_{q}$ with $a,b \in \mathbb{F}_{q}$ and $d \mid q-1$ that are permutation polynomials.}
+       \vspace{0.3em}
+      {\Large To determine conditions in $a, b$ such that polynomials of the form 
+      {\LARGE $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$$}
+      over a finite field $\mathbb{F}_{q}$ with $a,b \in \mathbb{F}_{q}$ and $d \mid q-1$ are permutation polynomials 
+      and determine how many there are for each $d$.}
 
       \vspace{0.3em}
 }\label{Problem}
@@ -197,29 +199,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Results}{name=contribution,column=1,below=problem,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+ \vspace{0.3em}
     The following theorem gives information on the amount of polynomials with the same value set.
 
     {\Large \begin{theorem}\label{el_teorema}
-        Fix $n$, $n \in \mathbb{N}$, $n \leq q$. The number of polynomials of the form $F_{a,b}(x)$ with $\left\vert V_{F_{a,b}} \right\vert = n$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
+        Fix $n \in \mathbb{N}$, $n \leq q$. The number of polynomials of the form $F_{a,b}(x)$ with $\left\vert V_{F_{a,b}} \right\vert = n$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
         \end{theorem}}
 
     Our main result on permutation polynomials follows as a result of this theorem.
 
     {\Large \begin{corollary}
-          The number of permutation polynomials of the form $F_{a,b}(x)$ over $\mathbb{F}_{q}$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
+          The number of permutation polynomials  over $\mathbb{F}_{q}$ of the form $F_{a,b}(x)$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
         \end{corollary}}
 
-    Given parameters [$a,b$] that make $F_{a,b}(x)$ a permutation polynomial, we can construct the rest of the parameters that give permutation polynomials of this form as follows:
+    Given coeffcients $[a,b]$ for which $F_{a,b}(x)$ is a permutation polynomial of $\mathbb{F}_q$, we can construct a list of $d$ or $2d$ coefficients $[a',b']$ such that $F_{a',b'}(x)$ are also permutation polynomials of $\mathbb{F}_q$ as follows:
 
     \vspace{1em}
     
-    {\Large \textbf{Construction}: If  $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$ is a permutation polynomial for $a=\alpha^i$, $b=\alpha^j$ then $F_{a',b'}(x) = x^{\frac{q+1}{2}} + a' x^{\frac{q+1}{d}} + b' x$ is also a permutation polynomial for [$a',b'$] $\in \left\{ \alpha^{i+k (d+2) \frac{q-1}{2d}}, \alpha^{j+k \frac{q-1}{2}} \mid k=1,...,2d-1 \right\}$}
+    {\Large \textbf{Construction}: Let $d|(q-1), d$ odd, and $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$ a permutation polynomial of $\mathbb{F}_{q}$, where $a=\alpha^i$, $b=\alpha^j$. Then $F_{a',b'}(x)$ is also a permutation polynomial for $[a',b'] \in \left\{ \alpha^{i+k (d+2) \frac{q-1}{2d}}, \alpha^{j+k \frac{q-1}{2}} \mid k=1,...,2d-1 \right\}$}
 
     \vspace{1em}
 
     \begin{example}
-      Fix $d = 3$ and $q = 37$. Let $F_{a,b}(x) = x^{19} + a x^{\frac{38}{3}} + b x$ be a polynomial over $\mathbb{F}_{37}$. We know that the parameters [$4=\alpha^2,31=\alpha^9$] make $F$ a permutation polynomial. Using these parameters we know $F$ is a permutation for the following pairs [$a',b'$]:
+      Fix $d = 3$ and $q = 37$. We know that $F_{4,31}(x) = x^{19} + 4 x^{\frac{38}{3}} + 31 x$ is a permutation polynomial over $\mathbb{F}_{37}$, and there are 12 permutation polynomials of this form. Since $4=2^2=\alpha^2, 31= 2^9=\alpha^9$, we obtain $5$ pairs $[a', b']$ and new permutation polynomials $F_{a',b'}(x)$ using our construction:
+
 
       \begin{align*}
         &[7=\alpha^{2+5\cdot 6},6=\alpha^{9+18}], &[3=\alpha^{2+2(5\cdot 6)},31=\alpha^{9+2(18)}], \\
@@ -234,12 +237,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Applications}{name=applications,column=2,row=0}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      Permutations of finite fields have many applications in Coding Theory and Cryptography. One such example is RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is defined as a permutation of the field $\mathbb{F}_{q}$ with the decryption operator defined as the inverse of this permutation. Both of these operators need to be efficiently computable, thus it is easy to see that expressing these operators in terms of permutation polynomials is simple and efficient.
+ \vspace{0.3em}     
+ Permutations of finite fields have many applications in Coding Theory and Cryptography. One such example is RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is defined as a permutation of the field $\mathbb{F}_{q}$ with the decryption operator defined as the inverse of this permutation. Both of these operators need to be efficiently computable, thus it is easy to see that expressing these operators in terms of permutation polynomials is simple and efficient.
       \vspace{0.3em}
 }\label{Applications}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Preliminaries}{name=preliminaries,column=0,below=abstract,above=bottom}{
+  \headerbox{Preliminaries}{name=preliminaries,column=0,below=abstract}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.3em}
 
@@ -252,7 +256,7 @@
 \vspace{0.3em}
 
 \begin{definition*}
-  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^r$, $p$ prime is a field with $q=p^r$ elements.
+  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^r$, $p$ prime, is a field with $q=p^r$ elements.
 \end{definition*}
 
 \vspace{0.3em}
@@ -273,9 +277,8 @@
 
 \vspace{0.3em}
 
-\begin{definition*}
-  Consider a finite field $\mathbb{F}_{q}$. A polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is said to be a permutation polynomial if $V_{f} = \mathbb{F}_{q}$.
-\end{definition*}
+Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation polynomial if and only if  $V_{f} = \mathbb{F}_{q}$.
+
 
 \begin{example}
   Consider the polynomial $f(x) = x+3$ defined over $\mathbb{F}_{7}$. We have that $f(0) = 3, f(1) = 4, f(2) = 5, f(3) = 6, f(4) = 0, f(5) = 1, f(6) = 2$, so $f(x)$ is a permutation polynomial over $\mathbb{F}_{7}$
@@ -285,11 +288,23 @@
 }\label{Preliminaries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Motivation}{name=motivation,column=0,below=preliminaries, above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{0.3em}
+
+\vspace{0.3em}
+  
+  Binomial produce permutations have been studied extensively. The next case to be studied is with trinomials. We have found that within the family of polynomials of the form $$F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$$ there are many permutation polynomials. We want to find conditions in $[a,b]$ that garanty that the polynomial is a permutation polynomial, and to count how many there are.
+
+   \vspace{0.3em}
+}\label{Motivation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Ongoing Work}{name=future work,column=2,below=applications}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.3em}
 
-To characterize which polynomials $F_{a,b}(x)$ are permutation polynomials, we are studying the value sets of $F_{a,b}(x)$. We divide the value set into subsets:
+Once we have one permutation polynomial, we can construct $d$ or $2d$ of them (depending on the parity of $d$). We now need to characterize which polynomials $F_{a,b}(x)$ are permutation polynomials. For this,  we are studying the size of the value sets of $F_{a,b}(x)$. We divide the value set into subsets:
 
   \begin{definition*}
       Let $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+1}{d}} + b x$ be a polynomial defined over $\mathbb{F}_{q}$ where $d \mid q-1$. We define the sets $A_l = \left\{F_{a,b}(\alpha^{d k+i}) \mid k=0,...,\frac{q-1}{d}\right\}$ for $i=0,...,d-1$, where $\alpha$ is a primitive root of $\mathbb{F}_{q}$.
@@ -297,16 +312,18 @@ To characterize which polynomials $F_{a,b}(x)$ are permutation polynomials, we a
 
     For these subsets we have proved the following lemmas
 
-    \begin{lemma}\label{conjuntos_disjuntos}
-      Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$ and $A_l$ be defined as above. For two sets $A_l$ and $A_k$ we must have that either $A_l \cap A_k = \emptyset$ or $A_l = A_k$.
-    \end{lemma}
-
     \begin{lemma}\label{tamanos_conjuntos}
       Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$ and $A_l$ be defined as above. We have that $\left\vert A_l \right\vert = \frac{q-1}{d}$ or $A_l = \left\{ 0 \right\}$
     \end{lemma}
 
+    \begin{lemma}\label{conjuntos_disjuntos}
+      Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$. The sets $A_l$ defined  above are such that, for $l \not = k , \ A_l \cap A_k = \emptyset$ or $A_l = A_k$.
+    \end{lemma}
+
+
+
     \begin{proposition}
-      Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$ and $A_l$ be defined as above. $F_{a,b}(x)$ is a permutation polynomial if and only if $A_l \cap A_k = \emptyset for 0 \leq l,k \leq d-1$
+      Let $F_{a,b}(x)$ be defined over $\mathbb{F}_{q}$ and $A_l$ be defined as above. $F_{a,b}(x)$ is a permutation polynomial if and only if $A_l \cap A_k = \emptyset$ for $ 0 \leq l,k \leq d-1$. 
     \end{proposition}
 
     \textbf{Aim:}
