@@ -17,4 +17,4 @@ def calcula(p):
               print str(p)+", "+str(count)
 
 
-calcula(101)
+calcula(13)
