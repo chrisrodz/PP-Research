@@ -9,6 +9,8 @@ def findab(p,d):
 
         R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
 
+        pares = []
+
         for a in range(1, p): # Fija a
                 for b in range(1, p): # Fija b
                         R.<x> = PolynomialRing(GF(p),1,"x")
@@ -21,10 +23,12 @@ def findab(p,d):
                                                 count = count + 1 # aumenta en 1 cuando encuentra un PP
                                                 l = set()
                                                 print str(a) + ", " +  str(b) # imprime la a y b que producieron el PP
+                                                pares.append([a,b])
                                 else: # si se repiten res
                                         l = set() # limpia la lista
                                         break # rompe el ciclo
-        print count
+        print len(pares)
+        return pares
 
 def findxm(p,d,m):
 
