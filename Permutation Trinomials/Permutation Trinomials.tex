@@ -145,7 +145,7 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
     \end{theorem}
 
     \begin{proof}
-      Given $F_{a,b}(\alpha^{k})$ as $\alpha^k((\alpha^k)^{\frac{q-1}{2}}+(\alpha^{i})\cdot(\alpha^k)^{\frac{q-1}{d}}+\alpha^{j})$ we stablish a correspondance between $F_{a,b}(\alpha^{k})$ and a new term $F_{a',b'}(\alpha^{l})$. The correspondance is the following:
+      We establish a correspondence between values $F_{a,b}(\alpha^k)$ of $F_{a,b}(x)$ and values $F_{a',b'}(\alpha^l)$ of $F_{a',b'}(x)$. We will show that $F_{a,b}(\alpha^k) = -\alpha \cdot F_{a',b'}(\alpha^l)$ for $k \in \left\{1,...,q-1\right\}$, where $l=k-1$, $a' = a \cdot \alpha^{(d+2)(\frac{q-1}{2d})}$, $b' = b \cdot \alpha^{(\frac{q-1}{2})}$, $\alpha$ a primitive root in $\mathbb{F}_q$. Let $a = \alpha^i$, $b=\alpha^j$. Then $F_{a,b}(\alpha^k) = \alpha^{k}((\alpha^k)^{\frac{q-1}{2}} + \alpha^i (\alpha^k)^{\frac{q-1}{d}} + \alpha^j)$. Note that: 
 
       $F_{\alpha^{i+(d+2)\frac{q-1}{2d}},\alpha^{j+\frac{q-1}{2}}}(\alpha^{l}) = \alpha^l((\alpha^l)^{\frac{q-1}{2}}+(\alpha^{i+(d+2)\frac{q-1}{2d}})\cdot(\alpha^l)^{\frac{q-1}{d}}+\alpha^{j+\frac{q-1}{2}})$
 
@@ -163,16 +163,22 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
 
       $= C \cdot \alpha^{k}((-1)^{k}+(\alpha^{i})(\alpha^{k})^{\frac{q-1}{d}}+\alpha^{j})$ where $C=-\alpha^{-1}$
 
-      In general for each term of $F_{a,b}(\alpha^{k})$ there is going to be a correspondant term of $F_{a',b'}(\alpha^{k})$ where $a' = a^{i+(d+2)\frac{q-1}{2d}}$ and $b'= b^{\frac{q-1}{2}}$
+      In general for each term of $F_{a,b}(\alpha^{k})$ there is going to be a correspondant term of $F_{a',b'}(\alpha^{l})$ where $a' = \alpha^{i+(d+2)\frac{q-1}{2d}}$ and $b'= \alpha^{j + \frac{q-1}{2}}$. Moreover it must be the case that $\left\vert V_{F_{a,b}} \right\vert = \left\vert V_{F_{a',b'}} \right\vert$.
 
-      Therefore the number of polynomials of the form $F_{a,b}(x)$ with $\left\vert V_{F_{a,b}} \right\vert = n$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
+      Note that we can repeat this process using $a'' = a' \cdot \alpha^{(d+2)(\frac{q-1}{2d})}$, $b'' = b' \cdot \alpha^{(\frac{q-1}{2})}$. We argue that this process can be repeated at most $d-1$ times when $d$ is even, and $2d-1$ times when $d$ is odd.
+
+      If $d$ is even then we can construct a chain of $d$ pairs $[a,b] \in \left\{ \alpha^{i+m (d+2) \frac{q-1}{2d}}, \alpha^{j+m \frac{q-1}{2}} \mid m=0,...,d-1 \right\}$ such that $F_{a,b}(x)$ has the same size value set for all pairs. When $m=d$ we have that $a = \alpha^{i+(d)(d+2)(\frac{q-1}{2d})} = \alpha^{i+(d+2)(\frac{q-1}{2})} = \alpha^{i+(d)(\frac{q-1}{2})+(q-1)} = \alpha^i$ and $b = \alpha^{j+d \frac{q-1}{2}} = \alpha^j$.
+
+      If $d$ is odd we construct a chain of $2d$ pairs $[a,b] \in \left\{ \alpha^{i+m (d+2) \frac{q-1}{2d}}, \alpha^{j+m \frac{q-1}{2}} \mid m=0,...,2d-1 \right\}$ such that $F_{a,b}(x)$ has the same size value set for all pairs. When $m=2d$ we have that $a = \alpha^{i+(2d)(d+2)(\frac{q-1}{2d})} = \alpha^{i+(d+2)(q-1)} = \alpha^{i+(d)(q-1)+(2)(q-1)} = \alpha^i$ and $b = \alpha^{j+2d \frac{q-1}{2}} = \alpha^{j+q-1} = \alpha^j$.
+
+      Now if we have a polynomial of the form $F_{a,b}(x)$ with $\left\vert V_{F_{a,b}} \right\vert = n$ we can construct $d$ or $2d$ distinct pairs $[a,b]$ such that we get polynomials with the same size value set, depending on the parity of $d$. Therefore the number of polynomials of the form $F_{a,b}(x)$ with $\left\vert V_{F_{a,b}} \right\vert = n$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
     \end{proof}
 
     \begin{corollary}
           The number of permutation polynomials  over $\mathbb{F}_{q}$ of the form $F_{a,b}(x)$ is a multiple of $d$ if $d$ is even, or a multiple of $2d$ if $d$ is odd.
     \end{corollary}
 
-    Given coeffcients $[a,b]$ for which $F_{a,b}(x)$ is a permutation polynomial of $\mathbb{F}_q$, we can construct a list of $d$ or $2d$ coefficients $[a',b']$ such that $F_{a',b'}(x)$ is also permutation polynomial of $\mathbb{F}_q$ as follows:
+    Given coefficients $[a,b]$ for which $F_{a,b}(x)$ is a permutation polynomial of $\mathbb{F}_q$, we can construct a list of $d$ or $2d$ coefficients $[a',b']$ such that $F_{a',b'}(x)$ is also permutation polynomial of $\mathbb{F}_q$ using theorem~\ref{el_teorema} as follows:
 
 
 \begin{construction} Let $d|(q-1), d$ odd, and $F_{a,b}(x) = x^{\frac{q+1}{2}} + a x^{\frac{q+d-1}{d}} + b x$ be a permutation polynomial of $\mathbb{F}_{q}$, where $a=\alpha^i$, $b=\alpha^j$. Then $F_{a',b'}(x)$ is also a permutation polynomial for $[a',b'] \in \left\{ \alpha^{i+k (d+2) \frac{q-1}{2d}}, \alpha^{j+k \frac{q-1}{2}} \mid k=1,...,2d-1 \right\}$
