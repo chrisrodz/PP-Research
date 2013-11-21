@@ -131,6 +131,54 @@
 
   $$= C \cdot F_{a,b}(\alpha^k), \mbox{donde } C = \alpha^{\frac{p-1}{d_1} + 1}$$
 
+  En general para cada termino de $F_{a,b}(\alpha^{k})$ va a haber un termino correspondiente de $F_{a',b'}(\alpha^{k+1})$ donde $a' = \alpha^{i + h(\frac{p-1}{d_1} - \frac{p-1}{d_2})}$ y $b'= \alpha^{j + h(\frac{p-1}{d_1})}$. Por otra parte, debe ser el caso de que $\left\vert V_{F_{a,b}} \right\vert = \left\vert V_{F_{a',b'}} \right\vert$.
+
+  Sea $f:V_{a', b'} \rightarrow \alpha^{\frac{p-1}{d_1}}V_{a, b}$ dada por $f(F_{a', b'}(\alpha^{k+1})) = \alpha^{\frac{p-1}{d_1}+1}F_{a, b}(\alpha^k)$.
+  Suponga que $f(F_{a', b'}(\alpha^{k_1+1})) = f(F_{a', b'}(\alpha^{k_2+1}))$ donde $k_1, k_2 \in \mathbb{F}_q$. 
+
+  Considere $f(F_{a', b'}(\alpha^{k_1+1}))$
+
+  $$= f(\alpha^{k_1+1}((\alpha^{k_1+1})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_1+1})^{\frac{p-1}{d_2}} + \alpha^{j}))$$ 
+
+  $$= \alpha^{\frac{p-1}{d_1}+1}(\alpha^{k_1}((\alpha^{k_1})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_1})^{\frac{p-1}{d_2}} + \alpha^{j}))$$ 
+
+  $$= \alpha^{k_1+1}(\alpha^{\frac{p-1}{d_1}}((\alpha^{k_1})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_1})^{\frac{p-1}{d_2}} + \alpha^{j}))$$ 
+
+  $$= \alpha^{k_1+1}((\alpha^{k_1+1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2} + \frac{p-1}{d_2}}(\alpha^{k_1})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= \alpha^{k_1+1}((\alpha^{k_1+1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2}}(\alpha^{k_1+1})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$ 
+
+  $$= F_{a', b'}(\alpha^{k_1+1})$$
+
+  Luego considere $f(F_{a', b'}(\alpha^{k_2+1}))$
+
+  $$= f(\alpha^{k_2+1}((\alpha^{k_2+1})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_2+1})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{\frac{p-1}{d_1}+1}(\alpha^{k_2}((\alpha^{k_2})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_2})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{k_2+1}(\alpha^{\frac{p-1}{d_1}}((\alpha^{k_2})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_2})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{k_2+1}((\alpha^{k_2 + 1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2} + \frac{p-1}{d_2}}(\alpha^{k_2})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= \alpha^{k_2+1}((\alpha^{k_2 + 1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2}}(\alpha^{k_2 + 1})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= F_{a', b'}(\alpha^{k_2+1})$$
+
+  En conclusi\'on $F_{a', b'}(\alpha^{k_1+1}) = F_{a', b'}(\alpha^{k_2+1})$ por lo tanto $f$ es una funci\'on $1-1$
+
+  Considere un elemento en el campo de valores dado por $\alpha^{\frac{p-1}{d_1}}F_{a, b}(\alpha^k)$
+
+  $$\alpha^{\frac{p-1}{d_1}}F_{a, b}(\alpha^k) = \alpha^{\frac{p-1}{d_1}+1}(\alpha^{k}((\alpha^{k})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{k+1}(\alpha^{\frac{p-1}{d_1}}((\alpha^{k})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{k+1}((\alpha^{k + 1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2} + \frac{p-1}{d_2}}(\alpha^{k})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= \alpha^{k+1}((\alpha^{k + 1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2}}(\alpha^{k + 1})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= F_{a', b'}(\alpha^{k+1})$$
+
+  En conclusi\'on para cada elemento en el campo de valores, $\alpha^{\frac{p-1}{d_1}}F_{a, b}(\alpha^k)$, existe un elemento en el dominio, $F_{a', b'}(\alpha^{k+1})$. Por lo tanto $f$ es una funci\'on sobre.
 
 \end{proof}
 
@@ -141,6 +189,7 @@
 \end{prop}
 
 \begin{proof}
+
   Suponga que $d_2 = d_1 h$, $a=\alpha^i$, $b=\alpha^j$. Note que podemos obtener los elementos de $[a,b]$ aplicando la transformacion $f:(a,b) \rightarrow ( a\cdot\alpha^{(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b\cdot\alpha^{(\frac{p-1}{d_1})} )$ multiples veces. Ahora note que:
 
   \begin{align}
