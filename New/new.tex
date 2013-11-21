@@ -104,7 +104,13 @@
 
 \begin{proof}
   
-  Pendiente
+  1. Sea $a=\alpha^i$, $b=\alpha^j$ y escoja $h=0$. Entonces $a' = \alpha^{i+0(\frac{p-1}{d_1}-\frac{p-1}{d_2})} = \alpha^i = a$ y $b' = \alpha^{j+0(\frac{p-1}{d_1})} = \alpha^j = b$. Por lo tanto $(a,b) \sim (a,b)$ y la relacion es reflexiva.
+
+  2. Sea $a = \alpha^i$, $b=\alpha^j$, $a' = \alpha^{i+h(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$ y $b' = \alpha^{j+h(\frac{p-1}{d_1})}$ entonces $(a,b) \sim (a',b')$. Queremos encontrar $l$ tal que $a = \alpha^{i+h(\frac{p-1}{d_1}-\frac{p-1}{d_2})+l(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$ y $b = \alpha^{j+h(\frac{p-1}{d_1})+l(\frac{p-1}{d_1})}$. Escoja $l=d_1d_2-h$, entonces obtenemos: $\alpha^{i+d_1d_2(\frac{p-1}{d_1}-\frac{p-1}{d_2})} = \alpha^i = a$ y $\alpha^{j+d_1d_2(\frac{p-1}{d_1})} = \alpha^j = b$. Por lo tanto $(a',b') \sim (a,b) $ y la relacion es simetrica.
+
+  3. Suponga que $a = \alpha^i$, $b=\alpha^j$, $a' = \alpha^{i+h(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$, $b' = \alpha^{j+h(\frac{p-1}{d_1})}$, $a'' = \alpha^{i+h(\frac{p-1}{d_1}-\frac{p-1}{d_2})+l(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$, $b'' = \alpha^{j+h(\frac{p-1}{d_1})+l(\frac{p-1}{d_1})}$. Por lo tanto $(a,b) \sim (a',b')$ y $(a',b') \sim (a'',b'')$. Ahora note que $a'' = \alpha^{i+(h+l)(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$, $b'' = \alpha^{j+(h+l)(\frac{p-1}{d_1})}$, por lo tanto $(a,b) \sim (a'',b'')$ y la relacion es transitiva.
+
+  Como la relacion es reflexiva, simetrica y transitiva, concluimos que es una relacion de equivalencia.
 
 \end{proof}
 
@@ -135,7 +141,18 @@
 \end{prop}
 
 \begin{proof}
-  Pendiente, hay que hacerla pa manana!!
+  Suponga que $d_2 = d_1 h$, $a=\alpha^i$, $b=\alpha^j$. Note que podemos obtener los elementos de $[a,b]$ aplicando la transformacion $f:(a,b) \rightarrow ( a\cdot\alpha^{(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b\cdot\alpha^{(\frac{p-1}{d_1})} )$ multiples veces. Ahora note que:
+
+  \begin{align}
+  & f(a\cdot \alpha^{i+(d_2 - 1)(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b\cdot\alpha^{j+(d_2 - 1)(\frac{p-1}{d_1})}) \\
+  & = (\alpha^{i+d_2(\frac{p-1}{d_1}-\frac{p-1}{d_2})}, \alpha^{j+d_2(\frac{p-1}{d_1})}) \\
+  & = (\alpha^{i+d_1 h(\frac{p-1}{d_1})-d_2(\frac{p-1}{d_2})}, \alpha^{j+d_1 h (\frac{p-1}{d_1})}) \\
+  & = (\alpha^{i+h(p-1)-(p-1)}, \alpha^{j+h(p-1)}) \\
+  & = (\alpha^i, \alpha^j)
+  \end{align}
+
+  Por lo tanto al aplicar la transformacion $d_2$ veces, tendremos una cadena de elementos en $[a,b]$. Ahora suponga que existe $c < d_2$ y $\alpha^{i+c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = \alpha^i$ y $\alpha^{j+c(\frac{p-1}{d_1})} = \alpha^j$. Esto implica que $\alpha^{c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = 1$, luego $\alpha^{c(\frac{p-1}{d_1}) - c(\frac{p-1}{d_2})} = 1$, esto solo es posible si $c \mid d_1$ y $c \mid d_2$, pero $c < d_2$. Por contradiccion, $d_2$ es el elemento mas pequeno tal que esto ocurre. Por lo tanto la cantidad de elementos en la clase de equivalencia $[ a,b]$ es de tamano $d_2$.
+  
 \end{proof}
 
 \begin{prop}
