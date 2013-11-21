@@ -184,23 +184,24 @@
 
 \begin{prop}
   
-  Si $d_2 = d_1 \cdot h$, entonces $|[a, b]| = d_2$
+  $|[a, b]| = lcm(d_1,d_2)$
 
 \end{prop}
 
 \begin{proof}
 
-  Suponga que $d_2 = d_1 h$, $a=\alpha^i$, $b=\alpha^j$. Note que podemos obtener los elementos de $[a,b]$ aplicando la transformacion $f:(a,b) \rightarrow ( a\cdot\alpha^{(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b\cdot\alpha^{(\frac{p-1}{d_1})} )$ multiples veces. Ahora note que:
+  Suponga que $a=\alpha^i$, $b=\alpha^j$. Note que podemos obtener los elementos de $[a,b]$ aplicando la transformacion $f:(a,b) \rightarrow ( a\cdot\alpha^{(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b\cdot\alpha^{(\frac{p-1}{d_1})} )$ multiples veces. Ahora note que:
 
-  \begin{align}
-  & f(a\cdot \alpha^{i+(d_2 - 1)(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b\cdot\alpha^{j+(d_2 - 1)(\frac{p-1}{d_1})}) \\
-  & = (\alpha^{i+d_2(\frac{p-1}{d_1}-\frac{p-1}{d_2})}, \alpha^{j+d_2(\frac{p-1}{d_1})}) \\
-  & = (\alpha^{i+d_1 h(\frac{p-1}{d_1})-d_2(\frac{p-1}{d_2})}, \alpha^{j+d_1 h (\frac{p-1}{d_1})}) \\
-  & = (\alpha^{i+h(p-1)-(p-1)}, \alpha^{j+h(p-1)}) \\
+  \begin{align*}
+  & f(a\cdot \alpha^{i+(lcm(d_1,d_2) - 1)(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b\cdot\alpha^{j+(lcm(d_1,d_2) - 1)(\frac{p-1}{d_1})}) \\
+  & = (\alpha^{i+lcm(d_1,d_2)(\frac{p-1}{d_1}-\frac{p-1}{d_2})}, \alpha^{j+lcm(d_1,d_2)(\frac{p-1}{d_1})}) \\
+  & = (\alpha^{i+lcm(d_1,d_2)(\frac{p-1}{d_1})-lcm(d_1,d_2)(\frac{p-1}{d_2})}, \alpha^{j+lcm(d_1,d_2)(\frac{p-1}{d_1})}) \\
+    & = (\alpha^{i+\frac{d_1d_2}{gcd(d_1,d_2)}(\frac{p-1}{d_1})-\frac{d_1d_2}{gcd(d_1,d_2)}(\frac{p-1}{d_2})}, \alpha^{j+\frac{d_1d_2}{gcd(d_1,d_2)}(\frac{p-1}{d_1})}) \\
+  & = (\alpha^{i+\frac{d_2}{gcd(d_1,d_2)}(p-1)-\frac{d_2}{gcd(d_1,d_2)}(p-1)}, \alpha^{j+\frac{d_2}{gcd(d_1,d_2)}(p-1)}) \\
   & = (\alpha^i, \alpha^j)
-  \end{align}
+  \end{align*}
 
-  Por lo tanto al aplicar la transformacion $d_2$ veces, tendremos una cadena de elementos en $[a,b]$. Ahora suponga que existe $c < d_2$ y $\alpha^{i+c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = \alpha^i$ y $\alpha^{j+c(\frac{p-1}{d_1})} = \alpha^j$. Esto implica que $\alpha^{c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = 1$, luego $\alpha^{c(\frac{p-1}{d_1}) - c(\frac{p-1}{d_2})} = 1$, esto solo es posible si $c \mid d_1$ y $c \mid d_2$, pero $c < d_2$. Por contradiccion, $d_2$ es el elemento mas pequeno tal que esto ocurre. Por lo tanto la cantidad de elementos en la clase de equivalencia $[ a,b]$ es de tamano $d_2$.
+  Por lo tanto al aplicar la transformacion $lcm(d_1,d_2)$ veces, tendremos una cadena de elementos en $[a,b]$. Ahora suponga que existe $c < lcm(d_1,d_2)$ tal que $\alpha^{i+c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = \alpha^i$ y $\alpha^{j+c(\frac{p-1}{d_1})} = \alpha^j$. Esto implica que $\alpha^{c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = 1$, luego $\alpha^{c(\frac{p-1}{d_1}) - c(\frac{p-1}{d_2})} = 1$, esto solo es posible si $c$ es multiplo de $d_1$ y $d_2$ pero $c < lcm(d_1,d_2)$ y $lcm(d_1,d_2)$ es el elemento mas pequeno tal que esto ocurre. Por lo tanto la cantidad de elementos en la clase de equivalencia $[ a,b]$ es de tama\~no $lcm(d_1,d_2)$.
   
 \end{proof}
 
