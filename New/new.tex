@@ -90,6 +90,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{definition}
+  Sean $d_1, d_2 \in \mathbb{F}_p$ tales que $d_1 \mid p$ y $d_2 \mid p$. Definimos el polinomio $F_{a,b}(x) = x(x^{\frac{p-1}{d_1}} + ax^{\frac{p-1}{d_2}} +b)$ con $a,b \in \mathbb{F}_q^{\times}$ y definimos $V_{a,b} = Im(F_{a,b}(x))$.
+\end{definition}
+
+\begin{definition}
 
   Sea $a = \alpha^i, b = \alpha^j$ y $\sim$ la relacion definida por $(a,b) \sim (a', b')$ 
   $<=> a' = \alpha^{i+h(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b' = \alpha^{j+h(\frac{p-1}{d_1})}$
@@ -178,13 +182,13 @@
 
   $$= F_{a', b'}(\alpha^{k+1})$$
 
-  En conclusi\'on para cada elemento en el campo de valores, $\alpha^{\frac{p-1}{d_1}}F_{a, b}(\alpha^k)$, existe un elemento en el dominio, $F_{a', b'}(\alpha^{k+1})$. Por lo tanto $f$ es una funci\'on sobre.
+  En conclusi\'on para cada elemento en el campo de valores, $\alpha^{\frac{p-1}{d_1}}F_{a, b}(\alpha^k)$, existe un elemento en el dominio, $F_{a', b'}(\alpha^{k+1})$. Por lo tanto $f$ es una funci\'on sobre y podemos concluir que $|V_{a', b'}| = |V_{a, b}|$.
 
 \end{proof}
 
 \begin{prop}
   
-  $|[a, b]| = lcm(d_1,d_2)$
+  $|[a, b]| = lcm(d_1,d_2)$ donde $lcm(x,y)$ es el minimo com\'un m\'ultiplo de $x$ y $y$.
 
 \end{prop}
 
@@ -206,15 +210,8 @@
 \end{proof}
 
 \begin{prop}
-  
-  Suponga que $d_2 = d_1 \cdot h + r$, $1 \leq r \geq d_1$. Entonces, $|[a, b]| = 
-  \frac{d_1 \cdot d_2}{?}$
 
-\end{prop}
-
-\begin{prop}
-
-  El n\'umero de polinomios $F_{a', b'}(x)$ con $|V_{a, b}|$ es un m\'ultiplo de $|[a, b]|$
+  El n\'umero de polinomios $F_{a', b'}(x)$ con $|V_{a, b}| = n$ es un m\'ultiplo de $|[a, b]|$
 
 \end{prop}
 
