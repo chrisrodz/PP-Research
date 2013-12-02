@@ -108,43 +108,70 @@ Applications:
 
 \begin{frame}{Our Polynomial}
   
+  \setbeamercovered{transparent}
+
+  Let $d_1, d_2 \in \mathbb{F}_q$ such that $d_1 \mid q-1$ y $d_2 \mid q-1$. We are interested in the polynomial:
+  {\Large$$F_{a,b}(x) = x(x^{\frac{q-1}{d_1}} + ax^{\frac{q-1}{d_2}} +b)$$ }
+  with $a,b \in \mathbb{F}_q^{\times}$. 
+  \pause 
+  \linebreak
+  Denote the value set of this polynomial $V_{a,b}$.
 
 \end{frame}
 
 \begin{frame}{The class of equivalence $(a,b)$}
   
-  Definirla
+  Let $a = \alpha^i, b = \alpha^j$ and $\sim$ the relation defined as $(a,b) \sim (a', b')$ 
+  $<=> a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$
+
+  \alert{Example}
 
 \end{frame}
 
 \begin{frame}{The class of equivalence $(a,b)$}
   
-  Demostrar que es clase de equivalencia
+  \begin{proposition}
+    The relation $\sim$ defined above is an equivalence relation.
+  \end{proposition}
 
 \end{frame}
 
 \begin{frame}{Problem}
-  
+  \begin{ourproblem}
+    Study the value set of polynomials of the form $F_{a,b}(x) = x(x^{\frac{q-1}{d_1}} + ax^{\frac{q-1}{d_2}} +b)$ and determine conditions in $a,b$ such that they are permutation polynomials.
+  \end{ourproblem}
 \end{frame}
 
 \section{Results} % (fold)
 \label{sec:results}
 
 \begin{frame}{Value set correspondence}
-  Prop 1.4
+  \begin{proposition}
+
+    Let $[a, b]$ be the class of equivalence of $(a, b)$. If $(a', b') \in [a, b]$,
+     then $|V_{a', b'}| = |V_{a, b}|$.
+
+  \end{proposition}
 \end{frame}
 
 \begin{frame}{Size of equivalence classes}
-  Prop 1.5
+  
+  \begin{proposition}
+    $|[a, b]| = lcm(d_1,d_2)$ where $lcm(x,y)$ is the least common multiple of $x$ and $y$.
+  \end{proposition}
 \end{frame}
 
 \begin{frame}{Polynomials with Value sets of the same size}
-  Prop 1.6 NO ESTA DEMOSTRADA EN EL PAPER
+  \begin{proposition}
+    The number of polynomials of the form $F_{a, b}(x)$ with $|V_{a, b}| = n$ is a multiple of $|[a, b]|$
+  \end{proposition}
 \end{frame}
 
 \begin{frame}{Future Work}
-  Conditions on $a,b$ that provide us with PP.
-  Otras mas.
+  \begin{itemize}
+    \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$
+    \item Study our results on the family of polynomials of the form $F_{a,b}(x) = x^m(x^{\frac{q-1}{d_1}} + ax^{\frac{q-1}{d_2}} +b)$
+  \end{itemize}
 \end{frame}
 
 % section results (end)
