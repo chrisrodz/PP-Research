@@ -1,4 +1,4 @@
-
+  
 
 \documentclass{beamer}
 
@@ -36,7 +36,7 @@
 
 
 \title
-{Value Sets Of A Class Of Trinomials}
+{Value Sets of a Class of Trinomials}
 
 \author
 {Christian A. Rodriguez\\
@@ -45,7 +45,7 @@ Alex D. Santos}
 \institute[]
 {
   Department of Computer Science\\
-  University of Puerto Rico, Rio Piedras
+  University of Puerto Rico, R\'{i}o Piedras
 }
 
 \date
@@ -80,18 +80,25 @@ Alex D. Santos}
 \section{Introduction} % (fold)
 \label{sec:introduction}
 
+\begin{frame}{Finite Fields}
 
+  \begin{definition*}
+    A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^r$, $p$ prime, is a field with $q=p^r$ elements.
+  \end{definition*}
+
+  \begin{example}
+    $\mathbb{F}_7 = {0,1,2,3,4,5,6}$
+  \end{example}
+\end{frame}
 
 \begin{frame}{Polynomials in Finite Fields}
-
-  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^r$, $p$ prime, is a field with $q=p^r$ elements.
 
   \begin{definition*}
     Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. This is $f: \mathbb{F}_{q} \rightarrow \mathbb{F}_{q}$.
   \end{definition*}
 
   \begin{example}
-  Consider the polynomial $f(x) = x+3$ defined over $\mathbb{F}_{5}$. We have that the domian of f is $\left\{0, 1, 2, 3, 4 \right\}$.
+  Consider $f(x) = x+3$ over $\mathbb{F}_{5}$. The domian of f is $\left\{0, 1, 2, 3, 4 \right\}$.
   \end{example}
 
 \end{frame}
@@ -103,7 +110,7 @@ Alex D. Santos}
 \end{definition*}
 
 \begin{example}
-  Consider the polynomial $f(x) = x^2$ defined over $\mathbb{F}_{5}$. We have that $f(0) = 0, f(1) = 1, f(2) = 4, f(3) = 4, f(4) = 1$, so $V_{f} = \left\{0, 1, 4 \right\}$.
+  Consider $f(x) = x^2$ defined over $\mathbb{F}_{5}$. Note: $f(0) = 0, f(1) = 1, f(2) = 4, f(3) = 4, f(4) = 1$, so $V_{f} = \left\{0, 1, 4 \right\}$.
 \end{example}
 
 \end{frame}
@@ -114,13 +121,16 @@ Alex D. Santos}
   A polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation polynomial if and only if  $V_{f} = \mathbb{F}_{q}$.
 \end{definition}
 
+\pause
 
 \begin{example}
-  Let $f(x) = x+3$ defined over $\mathbb{F}_{7}$. We have that $V_{f} = \left\{3, 4, 5, 6, 0, 1, 2 \right\}$ so $f(x)$ is a permutation polynomial over $\mathbb{F}_{7}$
+  Let $f(x) = x+3$ over $\mathbb{F}_{5}$. Note: $V_{f} = \left\{3, 4, 0, 1, 2 \right\}$ so $f(x)$ is a permutation polynomial over $\mathbb{F}_{5}$
 \end{example}
 
+\pause
+
 \begin{example}
-Let $f(x) = x^2$ defined over $\mathbb{F}_{5}$. We have that $V_{f} = \left\{0, 1, 4 \right\}$ so $f(x)$ is not a permutation polynomial over $\mathbb{F}_{5}$.
+Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V_{f} = \left\{0, 1, 4 \right\}$ so $f(x)$ is not a permutation polynomial over $\mathbb{F}_{5}$.
 \end{example}
 
 \end{frame}
@@ -132,12 +142,16 @@ Let $f(x) = x^2$ defined over $\mathbb{F}_{5}$. We have that $V_{f} = \left\{0, 
   A \textbf{primitive root} $\alpha \in \mathbb{F}_q$ is a generator for the multiplicative group $\mathbb{F}_{q}^{\times}$
 \end{definition*}
 
-\begin{example}
-  Consider $\mathbb{F}_{7}$. We have that $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4,$ $ 3^5 = 5, 3^6 = 1$, so $3$ is a primitive root of $\mathbb{F}_{7}$.
-\end{example}
+\pause
 
 \begin{example}
-  Consider $\mathbb{F}_{7}$. We have that $2^1 = 2, 2^2 = 4, 2^3 = 1, 2^4 = 2,$ $ 2^5 = 4, 2^6 = 1$, so $2$ is not a primitive root of $\mathbb{F}_{7}$.
+  Consider $\mathbb{F}_{7}$. Since $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4,$ $ 3^5 = 5, 3^6 = 1$, $3$ is a primitive root of $\mathbb{F}_{7}$.
+\end{example}
+
+\pause
+
+\begin{example}
+  Consider $\mathbb{F}_{7}$. Since $2^1 = 2, 2^2 = 4, 2^3 = 1, 2^4 = 2,$ $ 2^5 = 4, 2^6 = 1$, $2$ is not a primitive root of $\mathbb{F}_{7}$.
 \end{example}
 
 \end{frame}
@@ -154,25 +168,29 @@ Let $f(x) = x^2$ defined over $\mathbb{F}_{5}$. We have that $V_{f} = \left\{0, 
   \setbeamercovered{transparent}
 
   Let $d_1, d_2 \in \mathbb{F}_q$ such that $d_1 \mid (q-1)$ y $d_2 \mid (q-1)$. We are interested in the polynomial:
-  {\Large$$F_{a,b}(x) = x(x^{\frac{q-1}{d_1}} + ax^{\frac{q-1}{d_2}} +b)$$ }
+  {\Large$$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ }
   with $a,b \in \mathbb{F}_q^{\times}$. 
   \pause 
-  \linebreak
+  $$$$
   Denote the value set of this polynomial $V_{a,b}$.
 
 \end{frame}
 
 \begin{frame}{Problem}
   \begin{ourproblem}
-    Study the value set of polynomials of the form $F_{a,b}(x) = x(x^{\frac{q-1}{d_1}} + ax^{\frac{q-1}{d_2}} +b)$ and determine conditions in $a,b$ such that they are permutation polynomials.
+    Study the value set of polynomials of the form $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ and determine conditions in $a,b$ such that they are permutation polynomials.
   \end{ourproblem}
 \end{frame}
 
 \section{Results} % (fold)
 \label{sec:results}
 
-\begin{frame}{The class of equivalence $(a,b)$}
+\begin{frame}{The class of equivalence $[a,b]$}
   
+  {\Large $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+
+  $$$$
+
   Let $a = \alpha^i, b = \alpha^j$, $\alpha$ a primitive root in $\mathbb{F}_q$ and $\sim$ the relation defined as $(a,b) \sim (a', b')$ 
   $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$
 
@@ -183,7 +201,7 @@ Let $f(x) = x^2$ defined over $\mathbb{F}_{5}$. We have that $V_{f} = \left\{0, 
 
 \end{frame}
 
-\begin{frame}{The class of equivalence $(a,b)$}
+\begin{frame}{The class of equivalence $[a,b]$}
   
   \begin{proposition}
     The relation $\sim$ defined above is an equivalence relation.
@@ -192,16 +210,17 @@ Let $f(x) = x^2$ defined over $\mathbb{F}_{5}$. We have that $V_{f} = \left\{0, 
 \end{frame}
 
 \begin{frame}{Value set correspondence}
-  \begin{proposition}
+
+  {\Large $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+
+  $$$$
+
+  \begin{lemma}
 
     Let $[a, b]$ be the class of equivalence of $(a, b)$. If $(a', b') \in [a, b]$,
      then $|V_{a', b'}| = |V_{a, b}|$.
 
-  \end{proposition}
-
-  \begin{corollary}
-    The number of polynomials of the form $F_{a, b}(x)$ with $|V_{a, b}| = n$ is a multiple of $|[a, b]|$
-  \end{corollary}
+  \end{lemma}
 
   \begin{example}
     Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V_{4, 8}| = |V_{3, 5}|$
@@ -211,14 +230,28 @@ Let $f(x) = x^2$ defined over $\mathbb{F}_{5}$. We have that $V_{f} = \left\{0, 
 
 \begin{frame}{Size of equivalence classes}
   
-  \begin{proposition}
+  {\Large $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+
+  $$$$
+
+  \begin{lemma}
     $|[a, b]| = lcm(d_1,d_2)$ where $lcm(x,y)$ is the least common multiple of $x$ and $y$.
-  \end{proposition}
+  \end{lemma}
 
   \begin{example}
     Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $(a,b)$:
     $$ (4, 8), (3, 5), (12, 8), (9, 5), (10, 8), (1, 5), (4,8) $$
   \end{example}
+\end{frame}
+
+\begin{frame}{Polynomial Results}
+    \begin{proposition}
+    The number of polynomials of the form $F_{a, b}(x)$ with $|V_{a, b}| = n$ is a multiple of $|[a, b]|$
+  \end{proposition}
+
+  \begin{corollary}
+    The number of permutation polynomials of the form $F_{a, b}(x)$ is a multiple of $|[a, b]|$
+  \end{corollary}
 \end{frame}
 
 
