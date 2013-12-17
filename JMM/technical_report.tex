@@ -1,0 +1,274 @@
+\documentclass{article}
+
+%\documentclass{proc-l}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+
+
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\sN}{\mathcal{N}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\vv} {{\boldsymbol{\nu}}}
+\newcommand{\x}{{\bf x}}
+\newcommand{\xx}{\mathbf{x}}
+\newcommand{\be}{{\bf e}}
+\newcommand{\ff}{{\mathbb{ F\!}}}
+\newcommand{\lff}{{\mathbb{ F\!}}^{\,\prime}}
+\newcommand{\pp}{{\mathbb{P\!}}}
+\newcommand{\Fq}{{\mathbb{F\!}_q}}
+\newcommand{\Fp}{{\mathbb{F\!}_p}}
+\newcommand{\FF}{\mathbb{F}_2}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\QQ}{\mathbb{Q}_2}
+\newcommand{\Qp}{\mathbb{Q}_p}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zp}{\mathbb{Z}_p}
+\newcommand{\K}{K}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\p}{$p$\nobreakdash}
+%\newcommand{\e}{\mathbf{e}}
+\newcommand{\tvec}{\mathbf{t}}
+\newcommand{\OKxi}{\mathcal{O}_{\K(\xi)}}
+\DeclareMathOperator{\tr}{Tr}
+\def\Tr{\mathop{\rm Tr}\nolimits}
+\newcommand{\cc}{\mathcal{C}}
+\newcommand{\il}{\mathcal{I}}
+\newcommand{\ee}{\epsilon}
+\newcommand{\bb}{\beta}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% AMS Proc Styles
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+%\theoremstyle{corollary}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\newtheorem{construction}[theorem]{Construction}
+
+
+\newtheorem{prop}[theorem]{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+
+
+
+\begin{document}
+
+\title{On a Class of Permutation Polynomials over Finite Fields}
+
+
+\maketitle
+
+\begin{abstract}
+Permutation polynomials over finite fields are important in many applications, for example in coding theory and cryptography. Our goal is to provide families of polynomials that are rich in permutation polynomials, and study polynomials of the form $F_{a,b}(X) =X^m\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right)$, where $a,b \in F_{q}$, $q=p^r$, $p$ prime, $d_1 \mid (q-1)$ and $d_2 \mid (q-1)$. We prove that the number of polynomials of the form $F_{a,b}(X)$ with value set of size $\left\vert V_{F_{a,b}} \right\vert =n$ is a multiple of $lcm(d_1,d_2)$ and give a construction where, given a permutation polynomial $F_{a,b}(X)$ of $\mathbb{F}_q$, we can construct a list of $lcm(d_1,d_2)$coefficients $a',b'$ such that $F_{a',b'}(X)$ is also a permutation polynomial of $\mathbb{F}_q$.
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Permutation polynomials over finite fields are important in many applications, for example in cryptography. Binomials that produce permutations have been studied extensively. The next case to be studied are trinomials. We want to provide families of polynomials that are rich in permutation polynomials. We have found that within the family of polynomials of the form $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ where $d_1 | (q-1)$ and $d_2 | (q-1)$  there are many permutation polynomials. We want to find conditions in $[a,b]$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
+
+An example of applications of permutation polynomials over finite fields are RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is a permutation of the field $\mathbb{F}_{q}$ and needs to be efficiently computable. It is easy to see that expressing this operator in terms of a permutation polynomial is simple and efficient.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}
+  A \textbf{permutation} of a set $A$ is an ordering of the elements of $A$. A function $f: A \rightarrow A$ gives a permutation of $A$ if and only if $f$ is one to one and onto.
+\end{definition}
+
+
+
+\begin{definition}
+  A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^r$, $p$ prime, is a field with $q=p^r$ elements.
+\end{definition}
+
+
+
+\begin{definition}
+  A \textbf{primitive root} $\alpha \in \mathbb{F}_q$ is a generator for the multiplicative group $\mathbb{F}_{q}^{\times}$
+\end{definition}
+
+\begin{example}
+  Consider the finite field $\mathbb{F}_{7}$. We have that: $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4, 3^5 = 5, 3^6 = 1$, so $3$ is a primitive root of $\mathbb{F}_{7}$.
+\end{example}
+
+
+\begin{definition}
+  Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. Then the \textbf{value set} of $f$ is defined as $V_{f} = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$
+\end{definition}
+
+Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation polynomial if and only if  $V_{f} = \mathbb{F}_{q}$.
+
+
+\begin{example}
+  Consider the polynomial $f(x) = x+3$ defined over $\mathbb{F}_{7}$. We have that $f(0) = 3, f(1) = 4, f(2) = 5, f(3) = 6, f(4) = 0, f(5) = 1, f(6) = 2$, so $f(x)$ is a permutation polynomial over $\mathbb{F}_{7}$
+\end{example}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}
+  Let $d_1, d_2 \in \mathbb{F}_p$ such that $d_1 \mid p$ and $d_2 \mid p$. We define the polynomial $F_{a,b}(x) = x(x^{\frac{p-1}{d_1}} + ax^{\frac{p-1}{d_2}} +b)$ with $a,b \in \mathbb{F}_q^{\times}$ and $V_{a,b} = Im(F_{a,b}(x))$.
+\end{definition}
+
+\begin{definition}
+
+  Let $a = \alpha^i, b = \alpha^j$ and $\sim$ be the relation defined by $(a,b) \sim (a', b')$ 
+  $\Longleftrightarrow a' = \alpha^{i+h(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b' = \alpha^{j+h(\frac{p-1}{d_1})}$
+
+\end{definition}
+
+\begin{prop}
+  
+  $\sim$ defined above is a equivalence relation.
+
+\end{prop}
+
+\begin{proof}
+  
+  1. Let $a=\alpha^i$, $b=\alpha^j$ and choose $h=0$. Then $a' = \alpha^{i+0(\frac{p-1}{d_1}-\frac{p-1}{d_2})} = \alpha^i = a$ and $b' = \alpha^{j+0(\frac{p-1}{d_1})} = \alpha^j = b$. Therefore $(a,b) \sim (a,b)$ and the relation is reflexive.
+
+  2. Let $a = \alpha^i$, $b=\alpha^j$, $a' = \alpha^{i+h(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$ y $b' = \alpha^{j+h(\frac{p-1}{d_1})}$ then $(a,b) \sim (a',b')$. We want to find $l$ such that $a = \alpha^{i+h(\frac{p-1}{d_1}-\frac{p-1}{d_2})+l(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$ y $b = \alpha^{j+h(\frac{p-1}{d_1})+l(\frac{p-1}{d_1})}$. Choose $l=d_1d_2-h$, then we obtain: $\alpha^{i+d_1d_2(\frac{p-1}{d_1}-\frac{p-1}{d_2})} = \alpha^i = a$ and $\alpha^{j+d_1d_2(\frac{p-1}{d_1})} = \alpha^j = b$. Therefore $(a',b') \sim (a,b) $ and the relation is symmetric.
+
+  3. Suppose that $a = \alpha^i$, $b=\alpha^j$, $a' = \alpha^{i+h(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$, $b' = \alpha^{j+h(\frac{p-1}{d_1})}$, $a'' = \alpha^{i+h(\frac{p-1}{d_1}-\frac{p-1}{d_2})+l(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$, $b'' = \alpha^{j+h(\frac{p-1}{d_1})+l(\frac{p-1}{d_1})}$. Therefore $(a,b) \sim (a',b')$ and $(a',b') \sim (a'',b'')$. Note that $a'' = \alpha^{i+(h+l)(\frac{p-1}{d_1}-\frac{p-1}{d_2})}$, $b'' = \alpha^{j+(h+l)(\frac{p-1}{d_1})}$, therefore $(a,b) \sim (a'',b'')$ and the relation is transitive.
+
+  In conclusion the relation is an equivalence relation.
+
+\end{proof}
+
+\begin{prop}
+  
+  Let $[a, b]$ bet the equivalence relation $(a, b)$. If $(a', b') \in [a, b]$, then 
+  $|V_{a', b'}| = |V_{a, b}|$
+
+\end{prop}
+
+\begin{proof}
+  
+  Let $\alpha$ be the primitive root of the finite field. $$F_{a', b'}(\alpha^{k+1}) = \alpha^{k+1}((\alpha^{k+1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2}}(\alpha^{k+1})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= \alpha^{k+1}((\alpha^{k})^{\frac{p-1}{d_1}} \cdot \alpha^{\frac{p-1}{d_1}} + \alpha^{i} \cdot \frac{\alpha^{\frac{p-1}{d_1}}} {\alpha^{\frac{p-1}{d_2}}} (\alpha^{k})^{\frac{p-1}{d_2}} \cdot \alpha^{\frac{p-1}{d_2}} + \alpha^{j} \cdot \alpha^{\frac{p-1}{d_1}})$$
+
+  $$= \alpha^{\frac{p-1}{d_1} + 1} \cdot \alpha^{k}((\alpha^{k})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k})^{\frac{p-1}{d_2}} + \alpha^{j} )$$
+
+  $$= C \cdot F_{a,b}(\alpha^k), \mbox{donde } C = \alpha^{\frac{p-1}{d_1} + 1}$$
+
+  In general for each element of $F_{a,b}(\alpha^{k})$ there will be a corresponding term of $F_{a',b'}(\alpha^{k+1})$ where $a' = \alpha^{i + h(\frac{p-1}{d_1} - \frac{p-1}{d_2})}$ y $b'= \alpha^{j + h(\frac{p-1}{d_1})}$. Moreover, it should be the case that $\left\vert V_{F_{a,b}} \right\vert = \left\vert V_{F_{a',b'}} \right\vert$.
+
+  Let $f:V_{a', b'} \rightarrow \alpha^{\frac{p-1}{d_1}}V_{a, b}$ given by $f(F_{a', b'}(\alpha^{k+1})) = \alpha^{\frac{p-1}{d_1}+1}F_{a, b}(\alpha^k)$.
+  Suppose that $f(F_{a', b'}(\alpha^{k_1+1})) = f(F_{a', b'}(\alpha^{k_2+1}))$ where $k_1, k_2 \in \mathbb{F}_q$. 
+
+  Consider $f(F_{a', b'}(\alpha^{k_1+1}))$
+
+  $$= f(\alpha^{k_1+1}((\alpha^{k_1+1})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_1+1})^{\frac{p-1}{d_2}} + \alpha^{j}))$$ 
+
+  $$= \alpha^{\frac{p-1}{d_1}+1}(\alpha^{k_1}((\alpha^{k_1})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_1})^{\frac{p-1}{d_2}} + \alpha^{j}))$$ 
+
+  $$= \alpha^{k_1+1}(\alpha^{\frac{p-1}{d_1}}((\alpha^{k_1})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_1})^{\frac{p-1}{d_2}} + \alpha^{j}))$$ 
+
+  $$= \alpha^{k_1+1}((\alpha^{k_1+1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2} + \frac{p-1}{d_2}}(\alpha^{k_1})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= \alpha^{k_1+1}((\alpha^{k_1+1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2}}(\alpha^{k_1+1})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$ 
+
+  $$= F_{a', b'}(\alpha^{k_1+1})$$
+
+  Then consider $f(F_{a', b'}(\alpha^{k_2+1}))$
+
+  $$= f(\alpha^{k_2+1}((\alpha^{k_2+1})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_2+1})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{\frac{p-1}{d_1}+1}(\alpha^{k_2}((\alpha^{k_2})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_2})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{k_2+1}(\alpha^{\frac{p-1}{d_1}}((\alpha^{k_2})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k_2})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{k_2+1}((\alpha^{k_2 + 1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2} + \frac{p-1}{d_2}}(\alpha^{k_2})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= \alpha^{k_2+1}((\alpha^{k_2 + 1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2}}(\alpha^{k_2 + 1})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= F_{a', b'}(\alpha^{k_2+1})$$
+
+  In conslusion $F_{a', b'}(\alpha^{k_1+1}) = F_{a', b'}(\alpha^{k_2+1})$ therefore $f$ is a injective function.
+
+  Consider an element in the value set given by $\alpha^{\frac{p-1}{d_1}}F_{a, b}(\alpha^k)$
+
+  $$\alpha^{\frac{p-1}{d_1}}F_{a, b}(\alpha^k) = \alpha^{\frac{p-1}{d_1}+1}(\alpha^{k}((\alpha^{k})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{k+1}(\alpha^{\frac{p-1}{d_1}}((\alpha^{k})^{\frac{p-1}{d_1}} + \alpha^{i}(\alpha^{k})^{\frac{p-1}{d_2}} + \alpha^{j}))$$
+
+  $$ = \alpha^{k+1}((\alpha^{k + 1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2} + \frac{p-1}{d_2}}(\alpha^{k})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= \alpha^{k+1}((\alpha^{k + 1})^{\frac{p-1}{d_1}} + \alpha^{i + \frac{p-1}{d_1} - \frac{p-1}{d_2}}(\alpha^{k + 1})^{\frac{p-1}{d_2}} + \alpha^{j + \frac{p-1}{d_1}})$$
+
+  $$= F_{a', b'}(\alpha^{k+1})$$
+
+  In brief for each element in the value set, $\alpha^{\frac{p-1}{d_1}}F_{a, b}(\alpha^k)$, there exists an element in the domain, $F_{a', b'}(\alpha^{k+1})$. Therefore $f$ is a bijective function and we can conclude that $|V_{a', b'}| = |V_{a, b}|$.
+
+\end{proof}
+
+\begin{prop}
+  
+  $|[a, b]| = lcm(d_1,d_2)$ where $lcm(x,y)$ is the least common multiple of $x$ and $y$.
+
+\end{prop}
+
+\begin{proof}
+
+  Suppose that $a=\alpha^i$, $b=\alpha^j$. Note that we can obtain the elements of $[a,b]$ applying the transformation $f:(a,b) \rightarrow ( a\cdot\alpha^{(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b\cdot\alpha^{(\frac{p-1}{d_1})} )$ multiple times. Now note that:
+
+  \begin{align*}
+  & f(a\cdot \alpha^{i+(lcm(d_1,d_2) - 1)(\frac{p-1}{d_1} - \frac{p-1}{d_2})}, b\cdot\alpha^{j+(lcm(d_1,d_2) - 1)(\frac{p-1}{d_1})}) \\
+  & = (\alpha^{i+lcm(d_1,d_2)(\frac{p-1}{d_1}-\frac{p-1}{d_2})}, \alpha^{j+lcm(d_1,d_2)(\frac{p-1}{d_1})}) \\
+  & = (\alpha^{i+lcm(d_1,d_2)(\frac{p-1}{d_1})-lcm(d_1,d_2)(\frac{p-1}{d_2})}, \alpha^{j+lcm(d_1,d_2)(\frac{p-1}{d_1})}) \\
+    & = (\alpha^{i+\frac{d_1d_2}{gcd(d_1,d_2)}(\frac{p-1}{d_1})-\frac{d_1d_2}{gcd(d_1,d_2)}(\frac{p-1}{d_2})}, \alpha^{j+\frac{d_1d_2}{gcd(d_1,d_2)}(\frac{p-1}{d_1})}) \\
+  & = (\alpha^{i+\frac{d_2}{gcd(d_1,d_2)}(p-1)-\frac{d_2}{gcd(d_1,d_2)}(p-1)}, \alpha^{j+\frac{d_2}{gcd(d_1,d_2)}(p-1)}) \\
+  & = (\alpha^i, \alpha^j)
+  \end{align*}
+
+  Therefore applying the transformation $lcm(d_1,d_2)$ times, we obtain a chain of elements in $[a,b]$. Now suppose that $c < lcm(d_1,d_2)$ such that $\alpha^{i+c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = \alpha^i$ and $\alpha^{j+c(\frac{p-1}{d_1})} = \alpha^j$. This implies that implica $\alpha^{c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = 1$, then $\alpha^{c(\frac{p-1}{d_1}) - c(\frac{p-1}{d_2})} = 1$, this is only possible if $c$ is a multiple of $d_1$ and $d_2$ but $c < lcm(d_1,d_2)$ and $lcm(d_1,d_2)$ is the smallest element such that this occurs. Therefore the amount of elements in the equivalence relation $[a,b]$ is equal to $lcm(d_1,d_2)$.
+  
+\end{proof}
+
+\begin{prop}
+
+  The number of polynomials $F_{a', b'}(x)$ with $|V_{a, b}| = n$ is a multiple of $|[a, b]|$
+
+\end{prop}
+    
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Future work}    
+%%%%%%%%%%%%%%%%%%%%
+
+    \begin{itemize}
+    \item Study our results on the family of polynomials of the form $F_{a,b}(X) = X^m(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$
+    \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$
+  \end{itemize}
+ 
+  
+\end{document}
+
