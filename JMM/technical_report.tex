@@ -145,6 +145,11 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
 
 \end{definition}
 
+ \begin{example}
+    Let $q = 13, d_1 = 2, d_2 = 3$, then we have $\alpha = 2$ and take $a = 4 = 2^2, b = 8 = 2^3$. Now $(a,b) \sim (a',b')$ if and only if
+    $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(a,b) \sim (3,5)$
+  \end{example}
+
 \begin{prop}
   
   $\sim$ defined above is a equivalence relation.
@@ -231,6 +236,10 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
 
 \end{proof}
 
+ \begin{example}
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V_{4, 8}| = |V_{3, 5}|$
+  \end{example}
+
 \begin{prop}
   
   $|[a, b]| = lcm(d_1,d_2)$ where $lcm(x,y)$ is the least common multiple of $x$ and $y$.
@@ -253,6 +262,11 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
   Therefore applying the transformation $lcm(d_1,d_2)$ times, we obtain a chain of elements in $[a,b]$. Now suppose that $c < lcm(d_1,d_2)$ such that $\alpha^{i+c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = \alpha^i$ and $\alpha^{j+c(\frac{p-1}{d_1})} = \alpha^j$. This implies that implica $\alpha^{c(\frac{p-1}{d_1} - \frac{p-1}{d_2})} = 1$, then $\alpha^{c(\frac{p-1}{d_1}) - c(\frac{p-1}{d_2})} = 1$, this is only possible if $c$ is a multiple of $d_1$ and $d_2$ but $c < lcm(d_1,d_2)$ and $lcm(d_1,d_2)$ is the smallest element such that this occurs. Therefore the amount of elements in the equivalence relation $[a,b]$ is equal to $lcm(d_1,d_2)$.
   
 \end{proof}
+
+ \begin{example}
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $(a,b)$:
+    $$ (4, 8), (3, 5), (12, 8), (9, 5), (10, 8), (1, 5), (4,8) $$
+  \end{example}
 
 \begin{prop}
 
