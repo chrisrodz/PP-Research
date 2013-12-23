@@ -112,6 +112,10 @@ We are interested in studying polynomials that permute the elements of a finite 
   A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^r$, $p$ prime, is a field with $q=p^r$ elements.
 \end{definition}
 
+\begin{example}
+    $\mathbb{F}_7 = {0,1,2,3,4,5,6}$
+  \end{example}
+
 An important property across our work is the existence of a primitive root for a finite field. We use primitive roots in many of our proofs.
 
 \begin{definition}
@@ -122,13 +126,19 @@ An important property across our work is the existence of a primitive root for a
   Consider the finite field $\mathbb{F}_{7}$. We have that: $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4, 3^5 = 5, 3^6 = 1$, so $3$ is a primitive root of $\mathbb{F}_{7}$.
 \end{example}
 
-\textbf{Ejemplo no prim root}
+\begin{example}
+  Consider $\mathbb{F}_{7}$. Since $2^1 = 2, 2^2 = 4, 2^3 = 1, 2^4 = 2,$ $ 2^5 = 4, 2^6 = 1$, $2$ is not a primitive root of $\mathbb{F}_{7}$.
+\end{example}
 
 Given a polynomial defined over a finite field, we study the image of this polynomial. We call this image the value set of the polynomial.
 
 \begin{definition}
   Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. Then the \textbf{value set} of $f$ is defined as $V(f) = Im(f) = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$
 \end{definition}
+
+\begin{example}
+  Consider $f(x) = x^2$ defined over $\mathbb{F}_{5}$. Note: $f(0) = 0, f(1) = 1, f(2) = 4, f(3) = 4, f(4) = 1$, so $V_{f} = \left\{0, 1, 4 \right\}$.
+\end{example}
 
 Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation polynomial if and only if  $V(f) = \mathbb{F}_{q}$.
 
@@ -137,7 +147,9 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
   Consider the polynomial $f(x) = x+3$ defined over $\mathbb{F}_{7}$. We have that $f(0) = 3, f(1) = 4, f(2) = 5, f(3) = 6, f(4) = 0, f(5) = 1, f(6) = 2$, so $f(x)$ is a permutation polynomial over $\mathbb{F}_{7}$
 \end{example}
 
-\textbf{Ejemplo no PP}
+\begin{example}
+Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V_{f} = \left\{0, 1, 4 \right\}$ so $f(x)$ is not a permutation polynomial over $\mathbb{F}_{5}$.
+\end{example}
 
 Recall now that we are interested in studying the family of polynomials $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ defined over $\mathbb{F}_q$ where $d_1 | (q-1)$, $d_2 | (q-1)$ and $a,b \in \mathbb{F}_q^*$. Specifically, we are interested in studying the value set of $F_{a,b}(X)$ given a pair of coefficients $(a,b)$.
 
@@ -241,7 +253,7 @@ Given that our relation $\sim$ is an equivalence relation, we study the value se
 \end{proof}
 
  \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \mbox{\textbf{Esto falta}}$, $V(F_{3, 5}) = \mbox{\textbf{Esto falta}}$. Note that even though the sizes are equal the value sets are not.
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the sizes are equal the value sets are not.
   \end{example}
 
 Recall that our family of polynomials $F_{a,b}(X) \in \mathbb{F}_{q}[x]$ depends on a specific choice of $d_1$ and $d_2$. We want to know the number of polynomials in each equivalence class. The next lemma gives an exact number for any class of equivalence $[F_{a,b}]$ in terms of $d_1$ and $d_2$.
@@ -257,7 +269,8 @@ Recall that our family of polynomials $F_{a,b}(X) \in \mathbb{F}_{q}[x]$ depends
   Suppose that $a=\alpha^i$, $b=\alpha^j$. Note that we can obtain the elements of $[F_{a,b}]$ applying the transformation $f:(a,b) \rightarrow ( a\cdot\alpha^{(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b\cdot\alpha^{(\frac{q-1}{d_1})} )$ multiple times. Now note that:
 
   We obtain a set of coefficients 
-  $$[F_{a,b}] = \left\{ (\alpha^i,\alpha^j), (\alpha^{i+(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+(\frac{q-1}{d_1})}), (\alpha^{i+2(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+2(\frac{q-1}{d_1})}), ..., (\alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+h(\frac{q-1}{d_1})}) = (\alpha^i, \alpha^j) \right\}$$
+  $$[F_{a,b}] = \left\{ (\alpha^i,\alpha^j), (\alpha^{i+(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+(\frac{q-1}{d_1})}), (\alpha^{i+2(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+2(\frac{q-1}{d_1})}),\right\}$$ 
+  $$ \cup \left\{..., (\alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+h(\frac{q-1}{d_1})}) = (\alpha^i, \alpha^j) \right\}$$
 
   Therefore applying the transformation $lcm(d_1,d_2)$ times, we obtain a chain of elements in $[a,b]$. Now suppose that $c < lcm(d_1,d_2)$ such that $\alpha^{i+c(\frac{q-1}{d_1} - \frac{q-1}{d_2})} = \alpha^i$ and $\alpha^{j+c(\frac{q-1}{d_1})} = \alpha^j$. This implies that implica $\alpha^{c(\frac{q-1}{d_1} - \frac{q-1}{d_2})} = 1$, then $\alpha^{c(\frac{q-1}{d_1}) - c(\frac{q-1}{d_2})} = 1$, this is only possible if $c$ is a multiple of $d_1$ and $d_2$ but $c < lcm(d_1,d_2)$ and $lcm(d_1,d_2)$ is the smallest element such that this occurs. Therefore the amount of elements in the equivalence relation $[a,b]$ is equal to $lcm(d_1,d_2)$.
   
@@ -266,9 +279,8 @@ Recall that our family of polynomials $F_{a,b}(X) \in \mathbb{F}_{q}[x]$ depends
 The construction in Proof~\ref{construction_proof} gives a way to construct a set of $lcm(d_1,d_2)$ polynomials $F_{a',b'}$ with $|V(F_{a',b'})| = |V(F_{a,b})|$. In particular if $F_{a,b}$ is a permutation polynomial of $\mathbb{F}_q$ we can construct $lcm(d_1, d_2)$ other permutation polynomials of $\mathbb{F}_q$.
 
  \begin{example}
-    \textbf{CAMBIAR a polynomial}
-    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $(a,b)$:
-    $$ (4, 8), (3, 5), (12, 8), (9, 5), (10, 8), (1, 5), (4,8) $$
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $F_{a,b}$:
+    $$ F_{4, 8}, F_{3, 5}, F_{12, 8}, F_{9, 5}, F_{10, 8}, F_{1, 5}, F_{4,8} $$
   \end{example}
 
 Finally, our last result uses all of our previous lemmas to provide information about the number of polynomials of the form $F_{a,b}(X)$ with a specific size of value set.

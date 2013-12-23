@@ -1,4 +1,4 @@
-def findab(p,d):
+def findab(p,d_1,d_2):
         """ Dado p primo, d que divida p-1, imprime todos los pares (a,b) tal que el polinomio
          es un polinomio de permutacion y la cantidad de pares. Los devuelve tambien en forma de lista. """
         count = 0 # cuente los PP       
@@ -15,7 +15,7 @@ def findab(p,d):
         for a in range(1, p): # Fija a
                 for b in range(1, p): # Fija b
                         R.<x> = PolynomialRing(GF(p),1,"x")
-                        f = (x^(((p-1)/2)+1)) + (a * x^(((p-1)/d)+1)) + (b * x) # El polinomio
+                        f = (x^(((p-1)/d_1)+1)) + (a * x^(((p-1)/d_2)+1)) + (b * x) # El polinomio
                         for x in range(0, p): # Evalua el poly
                                 value = f(x)
                                 if((value in l) == False): # Verifica que no se repitan los resultados
