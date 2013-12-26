@@ -199,52 +199,44 @@
  \vspace{0.3em}
 
     We are interested in studying the coefficients $a$ and $b$ in our polynomial. We define a relation between these coefficients in order to simplify notation.
+\vspace{0.3em}
+\begin{definition}\label{relacion}
 
-  \begin{definition}
-    Let $a = \alpha^i, b = \alpha^j$, $\alpha$ a primitive root in $\mathbb{F}_q$ and $\sim$ the relation defined as $(a,b) \sim (a', b')$ 
-  $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$
-  \end{definition}
+  Let $a = \alpha^i, b = \alpha^j$ and $\sim$ be the relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$ defined by $(a,b) \sim (a', b')$ 
+  $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$, where $h \in \mathbb{Z}$
 
+\end{definition}
+\vspace{0.3em}
   \begin{example}
     Let $q = 13, d_1 = 2, d_2 = 3$, then we have $\alpha = 2$ and take $a = 4 = 2^2, b = 8 = 2^3$. Now $(a,b) \sim (a',b')$ if and only if
     $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(a,b) \sim (3,5)$
   \end{example}
+\vspace{0.3em}
+\begin{lemma}
+  
+  The relation $\sim$ defined in Def~\ref{relacion} is an equivalence relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$.
 
-  \begin{proposition}
-    The relation $\sim$ defined above is an equivalence relation.
-  \end{proposition}
-
+\end{lemma}
+\vspace{0.3em}
   This equivalence relation links the coefficients $[a,b]$ to the Value Sets of our polynomials.
+   \vspace{0.5em}
+  The equivalence relation defined in Def~\ref{relacion} induces and equivalence relation in the set of polynomials of the form $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ with equivalence classes $[F_{a,b}] = [F_{\alpha^i, \alpha^j}] = \left\{\ F_{a',b'} | a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})} \right\}$
+\vspace{0.3em}
+\begin{lemma}
+  
+  Suppose that $F_{a,b} \sim F_{a',b'}$ where $\sim$ is the relationship defined in Definition~\ref{relacion}. Then $|V(F_{a,b})| = |V(F_{a',b'})|$
 
-  \begin{lemma}\label{link}
-    Let $[a, b]$ be the class of equivalence of $(a, b)$. If $(a', b') \in [a, b]$,
-     then $|V_{a', b'}| = |V_{a, b}|$.
-  \end{lemma}
-
-  \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V_{4, 8}| = |V_{3, 5}|$
+\end{lemma}
+\vspace{0.3em}
+ \begin{example}
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the sizes are equal the value sets are not.
   \end{example}
+\vspace{0.3em}
+\begin{lemma}
+  
+  $|[F_{a, b}]| = lcm(d_1,d_2)$.
 
-    \begin{lemma}\label{size}
-    $|[a, b]| = lcm(d_1,d_2)$ where $lcm(x,y)$ is the least common multiple of $x$ and $y$.
-  \end{lemma}
-
-  \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $(a,b)$:
-    $$ (4, 8), (3, 5), (12, 8), (9, 5), (10, 8), (1, 5), (4,8) $$
-  \end{example}
-
-  Using lemma~\ref{link} and lemma~\ref{size} we characterize the size of the Value Set of our polynomial.
-
-    \begin{proposition}
-    The number of polynomials of the form $F_{a, b}(x)$ with $|V_{a, b}| = n$ is a multiple of $|[a, b]|$
-  \end{proposition}
-
-  \begin{corollary}
-    The number of permutation polynomials of the form $F_{a, b}(x)$ is a multiple of $|[a, b]|$
-  \end{corollary}
-
-   \vspace{0.3em}
+\end{lemma}
   }\label{Results}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -307,23 +299,37 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.3em}
 
-The following construction shows how to obtain all of the pairs in a particular class of equivalence $(a,b)$ given one of it's members.
-
-\textbf{Aqui Va la contruccion con el ejemplo anterior}
-
-$$$$
-
-  Future Work
-  \begin{itemize}
-    \item Study our results on the family of polynomials of the form $F_{a,b}(x) = x^m(x^{\frac{q-1}{d_1}} + ax^{\frac{q-1}{d_2}} +b)$
-    \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$
-  \end{itemize}
+ \begin{example}
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $F_{a,b}$:
+    $$ F_{4, 8}, F_{3, 5}, F_{12, 8}, F_{9, 5}, F_{10, 8}, F_{1, 5}, F_{4,8} $$
+  \end{example}
+   \vspace{0.3em}
+Using all of our previous lemmas we can provide some information about the number of polynomials of the form $F_{a,b}(X)$ with a specific size of value set.
+   \vspace{0.3em}
+    \begin{proposition}
+    The number of polynomials of the form $F_{a, b}(x)$ with $|V_{a, b}| = n$ is a multiple of $|[a, b]|$
+  \end{proposition}
+   \vspace{0.3em}
+  \begin{corollary}
+    The number of permutation polynomials of the form $F_{a, b}(x)$ is a multiple of $|[a, b]|$
+  \end{corollary}
 
    \vspace{0.3em}
   }\label{Future Work}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Applications}{name=applications,column=2,below=work}{
+\headerbox{Ongoing Work}{name=future,column=2,below=work}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \vspace{0.3em}     
+    \begin{itemize}
+    \item Study our results on the family of polynomials of the form $F_{a,b}(X) = X^m(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$
+    \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$
+  \end{itemize}
+      \vspace{0.3em}
+}\label{Applications}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Applications}{name=applications,column=2,below=future}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \vspace{0.3em}     
  An example of applications of permutation polynomials over finite fields are RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is a permutation of the field $\mathbb{F}_{q}$ and needs to be efficiently computable. It is easy to see that expressing this operator in terms of a permutation polynomial is simple and efficient.
