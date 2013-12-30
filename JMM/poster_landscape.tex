@@ -179,7 +179,7 @@
   \headerbox{Abstract}{name=abstract,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \vspace{0.3em}  
- Permutation polynomials over finite fields are important in many applications, for example in cryptography. We want to provide families of polynomials that are rich in permutation polynomials. In particular we study polynomials of the form $F_{a,b}(x) = x^{\frac{q-1}{2}} + a x^{\frac{q+d-1}{d}} + b x$, where $a,b \in \mathbb{F}_{q}^{*}$, $q=p^r$, $p$ prime, and $d \mid (q-1)$.
+ Permutation polynomials over finite fields are important in many applications, for example in cryptography. We want to provide families of polynomials that are rich in permutation polynomials. In particular we study polynomials of the form $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$, where $a,b \in \mathbb{F}_{q}^{*}$, $q=p^r$, $p$ prime, and $d \mid (q-1)$.
    
    \vspace{0.3em}
  }\label{Abstract}
@@ -188,7 +188,7 @@
 \headerbox{Problem}{name=problem,column=1,row=0}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
        \vspace{0.3em}
-      {\Large Study the value set of polynomials of the form {\LARGE $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$} and determine conditions in $a,b$ such that they are permutation polynomials.}
+      {\Large Study the value set of polynomials of the form {\LARGE $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$} over finite fields $\mathbb{F}_q$ and determine conditions in $a,b$ such that they are permutation polynomials.}
 
       \vspace{0.3em}
 }\label{Problem}
@@ -213,8 +213,6 @@
   \begin{proposition}
     The relation $\sim$ defined above is an equivalence relation.
   \end{proposition}
-
-  This equivalence relation links the coefficients $[a,b]$ to the Value Sets of our polynomials.
 
   \begin{lemma}\label{link}
     Let $[a, b]$ be the class of equivalence of $(a, b)$. If $(a', b') \in [a, b]$,
@@ -289,6 +287,10 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
   Consider the polynomial $f(x) = x+3$ defined over $\mathbb{F}_{7}$. We have that $f(0) = 3, f(1) = 4, f(2) = 5, f(3) = 6, f(4) = 0, f(5) = 1, f(6) = 2$, so $f(x)$ is a permutation polynomial over $\mathbb{F}_{7}$
 \end{example}
 
+\begin{example}
+  Consider the polynomial $f(x) = x^2$ defined over $\mathbb{F}_{5}$. We have that $f(0) = 0, f(1) = 1, f(2) = 4, f(3) = 4, f(4) = 1$ so $f(x)$ is not a permutation polynomial over $\mathbb{F}_{5}$
+\end{example}
+
    \vspace{0.3em}
 }\label{Preliminaries}
 
@@ -297,7 +299,7 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.3em}
   
-  Binomials that produce permutations have been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $$F_{a,b}(x) = x^{\frac{q-1}{2}} + a x^{\frac{q+d-1}{d}} + b x,$$ where $d | (q-1)$  there are many permutation polynomials. We want to find conditions in $[a,b]$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
+  Binomials that produce permutations have been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ where $d | (q-1)$  there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
 
    \vspace{0.3em}
 }\label{Motivation}
