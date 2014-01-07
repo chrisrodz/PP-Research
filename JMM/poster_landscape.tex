@@ -1,4 +1,4 @@
-\documentclass[landscape,final,paperwidth=48in,paperheight=38in]{baposter}
+\documentclass[landscape,final,paperwidth=48in,paperheight=36in]{baposter}
 
 \usepackage{calc}
 \usepackage{graphicx}
@@ -13,6 +13,8 @@
 \usepackage{amsthm} 
 \usepackage{amssymb}
 \usepackage{amsmath}
+
+\usepackage{graphicx}
 
 \newtheorem{corollary}{Corollary}
 \newtheorem{conjecture}{Conjecture}
@@ -224,6 +226,8 @@
   Suppose that $F_{a,b} \sim F_{a',b'}$ where $\sim$ is the equivalence relation of Lemma 1. Then $|V(F_{a,b})| = |V(F_{a',b'})|$
 
 \end{theorem}
+
+\includegraphics[width=11cm]{clases}
  % \begin{example*}
  %    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the cardinalities are equal the value sets are not.
  %  \end{example*}
@@ -285,7 +289,7 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
 
 The number of polynomials in each cell is the least common multiple of $d_1$ and $d_2$.
 
-\textbf{PONER UNA CADENA DE UNA DE LAS CELDAS DEL DIBUJO}
+$$(4, 3), (34, 34), (30, 3), (33, 34), (3, 3), (7, 34)$$
 
 \begin{proposition}
   
@@ -311,7 +315,25 @@ A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| =
     The number of permutation polynomials of the form $F_{a, b}(x)$ is a multiple of $lcm(d_1,d_2)$.
   \end{corollary}
 
-\textbf{BEGIN TABLAAAAAAAAAAAAAAAAAAAAAA}
+  \begin{center}
+    \begin{tabular}{ | l | c || r | }
+      \hline 
+      $\mathbb{F}_q$  & $d_1, d_2$ & number of pp \\
+      \hline
+      $\mathbb{F}_{11}$ &    1, 2    &  36 \\
+      $\mathbb{F}_{11}$ &    2, 2    &  46 \\
+      $\mathbb{F}_{11}$ &   10, 5    &  10 \\  
+      \hline
+      $\mathbb{F}_{31}$ &    5, 1    &  30 \\
+      $\mathbb{F}_{31}$ &    6, 2    &  18 \\
+      $\mathbb{F}_{31}$ &   10, 10   &  30 \\
+      \hline                   
+      $\mathbb{F}_{37}$ &    2, 3    &  12 \\
+      $\mathbb{F}_{37}$ &    2, 4    &  132 \\
+      $\mathbb{F}_{37}$ &    6, 6    &  36 \\
+      \hline 
+    \end{tabular}
+  \end{center}
 
   }\label{Future Work}
 
@@ -329,13 +351,15 @@ A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| =
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{References}{name=references,column=2,above=bottom,below=future}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{PONER NUMEROS}
-  {\small \begin{itemize}
-      \item Panario, D., Mullen, G., \textit{Handbook of Finite Fields}. CRC Press (2013).
-      \item Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
-      \item Mullen, G., Stevens H. \textit{Polynomial Functions (mod $m$)}. Acta Math. Hung. 44(3-4) (1984), 237-241.
-    \end{itemize}}
+  \begingroup
+  \renewcommand{\section}[2]{}%
+  {\small \begin{thebibliography}{}
+      \bibitem{main} Panario, D., Mullen, G., \textit{Handbook of Finite Fields}. CRC Press (2013).
+      \bibitem{main} Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
+      \bibitem{main} Mullen, G., Stevens H. \textit{Polynomial Functions (mod $m$)}. Acta Math. Hung. 44(3-4) (1984), 237-241.
+    \end{thebibliography}}
    \vspace{0.3em}
+   \endgroup
   }\label{References}
 
 \end{poster}

@@ -2,15 +2,15 @@ count = 0 # cuente los PP
 
 l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados
 
-p = 13 # Tamano del  cuerpo
+p = 37 # Tamano del  cuerpo
 
 d_1 = 2
 
 d_2 = 3
 
-a = 3
+a = 4
 
-b = 5
+b = 3
 
 k = GF(p) # Crea el CF 
 

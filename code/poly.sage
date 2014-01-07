@@ -23,13 +23,13 @@ def findab(p,d_1,d_2):
                                         if(x == (p-1)): # verifica si x llego al final de for
                                                 count = count + 1 # aumenta en 1 cuando encuentra un PP
                                                 l = set()
-                                                print str(a) + ", " +  str(b) # imprime la a y b que producieron el PP
+                                                #print str(a) + ", " +  str(b) # imprime la a y b que producieron el PP
                                                 pares.append([a,b])
                                 else: # si se repiten res
                                         l = set() # limpia la lista
                                         break # rompe el ciclo
-        print len(pares)
-        return pares
+        print d_1, d_2, len(pares)
+        #return pares
 
 def findab_general(p,d1,d2):
         """ Dado p primo, d1, d2 que dividan p-1, imprime todos los pares (a,b) tal que el polinomio general
@@ -130,3 +130,20 @@ def findxm(p,d,m):
                                         l = set() # limpia la lista
                                         break # rompe el ciclo
         print count
+
+def toa_laj_cadenaj(p, d1, d2):
+    procesado = []
+    for i in range(0, p):
+        for j in range(0, p):
+            cadena = cadena_sola(p,d1,d2,i,j)
+            print cadena
+            procesado.append([i,j])
+
+def tablita_e_ive (p):
+    for d1 in range(1, p):
+        for d2 in  range(1, p):
+            if (p-1)%d1 == 0 and (p-1)%d2 == 0:
+                findab(p, d1, d2)
+
+
+
