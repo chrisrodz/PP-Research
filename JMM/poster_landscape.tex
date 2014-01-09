@@ -203,7 +203,7 @@ We define a relation to construct equivalence classes of polynomials with value 
 
 \begin{definition}\label{relacion}
 
-  Let $a = \alpha^i, b = \alpha^j$ where $\alpha$ is a primitive root in $\mathbb{F}_q$ and $\sim$ be the relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$ defined by $(a,b) \sim (a', b')$ 
+  Let $a = \alpha^i, b = \alpha^j$, where $\alpha$ is a primitive root in $\mathbb{F}_q$, and $\sim$ be the relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$ defined by $(a,b) \sim (a', b')$ 
 
   $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$, where $h \in \mathbb{Z}$.
 
@@ -226,7 +226,7 @@ We define a relation to construct equivalence classes of polynomials with value 
   This provides a construction for polynomials with value sets of the same cardinality. 
 \begin{theorem}
   
-  Suppose that $F_{a,b} \sim F_{a',b'}$ where $\sim$ is the equivalence relation of Lemma 1. Then $|V(F_{a,b})| = |V(F_{a',b'})|$
+  Suppose that $F_{a,b} \sim F_{a',b'}$ where $\sim$ is the equivalence relation of Lemma 1. Then $|V(F_{a,b})| = |V(F_{a',b'})|$.
 
 \end{theorem}
 
@@ -294,7 +294,7 @@ This work has been supported by a grant from the Center of Undergraduate Researc
 
 \end{proposition}
 
-Starting from one polynomial we can construct $lcm(d_1, d_2)$ other polynomials:
+Starting from one polynomial we can construct $lcm(d_1, d_2)$ other polynomials with value sets of the same cardinality:
 $$(\alpha^{2}, \alpha^{26}), (\alpha^{8}, \alpha^{8}), (\alpha^{14}, \alpha^{26}), (\alpha^{20}, \alpha^{8}), (\alpha^{26}, \alpha^{26}), (\alpha^{32}, \alpha^{8})$$
   
     \begin{theorem}\label{laprop}
@@ -326,7 +326,7 @@ A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| =
 
  \item The encryption operator of some cryptosystems is a permutation of a finite field $\mathbb{F}_{q}$ and needs to be efficiently computable. Expressing this operator in terms of a polynomial is simple and efficient.
 
- \item Polynomials with minimal value sets are connected with curves with a large number of rational points.  
+ \item Polynomials with minimal value sets are related with curves with a large number of rational points.  
 
  \end{itemize}
 }\label{Applications}
@@ -339,7 +339,6 @@ A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| =
   {\small \begin{thebibliography}{}
       \bibitem{main} Panario, D., Mullen, G., \textit{Handbook of Finite Fields}. CRC Press (2013).
       \bibitem{main} Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
-      \bibitem{main} Mullen, G., Stevens H. \textit{Polynomial Functions (mod $m$)}. Acta Math. Hung. 44(3-4) (1984), 237-241.
       \bibitem{main} Borges, H., Conceicao R. \textit{On the characterization of minimal value set polynomial}. Journal of Number Theory 133 (2013) 2021-2035.
     \end{thebibliography}}
    \endgroup
