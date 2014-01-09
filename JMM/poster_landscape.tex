@@ -199,11 +199,12 @@
   \headerbox{Results - Value Sets}{name=contribution,column=1,below=problem,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    We define a relation to construct equivalence classes of polynomials with value sets of the same cardinality.
+We define a relation to construct equivalence classes of polynomials with value sets of the same cardinality.
 
 \begin{definition}\label{relacion}
 
   Let $a = \alpha^i, b = \alpha^j$ where $\alpha$ is a primitive root in $\mathbb{F}_q$ and $\sim$ be the relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$ defined by $(a,b) \sim (a', b')$ 
+
   $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$, where $h \in \mathbb{Z}$.
 
 \end{definition}
@@ -252,7 +253,7 @@
 \end{definition*}
 
 \begin{definition*}
-  A \textbf{primitive root} $\alpha \in \mathbb{F}_q$ is a generator for the multiplicative group $\mathbb{F}_{q}^{*}$
+  A \textbf{primitive root} $\alpha \in \mathbb{F}_q$ is a generator for the multiplicative group $\mathbb{F}_{q}^{*}$.
 \end{definition*}
 
 \begin{example*}
@@ -304,7 +305,12 @@ $$(4, 3), (34, 34), (30, 3), (33, 34), (3, 3), (7, 34)$$
  %    All of these polynomials have the same cardinality, although they have different value sets.
  %  \end{example*}
 
-There can be more than one cell with value sets of the same cardinality.
+%There can be more than one cell with value sets of the same cardinality.
+
+Starting from one polynomial we can construct lcm($d_1, d_2$) other polynomials.
+
+$$(4, 3), (34, 34), (30, 3), (33, 34), (3, 3), (7, 34)$$
+
   
     \begin{theorem}\label{laprop}
     The number of polynomials of the form $F_{a, b}(X)$ with $|V_{a, b}| = n$ is a multiple of $lcm(d_1,d_2)$.
@@ -323,8 +329,8 @@ A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| =
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{itemize}
     \item Study our results on the family of polynomials of the form $F_{a,b}(X) = X^m(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$
-    \item Find the possible cardinalities of the value sets.
     \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$ and $V_{a,b}$ is of minimal cardinality.
+    \item Collect data on the number of permutation polynomials of this form for different values of $d_1$ and $d_2$ and compare results with the number of binomial permutation polynomials.
   \end{itemize}
 }\label{Applications}
 
