@@ -199,17 +199,17 @@
   \headerbox{Results - Value Sets}{name=contribution,column=1,below=problem,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    We define a relation to construct equivalence classes of polynomials with value sets of the same cardinality.
+    Let $\alpha$ be a primitive root of $\mathbb{F}_{q}$ we define a relation to construct equivalence classes of polynomials with value sets of the same cardinality.
 
 \begin{definition}\label{relacion}
 
   Let $a = \alpha^i, b = \alpha^j$ and $\sim$ be the relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$ defined by $(a,b) \sim (a', b')$ 
-  $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$, where $h \in \mathbb{Z}$
+  $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$, where $h \in \mathbb{Z}$.
 
 \end{definition}
   \begin{example*}
     Let $q = 13, d_1 = 2, d_2 = 3$, then we have $\alpha = 2$ and take $a = 2^2 = 4, b = 2^3 = 8$. Now $(a,b) \sim (a',b')$ if and only if
-    $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(2^2,2^3) \sim (2^{2+2},2^{3+6})$
+    $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(2^2,2^3) \sim (2^{2+2},2^{3+6})$.
   \end{example*}
 \begin{lemma}
   
@@ -250,7 +250,7 @@
 \end{definition*}
 
 \begin{definition*}
-  A \textbf{primitive root} $\alpha \in \mathbb{F}_q$ is a generator for the multiplicative group $\mathbb{F}_{q}^{*}$
+  A \textbf{primitive root} $\alpha \in \mathbb{F}_q$ is a generator for the multiplicative group $\mathbb{F}_{q}^{*}$.
 \end{definition*}
 
 \begin{example*}
@@ -258,7 +258,7 @@
 \end{example*}
 
 \begin{definition*}
-  Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. Then the \textbf{value set} of $f$ is defined as $V_{f} = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$
+  Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. The \textbf{value set} of $f$ is defined as $V_{f} = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$.
 \end{definition*}
 
 Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation polynomial if and only if  $V_{f} = \mathbb{F}_{q}$.
@@ -270,7 +270,7 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
   \headerbox{Motivation}{name=motivation,column=0,below=preliminaries}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
-  Binomials that produce permutations of finite fields have been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ where $d_1 | (q-1)$ and $d_2 | (q-1)$  there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
+  Binomials that produce permutations of finite fields have been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
 
 }\label{Motivation}
 
@@ -290,10 +290,6 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
   \headerbox{Results - Permutation Polynomials}{name=work,column=2}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The number of polynomials in each cell is the least common multiple of $d_1$ and $d_2$.
-
-$$(4, 3), (34, 34), (30, 3), (33, 34), (3, 3), (7, 34)$$
-
 \begin{proposition}
   
   $|[F_{a, b}]| = lcm(d_1,d_2)$.
@@ -306,16 +302,21 @@ $$(4, 3), (34, 34), (30, 3), (33, 34), (3, 3), (7, 34)$$
  %    All of these polynomials have the same cardinality, although they have different value sets.
  %  \end{example*}
 
-There can be more than one cell with value sets of the same cardinality.
+%There can be more than one cell with value sets of the same cardinality.
+
+Starting from one polynomial we can construct lcm($d_1, d_2$) other polynomials.
+
+$$(4, 3), (34, 34), (30, 3), (33, 34), (3, 3), (7, 34)$$
+
   
     \begin{theorem}\label{laprop}
-    The number of polynomials of the form $F_{a, b}(x)$ with $|V_{a, b}| = n$ is a multiple of $lcm(d_1,d_2)$.
+    The number of polynomials of the form $F_{a, b}(X)$ with $|V_{a, b}| = n$ is a multiple of $lcm(d_1,d_2)$.
   \end{theorem}
 
 A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| = q$, when we have permutation polynomials. Also, the construction above provides a way to obtain families of permutation polynomials.
 
   \begin{corollary}
-    The number of permutation polynomials of the form $F_{a, b}(x)$ is a multiple of $lcm(d_1,d_2)$.
+    The number of permutation polynomials of the form $F_{a, b}(X)$ is a multiple of $lcm(d_1,d_2)$.
   \end{corollary}
 
   \begin{center}
@@ -347,6 +348,7 @@ A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| =
     \item Study our results on the family of polynomials of the form $F_{a,b}(X) = X^m(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$
     \item Find the possible cardinalities of the value sets.
     \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$ and $V_{a,b}$ is of minimal cardinality.
+    \item Collect data on the number of permutation polynomials of this form for different values of $d_1$ and $d_2$ and compare results with the number of binomial permutation polynomials.
   \end{itemize}
 }\label{Applications}
 
