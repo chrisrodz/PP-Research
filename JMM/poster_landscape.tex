@@ -154,7 +154,7 @@
   % Eye Catcher
   {\includegraphics[height=8em,keepaspectratio=true]{images/logo_uprrp}} 
   % Title
-  {\bf\textsc{On a Class of Permutation Polynomials}\vspace{0.1em}}
+  {\bf\textsc{Number of Permutation Polynomials}\vspace{0.1em}}
   % Authors
   {\color{white}{\textsc{Christian A. Rodr\'{\i}guez; Alex D. Santos; Ivelisse Rubio; Francis Castro; \\ Department of Computer Science, \\ University of Puerto Rico, Rio Piedras Campus}}}
   % University logo
@@ -199,18 +199,21 @@
   \headerbox{Results - Value Sets}{name=contribution,column=1,below=problem,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    Let $\alpha$ be a primitive root of $\mathbb{F}_{q}$ we define a relation to construct equivalence classes of polynomials with value sets of the same cardinality.
+We define a relation to construct equivalence classes of polynomials with value sets of the same cardinality.
 
 \begin{definition}\label{relacion}
 
-  Let $a = \alpha^i, b = \alpha^j$ and $\sim$ be the relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$ defined by $(a,b) \sim (a', b')$ 
+  Let $a = \alpha^i, b = \alpha^j$ where $\alpha$ is a primitive root in $\mathbb{F}_q$ and $\sim$ be the relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$ defined by $(a,b) \sim (a', b')$ 
+
   $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$, where $h \in \mathbb{Z}$.
 
 \end{definition}
+
   \begin{example*}
     Let $q = 13, d_1 = 2, d_2 = 3$, then we have $\alpha = 2$ and take $a = 2^2 = 4, b = 2^3 = 8$. Now $(a,b) \sim (a',b')$ if and only if
     $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(2^2,2^3) \sim (2^{2+2},2^{3+6})$.
   \end{example*}
+
 \begin{lemma}
   
   The relation $\sim$ in Def~\ref{relacion} is an equivalence relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$.
@@ -227,7 +230,7 @@
 
 \end{theorem}
 
-\includegraphics[width=11cm, height=5.5cm]{clases}
+\includegraphics[width=11cm, height=6cm]{clases}
 
  % \begin{example*}
  %    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the cardinalities are equal the value sets are not.
@@ -273,16 +276,13 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
 }\label{Motivation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Applications}{name=applications,column=0,below=motivation,above=bottom}{
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \begin{itemize}
+  \headerbox{Acknowledgements}{name=acknowledgement,column=0,below=motivation,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+This work has been supported by a grant from the Center of Undergraduate Research in Mathematics (CURM) from Brigham Young University. Travel funds were provided by the MAA and the University of Puerto Rico, Rio Piedras.
 
- \item The encryption operator of some cryptosystems is a permutation of a finite field $\mathbb{F}_{q}$ and needs to be efficiently computable. Expressing this operator in terms of a polynomial is simple and efficient.
+}\label{Motivation}
 
- \item Polynomials with minimal value sets have been connected with curves with a large number of rational points.  
-
- \end{itemize}
-}\label{Applications}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Results - Permutation Polynomials}{name=work,column=2}{
@@ -293,6 +293,9 @@ Note that a polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation pol
   $|[F_{a, b}]| = lcm(d_1,d_2)$.
 
 \end{proposition}
+
+Starting from one polynomial we can construct $lcm(d_1, d_2)$ other polynomials:
+$$(4, 3), (34, 34), (30, 3), (33, 34), (3, 3), (7, 34)$$
 
  % \begin{example*}
  %    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$. These are the elements of $[F_{a,b}]$:
@@ -317,26 +320,6 @@ A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| =
     The number of permutation polynomials of the form $F_{a, b}(X)$ is a multiple of $lcm(d_1,d_2)$.
   \end{corollary}
 
-  \begin{center}
-    \begin{tabular}{ | l | c || r | }
-      \hline 
-      $\mathbb{F}_q$  & $d_1, d_2$ & number of pp \\
-      \hline
-      $\mathbb{F}_{11}$ &    1, 2    &  36 \\
-      $\mathbb{F}_{11}$ &    2, 2    &  46 \\
-      $\mathbb{F}_{11}$ &   10, 5    &  10 \\  
-      \hline
-      $\mathbb{F}_{31}$ &    5, 1    &  30 \\
-      $\mathbb{F}_{31}$ &    6, 2    &  18 \\
-      $\mathbb{F}_{31}$ &   10, 10   &  30 \\
-      \hline                   
-      $\mathbb{F}_{37}$ &    2, 3    &  12 \\
-      $\mathbb{F}_{37}$ &    2, 4    &  132 \\
-      $\mathbb{F}_{37}$ &    6, 6    &  36 \\
-      \hline 
-    \end{tabular}
-  \end{center}
-
   }\label{Future Work}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,15 +327,25 @@ A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| =
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{itemize}
     \item Study our results on the family of polynomials of the form $F_{a,b}(X) = X^m(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$
-    \item Find the possible cardinalities of the value sets.
     \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$ and $V_{a,b}$ is of minimal cardinality.
     \item Collect data on the number of permutation polynomials of this form for different values of $d_1$ and $d_2$ and compare results with the number of binomial permutation polynomials.
   \end{itemize}
 }\label{Applications}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Applications}{name=applications,column=2,below=future}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{itemize}
+
+ \item The encryption operator of some cryptosystems is a permutation of a finite field $\mathbb{F}_{q}$ and needs to be efficiently computable. Expressing this operator in terms of a polynomial is simple and efficient.
+
+ \item Polynomials with minimal value sets are connected with curves with a large number of rational points.  
+
+ \end{itemize}
+}\label{Applications}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{References}{name=references,column=2,above=bottom,below=future}{
+  \headerbox{References}{name=references,column=2,above=bottom,below=applications}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begingroup
   \renewcommand{\section}[2]{}%
@@ -360,6 +353,7 @@ A direct result of Theorem~\ref{laprop} is the specific case where $|V_{a, b}| =
       \bibitem{main} Panario, D., Mullen, G., \textit{Handbook of Finite Fields}. CRC Press (2013).
       \bibitem{main} Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
       \bibitem{main} Mullen, G., Stevens H. \textit{Polynomial Functions (mod $m$)}. Acta Math. Hung. 44(3-4) (1984), 237-241.
+      \bibitem{main} Borges, H., Conceicao R. \textit{On the characterization of minimal value set polynomial}. Journal of Number Theory 133 (2013) 2021-2035.
     \end{thebibliography}}
    \vspace{0.3em}
    \endgroup
