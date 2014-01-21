@@ -94,15 +94,13 @@ Given $q=p^r$, $d_1$ and $d_2$, we construct partitions of polynomials of the fo
 
 Permutation polynomials over finite fields are important in many applications, for example in cryptography. Binomials that produce permutations have been studied extensively. The next case to be studied are trinomials. We want to provide families of polynomials that are rich in permutation polynomials. We have found that within the family of polynomials of the form $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ where $d_1 | (q-1)$ and $d_2 | (q-1)$  there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
 
-An example of applications of permutation polynomials over finite fields are RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is a permutation of the field $\mathbb{F}_{q}$ and needs to be efficiently computable. It is easy to see that expressing this operator in terms of a permutation polynomial is simple and efficient.
+An example of applications of permutation polynomials over finite fields are RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is a permutation of the field $\mathbb{F}_{q}$ and needs to be efficiently computable. It is easy to see that expressing this operator in terms of a permutation polynomial is simple and efficient. Polynomials with minimal value sets are related with ellyptic curves with a large number of rational points.
 
 The rest of this report goes as follows: In the preliminaries section we present definitions pertinent to our work. Afterwards, in the following section we present our results related to the value sets of our polynomial $F_{a,b}(X)$. In the next section we talk about our ongoing work and current open problems.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 \begin{definition}
   A \textbf{permutation} of a set $A$ is an ordering of the elements of $A$. A function $f: A \rightarrow A$ gives a permutation of $A$ if and only if $f$ is one to one and onto.
@@ -159,19 +157,7 @@ Recall now that we are interested in studying the family of polynomials $F_{a,b}
 \section{Motivation}    
 %%%%%%%%%%%%%%%%%%%%
 
-Binomials that produce permutations of finite fields have been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
-
-%%%%%%%%%%%%%%%%%%%%
-\section{Applications}    
-%%%%%%%%%%%%%%%%%%%%
-
- \begin{itemize}
-
- \item The encryption operator of some cryptosystems is a permutation of a finite field $\mathbb{F}_{q}$ and needs to be efficiently computable. Expressing this operator in terms of a polynomial is simple and efficient.
-
- \item Polynomials with minimal value sets are related with curves with a large number of rational points.  
-
- \end{itemize}
+All of the information about Permutation Monomials is known. Binomials that produce permutations of finite fields have also been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -305,11 +291,11 @@ The construction in Proof~\ref{construction_proof} gives a way to construct a se
 
 Finally, our last result uses all of our previous lemmas to provide information about the number of polynomials of the form $F_{a,b}(X)$ with a specific size of value set.
 
-\begin{prop}
+\begin{theorem}
 
   The number of polynomials $F_{a', b'}(x)$ with $|V_{a, b}| = n$ is a multiple of $lcm(d_1,d_2)$
 
-\end{prop}
+\end{theorem}
     
 A specific case of the previous proposition is the case where $|V_{a, b}| = q$ that is, when we have permutation polynomials
 
@@ -317,15 +303,21 @@ A specific case of the previous proposition is the case where $|V_{a, b}| = q$ t
   The number of permutation polynomials $F_{a', b'}(x)$ is a multiple of $lcm(d_1,d_2)$  
 \end{corollary}
 
-\vspace{0.7em}
-\includegraphics[width=11cm, height=6cm]{clases}
-\vspace{0.3em}
+In Figure 1 we show an example of a complete set of pairs $(a,b)$. Here we have the values $q=37, d_1=2, d_2=3$ and show some of the classes of equivalence in $[a,b]$. Note that although the value set of $F_{a,b}$ with $(a,b)$ in the same class is the same, the pairs $(a,b)$ themselves are not. Furthermore we can construct the complete class $[a,b]$ using just one pair $(a,b)$ and the construction in proof~\ref{construction_proof}.
+
+\begin{figure}
+  \includegraphics[width=11cm, height=6cm]{clases}
+  \caption{A complete set of pairs $(a,b)$}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Ongoing work}    
 %%%%%%%%%%%%%%%%%%%%
-
+    
+    We have presented a class of trinomials that we expect produce many permutation polynomials. We have also presented a way to construct polynomials, given one of this family, with value sets of the same cardinality. This construction allows us to produce more permutation polynomials once we are given one. We wish to expand this work in the following ways:
     \begin{itemize}
+    \item Find necessary and sufficient conditions on the parameters $(a,b)$ such that $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ is a permutation polynomial.
     \item Study our results on the family of polynomials of the form $F_{a,b}(X) = X^m(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$
     \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$ and $V_{a,b}$ is of minimal cardinality.
     \item Collect data on number of permutation polynomials of this form for different values of $d_1$ and $d_2$ and compare results with number of permutation binomials.
@@ -338,12 +330,10 @@ A specific case of the previous proposition is the case where $|V_{a, b}| = q$ t
   This work has been supported by a grant from the Center of Undergraduate Research in Mathematics (CURM) from Brigham Young University. Travel funds were provided by the MAA and the University of Puerto Rico, Rio Piedras.
  
 \begin{thebibliography}{}
-
-  \item Lidl, Rudolf, and Harald Niederreiter. \textit{Finite Fields}. Reading, Mass.: Addison-Wesley Pub. Co., Advanced Book Program/World Science Division, 1983. Print. 
-  \item Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
-  \item Mullen, G., Stevens H. \textit{Polynomial Functions (mod $m$)}. Acta Math. Hung. 44(3-4) (1984), 237-241.
-
-\end{thebibliography}
+      \bibitem{main} Panario, D., Mullen, G., \textit{Handbook of Finite Fields}. CRC Press (2013).
+      \bibitem{main} Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
+      \bibitem{main} Borges, H., Conceicao R. \textit{On the characterization of minimal value set polynomial}. Journal of Number Theory 133 (2013) 2021-2035.
+    \end{thebibliography}
 
 \end{document}
 
