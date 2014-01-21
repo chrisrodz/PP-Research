@@ -92,7 +92,7 @@ Given $q=p^r$, $d_1$ and $d_2$, we construct partitions of polynomials of the fo
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Permutation polynomials over finite fields are important in many applications, for example in cryptography. Binomials that produce permutations have been studied extensively. The next case to be studied are trinomials. We want to provide families of polynomials that are rich in permutation polynomials. We have found that within the family of polynomials of the form $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ where $d_1 | (q-1)$ and $d_2 | (q-1)$  there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
+Permutation polynomials over finite fields are important in many applications, for example in cryptography and coding theory. Monomials and binomials that produce permutations have been studied extensively making trinomials the next step to be studied. Our goal is to provide families of polynomials that are rich in permutation polynomials. While experimenting with trinomials, we found that within the family of polynomials of the form $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ where $d_1 | (q-1)$ and $d_2 | (q-1)$  there are many permutation polynomials. In addition to the amount of permutation polynomials this family provides we also saw interesting patterns in the value sets. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family and the relation between the value sets and the permutation polynomials.
 
 An example of applications of permutation polynomials over finite fields are RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is a permutation of the field $\mathbb{F}_{q}$ and needs to be efficiently computable. It is easy to see that expressing this operator in terms of a permutation polynomial is simple and efficient. Polynomials with minimal value sets are related with ellyptic curves with a large number of rational points.
 
@@ -157,13 +157,13 @@ Recall now that we are interested in studying the family of polynomials $F_{a,b}
 \section{Motivation}    
 %%%%%%%%%%%%%%%%%%%%
 
-All of the information about Permutation Monomials is known. Binomials that produce permutations of finite fields have also been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
+As we stated in the introduction permutation polynomias over finite fields have many applications in criptography and coding theory but at the same time are a a very extense and complicated field of study. Because of that people have decided to study permutation polynomials by . All of the information about Permutation Monomials is known. Binomials that produce permutations of finite fields have also been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Results}
 %%%%%%%%%%%%%%%%%%%%
 
-Given $q$, $d_1$ and $d_2$ the value set of a particular polynomial $F_{a,b}(x)$ is characterized by the pair of coefficients $(a,b)$. In order to simplify notation we use the following definition for value sets.
+Given $q$, $d_1$ and $d_2$ the value set of a particular polynomial $F_{a,b}(X)$ is characterized by the pair of coefficients $(a,b)$. In order to simplify notation we use the following definition for value sets.
 
 \begin{definition}
   Let $d_1, d_2 \in \mathbb{F}_q$ be such that $d_1 \mid q$ and $d_2 \mid q$. We define the polynomial $F_{a,b}(x) = x(x^{\frac{q-1}{d_1}} + ax^{\frac{q-1}{d_2}} +b)$ with $a,b \in \mathbb{F}_q^{*}$ and $V(F_{a,b}) = Im(F_{a,b}(x))$.
@@ -259,7 +259,7 @@ Given that our relation $\sim$ is an equivalence relation, we study the value se
 \end{proof}
 
  \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the sizes are equal the value sets are not.
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4 = \alpha^2, b = 8 = \alpha^3 $ where $\alpha = 2$. Since $(2^2,2^3) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the sizes are equal the value sets are not.
   \end{example}
 
 Recall that our family of polynomials $F_{a,b}(X) \in \mathbb{F}_{q}[x]$ depends on a specific choice of $d_1$ and $d_2$. We want to know the number of polynomials in each equivalence class. The next lemma gives an exact number for any class of equivalence $[F_{a,b}]$ in terms of $d_1$ and $d_2$.
