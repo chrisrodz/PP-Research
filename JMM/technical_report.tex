@@ -92,7 +92,7 @@ Given $q=p^r$, $d_1$ and $d_2$, we construct partitions of polynomials of the fo
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Permutation polynomials over finite fields are important in many applications, for example in cryptography and coding theory. Monomials and binomials that produce permutations have been studied extensively making trinomials the next step to be studied. Our goal is to provide families of polynomials that are rich in permutation polynomials. While experimenting with trinomials, we found that within the family of polynomials of the form $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ where $d_1 | (q-1)$ and $d_2 | (q-1)$  there are many permutation polynomials. In addition to the amount of permutation polynomials this family provides we also saw interesting patterns in the value sets. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family and the relation between the value sets and the permutation polynomials.
+Permutation polynomials over finite fields are important in many applications, for example in cryptography and coding theory. Monomials and binomials that produce permutations have been studied extensively making trinomials the next step to be studied. Our goal is to provide families of polynomials that are rich in permutation polynomials. While experimenting with trinomials, we found that within the family of polynomials of the form $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ where $d_1 | (q-1)$ and $d_2 | (q-1)$  there are many permutation polynomials. In addition to the amount of permutation polynomials this family provides, we also saw interesting patterns in the value sets. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family. Also we want to study the relation between the value sets and the permutation polynomials. 
 
 An example of applications of permutation polynomials over finite fields are RSA-type cryptosystems. In some of these systems secret messages are encoded as elements of a field $\mathbb{F}_{q}$ with a sufficiently large $q$. The encryption operator used for these systems is a permutation of the field $\mathbb{F}_{q}$ and needs to be efficiently computable. It is easy to see that expressing this operator in terms of a permutation polynomial is simple and efficient. Polynomials with minimal value sets are related with ellyptic curves with a large number of rational points.
 
@@ -130,7 +130,7 @@ An important property across our work is the existence of a primitive root for a
   Consider $\mathbb{F}_{7}$. Since $2^1 = 2, 2^2 = 4, 2^3 = 1, 2^4 = 2,$ $ 2^5 = 4, 2^6 = 1$, $2$ is not a primitive root of $\mathbb{F}_{7}$.
 \end{example}
 
-Given a polynomial defined over a finite field, we study the image of this polynomial. We call this image the value set of the polynomial.
+Because of the patterns in the value sets we mentioned earlier, given a polynomial defined over a finite field, we study the image of this polynomial. We call this image the value set of the polynomial.
 
 \begin{definition}
   Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. Then the \textbf{value set} of $f$ is defined as $V(f) = Im(f) = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$
@@ -157,7 +157,7 @@ Recall now that we are interested in studying the family of polynomials $F_{a,b}
 \section{Motivation}    
 %%%%%%%%%%%%%%%%%%%%
 
-As we stated in the introduction permutation polynomias over finite fields have many applications in criptography and coding theory but at the same time are a a very extense and complicated field of study. Because of that people have decided to study permutation polynomials by . All of the information about Permutation Monomials is known. Binomials that produce permutations of finite fields have also been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
+As we stated in the introduction permutation polynomias over finite fields have many applications in cryptography and coding theory but at the same time are a very extense and complicated field of study. Because of that people have decided to study permutation polynomials by . All of the information about Permutation Monomials is known. Binomials that produce permutations of finite fields have also been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Results}
