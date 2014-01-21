@@ -7,10 +7,10 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 
-
+\usepackage{graphicx}
 
 \newcommand{\C}{\mathcal{C}}
-\newcommand{\sN}{\mathcal{N}}
+\newcommand{\sN}{\mathcal{N}} 
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\X}{\mathbf{X}}
 \newcommand{\T}{\mathcal{T}}
@@ -77,12 +77,14 @@
 
 \title{On a Class of Permutation Polynomials over Finite Fields}
 
-\author{Christian A. Rodriguez Encarnacion \\ Alex D. Santos Sosa}
+\author{Christian A. Rodriguez Encarnacion \\ Alex D. Santos Sosa \\ Ivelisse Rubio \\ Francis Castro}
 
 \maketitle
 
 \begin{abstract}
-Permutation polynomials over finite fields are important in many applications, for example in coding theory and cryptography. Our goal is to provide families of polynomials that are rich in permutation polynomials, and study polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right)$, where $a,b \in F_{q}$, $q=p^r$, $p$ prime, $d_1 \mid (q-1)$ and $d_2 \mid (q-1)$. We prove that the number of polynomials of the form $F_{a,b}(X)$ with value set of size $\left\vert V_{F_{a,b}} \right\vert =n$ is a multiple of $lcm(d_1,d_2)$ and give a construction where, given a permutation polynomial $F_{a,b}(X)$ of $\mathbb{F}_q$, we can construct a list of $lcm(d_1,d_2)$ coefficients $[a',b']$ such that $F_{a',b'}(X)$ is also a permutation polynomial of $\mathbb{F}_q$.
+Given $q=p^r$, $d_1$ and $d_2$, we construct partitions of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right)$, where $a,b \in \mathbb{F}_{q}^{*}$, that have value sets of the same cardinality. As a consequence we provide families of permutation polynomials and of polynomials with small value sets. 
+
+%Permutation polynomials over finite fields are important in many applications, for example in coding theory and cryptography. Our goal is to provide families of polynomials that are rich in permutation polynomials, and study polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right)$, where $a,b \in F_{q}$, $q=p^r$, $p$ prime, $d_1 \mid (q-1)$ and $d_2 \mid (q-1)$. We prove that the number of polynomials of the form $F_{a,b}(X)$ with value set of size $\left\vert V_{F_{a,b}} \right\vert =n$ is a multiple of $lcm(d_1,d_2)$ and give a construction where, given a permutation polynomial $F_{a,b}(X)$ of $\mathbb{F}_q$, we can construct a list of $lcm(d_1,d_2)$ coefficients $[a',b']$ such that $F_{a',b'}(X)$ is also a permutation polynomial of $\mathbb{F}_q$.
 \end{abstract}
 
 
@@ -152,6 +154,24 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V_{f} = \left\{0, 1, 4 \ri
 \end{example}
 
 Recall now that we are interested in studying the family of polynomials $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ defined over $\mathbb{F}_q$ where $d_1 | (q-1)$, $d_2 | (q-1)$ and $a,b \in \mathbb{F}_q^*$. Specifically, we are interested in studying the value set of $F_{a,b}(X)$ given a pair of coefficients $(a,b)$.
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Motivation}    
+%%%%%%%%%%%%%%%%%%%%
+
+Binomials that produce permutations of finite fields have been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Applications}    
+%%%%%%%%%%%%%%%%%%%%
+
+ \begin{itemize}
+
+ \item The encryption operator of some cryptosystems is a permutation of a finite field $\mathbb{F}_{q}$ and needs to be efficiently computable. Expressing this operator in terms of a polynomial is simple and efficient.
+
+ \item Polynomials with minimal value sets are related with curves with a large number of rational points.  
+
+ \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -297,14 +317,25 @@ A specific case of the previous proposition is the case where $|V_{a, b}| = q$ t
   The number of permutation polynomials $F_{a', b'}(x)$ is a multiple of $lcm(d_1,d_2)$  
 \end{corollary}
 
+\vspace{0.7em}
+\includegraphics[width=11cm, height=6cm]{clases}
+\vspace{0.3em}
+
 %%%%%%%%%%%%%%%%%%%%
 \section{Ongoing work}    
 %%%%%%%%%%%%%%%%%%%%
 
     \begin{itemize}
     \item Study our results on the family of polynomials of the form $F_{a,b}(X) = X^m(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$
-    \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$
+    \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$ and $V_{a,b}$ is of minimal cardinality.
+    \item Collect data on number of permutation polynomials of this form for different values of $d_1$ and $d_2$ and compare results with number of permutation binomials.
   \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Acknowledgements}
+%%%%%%%%%%%%%%%%%%%%
+
+  This work has been supported by a grant from the Center of Undergraduate Research in Mathematics (CURM) from Brigham Young University. Travel funds were provided by the MAA and the University of Puerto Rico, Rio Piedras.
  
 \begin{thebibliography}{}
 
