@@ -80,7 +80,7 @@
 
 \begin{document}
 
-\title{On a Class of Permutation Polynomials over Finite Fields}
+\title{Families of Permutation Polynomials over Finite Fields}
 
 \author{Christian A. Rodriguez Encarnacion \\ Alex D. Santos Sosa \\ Ivelisse Rubio \\ Francis Castro}
 
@@ -282,8 +282,8 @@ Recall that our family of polynomials $F_{a,b}(X) \in \mathbb{F}_{q}[x]$ depends
   Suppose that $a=\alpha^i$, $b=\alpha^j$. Note that we can obtain the elements of $[F_{a,b}]$ applying the transformation $f:(a,b) \rightarrow ( a\cdot\alpha^{(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b\cdot\alpha^{(\frac{q-1}{d_1})} )$ multiple times. Now note that:
 
   We obtain a set of coefficients 
-  $$[F_{a,b}] = \left\{ (\alpha^i,\alpha^j), (\alpha^{i+(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+(\frac{q-1}{d_1})}), (\alpha^{i+2(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+2(\frac{q-1}{d_1})}),\right\}$$ 
-  $$ \cup \left\{..., (\alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+h(\frac{q-1}{d_1})}) = (\alpha^i, \alpha^j) \right\}$$
+  $$[F_{a,b}] = \left\{ (\alpha^i,\alpha^j), (\alpha^{i+(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+(\frac{q-1}{d_1})}), (\alpha^{i+2(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+2(\frac{q-1}{d_1})}),\right.$$
+  $$ \left. ..., (\alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, \alpha^{j+h(\frac{q-1}{d_1})}) = (\alpha^i, \alpha^j) \right\}$$
 
   Therefore applying the transformation $lcm(d_1,d_2)$ times, we obtain a chain of elements in $[a,b]$. Now suppose that $c < lcm(d_1,d_2)$ such that $\alpha^{i+c(\frac{q-1}{d_1} - \frac{q-1}{d_2})} = \alpha^i$ and $\alpha^{j+c(\frac{q-1}{d_1})} = \alpha^j$. This implies that implica $\alpha^{c(\frac{q-1}{d_1} - \frac{q-1}{d_2})} = 1$, then $\alpha^{c(\frac{q-1}{d_1}) - c(\frac{q-1}{d_2})} = 1$, this is only possible if $c$ is a multiple of $d_1$ and $d_2$ but $c < lcm(d_1,d_2)$ and $lcm(d_1,d_2)$ is the smallest element such that this occurs. Therefore the amount of elements in the equivalence relation $[a,b]$ is equal to $lcm(d_1,d_2)$.
   
