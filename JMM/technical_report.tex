@@ -157,7 +157,7 @@ Recall now that we are interested in studying the family of polynomials $F_{a,b}
 \section{Motivation}    
 %%%%%%%%%%%%%%%%%%%%
 
-As we stated in the introduction permutation polynomias over finite fields have many applications in cryptography and coding theory but at the same time are a very extense and complicated field of study. Because of that people have decided to study permutation polynomials by . All of the information about Permutation Monomials is known. Binomials that produce permutations of finite fields have also been studied extensively. The next case to be studied are trinomials. We have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We want to find conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family.
+As we stated in the introduction permutation polynomias over finite fields have many applications in cryptography and coding theory but at the same time are a very broad field of study. The study of permutation polynomials is as follows. All of the information about permutation monomials is known. Binomials that produce permutations of finite fields have also been studied extensively. The next case to be studied are permutation trinomials. By experimenting with distinct types of polynomials we have found that within the family of polynomials of the form $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ there are many permutation polynomials. We wish to provide conditions in $a,b$ that guarantee that $F_{a,b}(X)$ is a permutation polynomial and count how many permutation polynomials exist in each family. In this way we wish to provide a rich way of obtaining and constructing permutation trinomials.
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -166,10 +166,10 @@ As we stated in the introduction permutation polynomias over finite fields have 
 Given $q$, $d_1$ and $d_2$ the value set of a particular polynomial $F_{a,b}(X)$ is characterized by the pair of coefficients $(a,b)$. In order to simplify notation we use the following definition for value sets.
 
 \begin{definition}
-  Let $d_1, d_2 \in \mathbb{F}_q$ be such that $d_1 \mid q$ and $d_2 \mid q$. We define the polynomial $F_{a,b}(x) = x(x^{\frac{q-1}{d_1}} + ax^{\frac{q-1}{d_2}} +b)$ with $a,b \in \mathbb{F}_q^{*}$ and $V(F_{a,b}) = Im(F_{a,b}(x))$.
+  Let $d_1, d_2 \in \mathbb{F}_q$ be such that $d_1 \mid q$ and $d_2 \mid q$. We define the polynomial $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ with $a,b \in \mathbb{F}_q^{*}$ and $V(F_{a,b}) = Im(F_{a,b}(X))$.
 \end{definition}
 
-For convenience we define a relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$ between pairs of coefficients $(a,b)$ of $F_{a,b}$. This will allow us to express our results in a simplified notation.
+Because the value set $V(F_{a,b})$ is characterized by the coefficients $(a,b)$ we study these pairs of coefficients. For convenience we define a relation in $\mathbb{F}_q^* \times \mathbb{F}_q^*$ between pairs of coefficients $(a,b)$ of $F_{a,b}$. This will allow us to express our results in a simplified notation.
 
 \begin{definition}\label{relacion}
 
@@ -205,7 +205,7 @@ Our first result provides a solid foundation for our work.
 
 The equivalence relation defined in Def~\ref{relacion} induces and equivalence relation in the set of polynomials of the form $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ with equivalence classes $[F_{a,b}] = [F_{\alpha^i, \alpha^j}] = \left\{\ F_{a',b'} | a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})} \right\}$
 
-Given that our relation $\sim$ is an equivalence relation, we study the value set $V(F_{a,b})$ in the context of the equivalence class $[F_{a,b}]$. Our next lemma states that all polynomials belonging to the same equivalence class have value sets of the same size. 
+Given that our relation $\sim$ is an equivalence relation, we study the value set $V(F_{a,b})$ in the context of the equivalence class $[F_{a,b}]$. It is important to note that since we are studying an equivalence relation we are considering all possible pairs of coefficients $(a,b)$, that is all possible polynomials $F_{a,b}(X)$ for a given $q, d_1, d_2$. Our next lemma states that all polynomials belonging to the same equivalence class have value sets of the same cardinality.
 
 \begin{lemma}
   
@@ -259,10 +259,12 @@ Given that our relation $\sim$ is an equivalence relation, we study the value se
 \end{proof}
 
  \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3, a = 4 = \alpha^2, b = 8 = \alpha^3 $ where $\alpha = 2$. Since $(2^2,2^3) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the sizes are equal the value sets are not.
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4 = \alpha^2, b = 8 = \alpha^3 $ where $\alpha = 2$. Since $(2^2,2^3) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the cardinalities are equal the value sets are not.
   \end{example}
 
-Recall that our family of polynomials $F_{a,b}(X) \in \mathbb{F}_{q}[x]$ depends on a specific choice of $d_1$ and $d_2$. We want to know the number of polynomials in each equivalence class. The next lemma gives an exact number for any class of equivalence $[F_{a,b}]$ in terms of $d_1$ and $d_2$.
+With this result, given a polynomial we can construct a new one that has the same cardinality. Specifically, given a permutation polynomial of the form $F_{a,b}(X)$ we can construct a new permutation polynomial $F_{a',b'}(X)$.
+
+Recall that our family of polynomials $F_{a,b}(X) \in \mathbb{F}_{q}[x]$ depends on a specific choice of $d_1$ and $d_2$. We want to know the number of polynomials in each equivalence class. The next lemma gives an exact number for any equivalence class $[F_{a,b}]$.
 
 \begin{lemma}
   
@@ -282,14 +284,14 @@ Recall that our family of polynomials $F_{a,b}(X) \in \mathbb{F}_{q}[x]$ depends
   
 \end{proof}
 
-The construction in Proof~\ref{construction_proof} gives a way to construct a set of $lcm(d_1,d_2)$ polynomials $F_{a',b'}$ with $|V(F_{a',b'})| = |V(F_{a,b})|$. In particular if $F_{a,b}$ is a permutation polynomial of $\mathbb{F}_q$ we can construct $lcm(d_1, d_2)$ other permutation polynomials of $\mathbb{F}_q$.
+The construction in Proof~\ref{construction_proof} gives a way to construct a set of $lcm(d_1,d_2)$ polynomials $F_{a',b'}$ with $|V(F_{a',b'})| = |V(F_{a,b})|$. In particular if $F_{a,b}$ is a permutation polynomial of $\mathbb{F}_q$ we can construct $lcm(d_1, d_2)$ other permutation polynomials in $\mathbb{F}_q[x]$.
 
  \begin{example}
     Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $F_{a,b}$:
     $$ F_{4, 8}, F_{3, 5}, F_{12, 8}, F_{9, 5}, F_{10, 8}, F_{1, 5}, F_{4,8} $$
   \end{example}
 
-Finally, our last result uses all of our previous lemmas to provide information about the number of polynomials of the form $F_{a,b}(X)$ with a specific size of value set.
+Finally, our last result follows very easily from the previous results and provides information about the number of polynomials of the form $F_{a,b}(X)$ with a specific size of value set.
 
 \begin{theorem}
 
