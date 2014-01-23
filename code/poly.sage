@@ -65,6 +65,32 @@ def findab_general(p,d1,d2):
         print len(pares)
         return pares
 
+def findab_new(p,d1,d2):
+        """ Dado p primo, d1, d2 que dividan p-1, imprime todos los pares (a,b) tal que el polinomio general
+         es un polinomio de permutacion y la cantidad de pares. Los devuelve tambien en forma de lista. """
+
+        count = 0 # cuente los PP       
+
+        l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
+
+
+        k = GF(p) # Crea el Cuerpo Finito F_p  
+
+        R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
+
+        pares = []
+
+        for a in range(1, p): # Fija a
+                R.<x> = PolynomialRing(GF(p),1,"x")
+                f = (x^(((p-1)/d1)+1)) + (a * x^(((p-1)/d2)+1)) + (a * x) # El polinomio
+                for x in range(0, p): # Evalua el poly
+                    for y in range(0, p):
+                            value = f(x)
+                            value_2 = f(y)
+                            if value == value_2 and y%(p-1) == x:
+                                print str(x), str(y), str(a)
+
+
 def get_valueset(p, f):
         """ Dado p primo y f un polinomio calcula el value set de f sobre F_p """
         vs = [] # Lista vacia para los valores del vs
