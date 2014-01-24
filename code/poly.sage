@@ -65,31 +65,76 @@ def findab_general(p,d1,d2):
         print len(pares)
         return pares
 
-def findab_new(p,d1,d2):
+def getaa(p, d1, d2):
+
+    """Esta funcion devuelve un set con los pares a,a que cumplen con la primera condicion
+    de la proposicion de ive. Es decir que Fa,a(alpha^i) != 0 para cualquier i"""
+
+    l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
+
+    k = GF(p) # Crea el Cuerpo Finito F_p  
+
+    R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
+
+    alpha = primitive_root(p)
+
+    for a in range(1, p): # Fija a
+
+        R.<x> = PolynomialRing(GF(p),1,"x")
+
+        f = (x^(((p-1)/d1))) + (a * x^(((p-1)/d2))) + a # El polinomio con a,a
+
+        for i in range (0, p): # deja correr las i
+            value = f(alpha^i) #calcula el valor del poly evaluado en la potencia de alpha
+            if value == 0: # si el poly evaluado = 0 rompe y se mueve a otro par a,a
+                break
+            elif i == (p-1): # de lo contrario guarda la a
+                l.add(a)
+    return l
+
+
+def findaa(p,d1,d2, m):
         """ Dado p primo, d1, d2 que dividan p-1, imprime todos los pares (a,b) tal que el polinomio general
          es un polinomio de permutacion y la cantidad de pares. Los devuelve tambien en forma de lista. """
 
-        count = 0 # cuente los PP       
-
         l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
-
 
         k = GF(p) # Crea el Cuerpo Finito F_p  
 
         R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
 
-        pares = []
+        alpha = primitive_root(p)
 
-        for a in range(1, p): # Fija a
-                R.<x> = PolynomialRing(GF(p),1,"x")
-                f = (x^(((p-1)/d1)+1)) + (a * x^(((p-1)/d2)+1)) + (a * x) # El polinomio
-                for x in range(0, p): # Evalua el poly
-                    for y in range(0, p):
-                            value = f(x)
-                            value_2 = f(y)
-                            if value == value_2 and y%(p-1) == x:
-                                print str(x), str(y), str(a)
+        d = lcm(d1, d2)
 
+        l = getaa(p, d1, d2) # busca las a que satisfacen la primera cond
+
+        for a in l: # para cada a
+
+            flag  = 0
+
+            R.<x> = PolynomialRing(GF(p),1,"x")
+
+            f = (x^(((p-1)/d1))) + (a * x^(((p-1)/d2))) + a # El polinomio
+
+            for r1 in range (0, d): # deja correr los residuos para check la segunda cond
+
+                for r2 in range (0, d):  # deja correr los residuos para check la segunda cond
+
+                    value1 = m * r1 + log(f(alpha^r1)) # calcula primer valor
+
+                    value2 = m * r2 + log(f(alpha^r2)) # calcula segundo valor
+
+                    if value2%d == value1: #checa si son iguales
+                        print a, value1, value2 
+                        flag = 1
+                        break #rompe si lo son
+
+                if flag == 1:
+                    break #rompe si lo son
+
+            if flag == 0: #si no son iguales 
+                print a #entoces el poly de a,a produce pp
 
 def get_valueset(p, f):
         """ Dado p primo y f un polinomio calcula el value set de f sobre F_p """
