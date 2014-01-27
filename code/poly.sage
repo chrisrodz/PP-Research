@@ -6,16 +6,14 @@ def findab(p,d_1,d_2):
         l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
 
 
-        k = GF(p) # Crea el Cuerpo Finito F_p  
+        k = GF(p, 'c') # Crea el Cuerpo Finito F_p  
 
-        R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
+        R.<x> = PolynomialRing(k,1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
 
         pares = []
 
         for a in range(1, p): # Fija a
-                for b in range(1, p): # Fija b
-                        R.<x> = PolynomialRing(GF(p),1,"x")
-                        f = (x^(((p-1)/d_1)+1)) + (a * x^(((p-1)/d_2)+1)) + (b * x) # El polinomio
+                        f = (x^(((p-1)/d_1)+1)) + (a * x^(((p-1)/d_2)+1)) + (a * x) # El polinomio
                         for x in range(0, p): # Evalua el poly
                                 value = f(x)
                                 if((value in l) == False): # Verifica que no se repitan los resultados
@@ -24,7 +22,7 @@ def findab(p,d_1,d_2):
                                                 count = count + 1 # aumenta en 1 cuando encuentra un PP
                                                 l = set()
                                                 #print str(a) + ", " +  str(b) # imprime la a y b que producieron el PP
-                                                pares.append([a,b])
+                                                pares.append([a,a])
                                 else: # si se repiten res
                                         l = set() # limpia la lista
                                         break # rompe el ciclo
@@ -47,9 +45,8 @@ def findab_general(p,d1,d2):
         pares = []
 
         for a in range(1, p): # Fija a
-                for b in range(1, p): # Fija b
                         R.<x> = PolynomialRing(GF(p),1,"x")
-                        f = (x^(((p-1)/d1)+1)) + (a * x^(((p-1)/d2)+1)) + (b * x) # El polinomio
+                        f = (x^(((p-1)/d1)+1)) + (a * x^(((p-1)/d2)+1)) + (a * x) # El polinomio
                         for x in range(0, p): # Evalua el poly
                                 value = f(x)
                                 if((value in l) == False): # Verifica que no se repitan los resultados
@@ -57,8 +54,8 @@ def findab_general(p,d1,d2):
                                         if(x == (p-1)): # verifica si x llego al final de for
                                                 count = count + 1 # aumenta en 1 cuando encuentra un PP
                                                 l = set()
-                                                print str(a) + ", " +  str(b) # imprime la a y b que producieron el PP
-                                                pares.append([a,b])
+                                                print str(a) + ", " +  str(a) # imprime la a y b que producieron el PP
+                                                pares.append([a,a])
                                 else: # si se repiten res
                                         l = set() # limpia la lista
                                         break # rompe el ciclo
@@ -79,7 +76,7 @@ def getaa(p, d1, d2):
     alpha = primitive_root(p)
 
     for a in range(1, p): # Fija a
-
+        works = True
         R.<x> = PolynomialRing(GF(p),1,"x")
 
         f = (x^(((p-1)/d1))) + (a * x^(((p-1)/d2))) + a # El polinomio con a,a
@@ -87,9 +84,9 @@ def getaa(p, d1, d2):
         for i in range (0, p): # deja correr las i
             value = f(alpha^i) #calcula el valor del poly evaluado en la potencia de alpha
             if value == 0: # si el poly evaluado = 0 rompe y se mueve a otro par a,a
-                break
-            elif i == (p-1): # de lo contrario guarda la a
-                l.add(a)
+                works = False
+        if works:
+            l.add(a)
     return l
 
 
@@ -111,30 +108,30 @@ def findaa(p,d1,d2, m):
 
         for a in l: # para cada a
 
-            flag  = 0
-
-            R.<x> = PolynomialRing(GF(p),1,"x")
+            flag  = True
 
             f = (x^(((p-1)/d1))) + (a * x^(((p-1)/d2))) + a # El polinomio
 
             for r1 in range (0, d): # deja correr los residuos para check la segunda cond
 
-                for r2 in range (0, d):  # deja correr los residuos para check la segunda cond
+                for r2 in range (1, d):  # deja correr los residuos para check la segunda cond
 
-                    value1 = m * r1 + log(f(alpha^r1)) # calcula primer valor
+                    if r1 != r2:
 
-                    value2 = m * r2 + log(f(alpha^r2)) # calcula segundo valor
+                        value1 = m * r1 + log(f(alpha^r1), alpha) # calcula primer valor
 
-                    if value2%d == value1: #checa si son iguales
-                        print a, value1, value2 
-                        flag = 1
-                        break #rompe si lo son
+                        value2 = m * r2 + log(f(alpha^r2), alpha) # calcula segundo valor
 
-                if flag == 1:
+                        if (value2%d) == (value1%d): #checa si son iguales
+                            print 'No funciona con: ', a, r1, r2 
+                            flag = False
+                            break #rompe si lo son
+
+                if flag == False:
                     break #rompe si lo son
 
-            if flag == 0: #si no son iguales 
-                print a #entoces el poly de a,a produce pp
+            if flag == True: #si no son iguales 
+                print 'Funciona con: ', a #entoces el poly de a,a produce pp
 
 def findaa_general(p,d1,d2):
         """ Dado p primo, d1, d2 que dividan p-1, imprime todos los pares (a,b) tal que el polinomio general
