@@ -136,6 +136,39 @@ def findaa(p,d1,d2, m):
             if flag == 0: #si no son iguales 
                 print a #entoces el poly de a,a produce pp
 
+def findaa_general(p,d1,d2):
+        """ Dado p primo, d1, d2 que dividan p-1, imprime todos los pares (a,b) tal que el polinomio general
+         es un polinomio de permutacion y la cantidad de pares. Los devuelve tambien en forma de lista. """
+
+        count = 0 # cuente los PP       
+
+        l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
+
+
+        k = GF(p) # Crea el Cuerpo Finito F_p  
+
+        R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
+
+        pares = []
+        
+        for a in range(1, p): # Fija a
+                    R.<x> = PolynomialRing(GF(p),1,"x")
+                    f = (x^(((p-1)/d1)+1)) + (a * x^(((p-1)/d2)+1)) + (a * x) # El polinomio
+                    for x in range(0, p): # Evalua el poly
+                            value = f(x)
+                            if((value in l) == False): # Verifica que no se repitan los resultados
+                                    l.add(value) # si no se repite inserta el resultado en la lista
+                                    if(x == (p-1)): # verifica si x llego al final de for
+                                            count = count + 1 # aumenta en 1 cuando encuentra un PP
+                                            l = set()
+                                            print str(a) + ", " +  str(a) # imprime la a y b que producieron el PP
+                                            pares.append([a,a])
+                            else: # si se repiten res
+                                    l = set() # limpia la lista
+                                    break # rompe el ciclo
+        print len(pares)
+        return pares
+
 def get_valueset(p, f):
         """ Dado p primo y f un polinomio calcula el value set de f sobre F_p """
         vs = [] # Lista vacia para los valores del vs
