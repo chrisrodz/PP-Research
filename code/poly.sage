@@ -143,12 +143,12 @@ def get_valueset(p, f):
 
 def trinomio_valueset(p, d1, d2, a, b):
         """ Dado p primo, d1, d2 que dividan p-1, i, j en F_p devuelve el value set del polinomio nuestro sobre F_p """
-        vs = []
-        R.<x> = PolynomialRing(GF(p),1,"x")
+        vs = set()
+        R.<x> = PolynomialRing(GF(p, 'c'),1,"x")
         f = (x^(((p-1)/d1)+1)) + (a * x^(((p-1)/d2)+1)) + (b * x)
         for value in range(0,p):
-                vs.append(f(x=value))
-        return vs
+                vs.add(f(x=value))
+        return len(vs)
 
 def cadena_sola(p,d1,d2,i,j):
         """ Dado p, d1, d2, i, j calcula los elementos de la clase de equivalencia (alpha^i,alpha^j) """
