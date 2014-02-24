@@ -1,0 +1,275 @@
+  
+
+\documentclass{beamer}
+
+
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+
+
+}
+
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[utf8]{inputenc}
+% or whatever
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{ourproblem}{Our Problem}
+\newtheorem*{definition*}{Definition}
+
+
+\title
+{Construction of Families of Permutation Trinomials over Finite Fields}
+
+\author
+{Christian A. Rodriguez\\
+Alex D. Santos}
+
+\institute[]
+{
+  Department of Computer Science\\
+  University of Puerto Rico, R\'{i}o Piedras
+}
+
+\date
+{\today}
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\section{Introduction} % (fold)
+\label{sec:introduction}
+
+\begin{frame}{Finite Fields}
+
+  \begin{definition*}
+    A \textbf{finite field} $\mathbb{F}_{q}$, $q=p^r$, $p$ prime, is a field with $q=p^r$ elements.
+  \end{definition*}
+
+  \begin{example}
+    $\mathbb{F}_7 = {0,1,2,3,4,5,6}$
+  \end{example}
+\end{frame}
+
+\begin{frame}{Polynomials in Finite Fields}
+
+  \begin{definition*}
+    Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. This is $f: \mathbb{F}_{q} \rightarrow \mathbb{F}_{q}$.
+  \end{definition*}
+
+  \begin{example}
+  Consider $f(x) = x+3$ over $\mathbb{F}_{5}$. The domian of f is $\left\{0, 1, 2, 3, 4 \right\}$.
+  \end{example}
+
+\end{frame}
+
+\begin{frame}{Value Sets}
+
+\begin{definition*}
+  Let $f(x)$ be a polynomial defined over a finite field $\mathbb{F}_{q}$. Then the \textbf{value set} of $f$ is defined as $V(f) = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$
+\end{definition*}
+
+\begin{example}
+  Consider $f(x) = x^2$ defined over $\mathbb{F}_{5}$. Note: $f(0) = 0, f(1) = 1, f(2) = 4, f(3) = 4, f(4) = 1$, so $V(f) = \left\{0, 1, 4 \right\}$.
+\end{example}
+
+\end{frame}
+
+\begin{frame}{Permutation Polynomials}
+
+\begin{definition}
+  A polynomial $f(x)$ defined over $\mathbb{F}_{q}$ is a permutation polynomial if and only if  $V(f) = \mathbb{F}_{q}$.
+\end{definition}
+
+\pause
+
+\begin{example}
+  Let $f(x) = x+3$ over $\mathbb{F}_{5}$. Note: $V(f) = \left\{3, 4, 0, 1, 2 \right\}$ so $f(x)$ is a permutation polynomial over $\mathbb{F}_{5}$
+\end{example}
+
+\pause
+
+\begin{example}
+Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \right\}$ so $f(x)$ is not a permutation polynomial over $\mathbb{F}_{5}$.
+\end{example}
+
+\end{frame}
+
+
+\begin{frame}{Primitive Roots}
+
+\begin{definition*}
+  A \textbf{primitive root} $\alpha \in \mathbb{F}_q$ is a generator for the multiplicative group $\mathbb{F}_{q}^{\times}$
+\end{definition*}
+
+\pause
+
+\begin{example}
+  Consider $\mathbb{F}_{7}$. Since $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4,$ $ 3^5 = 5, 3^6 = 1$, $3$ is a primitive root of $\mathbb{F}_{7}$.
+\end{example}
+
+\pause
+
+\begin{example}
+  Consider $\mathbb{F}_{7}$. Since $2^1 = 2, 2^2 = 4, 2^3 = 1, 2^4 = 2,$ $ 2^5 = 4, 2^6 = 1$, $2$ is not a primitive root of $\mathbb{F}_{7}$.
+\end{example}
+
+\end{frame}
+
+% section introduction (end)
+
+\section{Our Problem} % (fold)
+\label{sec:our_problem}
+
+% section our_problem (end)
+
+\begin{frame}{Our Polynomial}
+  
+  \setbeamercovered{transparent}
+
+  Let $d_1, d_2 \in \mathbb{F}_q$ such that $d_1 \mid (q-1)$ y $d_2 \mid (q-1)$. We are interested in the polynomial:
+  {\Large$$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ }
+  with $a,b \in \mathbb{F}_q^{\times}$. 
+  \pause 
+  $$$$
+  Denote the value set of this polynomial $V(f_{a,b})$.
+
+\end{frame}
+
+\begin{frame}{Problem}
+  \begin{ourproblem}
+    Study the value set of polynomials of the form $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ and determine conditions in $a,b$ such that they are permutation polynomials.
+  \end{ourproblem}
+\end{frame}
+
+\section{Results} % (fold)
+\label{sec:results}
+
+\begin{frame}{Polynomials Results}
+  \includegraphics[width=11cm, height=6cm]{clases}
+\end{frame}
+
+\begin{frame}{The class of equivalence $[a,b]$}
+  
+  {\Large $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+
+  $$$$
+
+  Let $a = \alpha^i, b = \alpha^j$, $\alpha$ a primitive root in $\mathbb{F}_q$ and $\sim$ the relation defined as $(a,b) \sim (a', b')$ 
+  $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$
+
+  \begin{example}
+    Let $q = 13, d_1 = 2, d_2 = 3$, then we have $\alpha = 2$ and take $a = 4 = 2^2, b = 8 = 2^3$. Now $(a,b) \sim (a',b')$ if and only if
+    $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(a,b) \sim (3,5)$
+  \end{example}
+
+\end{frame}
+
+\begin{frame}{The class of equivalence $[a,b]$}
+  
+  \begin{lemma}
+    The relation $\sim$ defined above is an equivalence relation.
+  \end{lemma}
+
+  The previous relation induces an equivalence relation in the set of trinomials $f_{a,b}$ with equivalence classes:
+  $$ [f_{a,b}] = [f_{\alpha^i, \alpha^j}] = \left\{ f_{a',b'} \mid (a,b) \sim (a',b') \right\} $$
+
+\end{frame}
+
+\begin{frame}{Value set correspondence}
+
+  {\Large $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+
+  $$$$
+
+  \begin{theorem}
+
+    Suppose that $f_{a, b} \sim f_{a',b'}$ then $|V(f_{a, b})| = |V(f_{a', b'})|$.
+
+  \end{theorem}
+
+  \begin{example}
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(f_{4, 8})| = |V(f_{3, 5})|$
+  \end{example}
+
+\end{frame}
+
+\begin{frame}{Size of equivalence classes}
+  
+  {\Large $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+
+  $$$$
+
+  \begin{proposition}
+    $|[f_{a, b}]| = lcm(d_1,d_2)$ where $lcm(x,y)$ is the least common multiple of $x$ and $y$.
+  \end{proposition}
+
+  \begin{example}
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $(a,b)$:
+    $$ (4, 8), (3, 5), (12, 8), (9, 5), (10, 8), (1, 5), (4,8) $$
+  \end{example}
+\end{frame}
+
+\begin{frame}{Polynomial Results}
+    \begin{proposition}
+    The number of polynomials of the form $f_{a, b}(X)$ with $|V(f_{a, b})| = n$ is a multiple of $lcm(d_1, d_2)$
+  \end{proposition}
+
+  \begin{corollary}
+    The number of permutation polynomials of the form $f_{a, b}(X)$ is a multiple of $lcm(d_1, d_2)$
+  \end{corollary}
+\end{frame}
+
+\begin{frame}{Future Work}
+  \begin{itemize}
+    \item Find necessary and sufficient conditions such that $V(f_{a,b}) = \mathbb{F}_q$
+    \item Collect data on number of permutation polynomials of the form $f_{a,b}$ for different values of $d_1$ and $d_2$ and compare results with number of permutation polynomials.
+  \end{itemize}
+\end{frame}
+
+% section results (end)
+
+
+\end{document}
+
+
