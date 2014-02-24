@@ -1,33 +1,33 @@
 def findab(p,d_1,d_2):
-        """ Dado p primo, d que divida p-1, imprime todos los pares (a,b) tal que el polinomio
-         es un polinomio de permutacion y la cantidad de pares. Los devuelve tambien en forma de lista. """
-        count = 0 # cuente los PP       
+    """ Dado p primo, d que divida p-1, imprime todos los pares (a,b) tal que el polinomio
+        es un polinomio de permutacion y la cantidad de pares. Los devuelve tambien en forma de lista. """
+    count = 0 # cuente los PP       
 
-        l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
+    l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
 
+    k = GF(p, 'c') # Crea el Cuerpo Finito F_p  
 
-        k = GF(p, 'c') # Crea el Cuerpo Finito F_p  
+    R.<x> = PolynomialRing(k,1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
 
-        R.<x> = PolynomialRing(k,1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
+    pares = []
 
-        pares = []
-
-        for a in range(1, p): # Fija a
-                        f = (x^(((p-1)/d_1)+1)) + (a * x^(((p-1)/d_2)+1)) + (a * x) # El polinomio
-                        for x in range(0, p): # Evalua el poly
-                                value = f(x)
-                                if((value in l) == False): # Verifica que no se repitan los resultados
-                                        l.add(value) # si no se repite inserta el resultado en la lista
-                                        if(x == (p-1)): # verifica si x llego al final de for
-                                                count = count + 1 # aumenta en 1 cuando encuentra un PP
-                                                l = set()
-                                                #print str(a) + ", " +  str(b) # imprime la a y b que producieron el PP
-                                                pares.append([a,a])
-                                else: # si se repiten res
-                                        l = set() # limpia la lista
-                                        break # rompe el ciclo
-        print d_1, d_2, len(pares)
-        #return pares
+    for a in range(1, p): # Fija a
+        for b in range(1, p):
+            f = (x^(((p-1)/d_1)+1)) + (a * x^(((p-1)/d_2)+1)) + (b * x) # El polinomio
+            for x in range(0, p): # Evalua el poly
+                value = f(x)
+                if((value in l) == False): # Verifica que no se repitan los resultados
+                    l.add(value) # si no se repite inserta el resultado en la lista
+                    if(x == (p-1)): # verifica si x llego al final de for
+                        count = count + 1 # aumenta en 1 cuando encuentra un PP
+                        l = set()
+                        #print str(a) + ", " +  str(b) # imprime la a y b que producieron el PP
+                        pares.append([a,a])
+                else: # si se repiten res
+                    l = set() # limpia la lista
+                    break # rompe el ciclo
+    print d_1, d_2, len(pares)
+    #return pares
 
 def findab_general(p,d1,d2):
         """ Dado p primo, d1, d2 que dividan p-1, imprime todos los pares (a,b) tal que el polinomio general
@@ -133,10 +133,36 @@ def getaa(p, d1, d2):
             l.add(a)
     return l
 
+def getab(p, d1, d2):
+
+    """Esta funcion devuelve un set con los pares a,a que cumplen con la primera condicion
+    de la proposicion de ive. Es decir que Fa,a(alpha^i) != 0 para cualquier i"""
+
+    l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
+
+    k = GF(p) # Crea el Cuerpo Finito F_p  
+
+    R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
+
+    alpha = primitive_root(p)
+
+    for a in range(1, p): # Fija a
+        for b in range(1, p):
+            works = True
+            R.<x> = PolynomialRing(GF(p),1,"x")
+
+            f = (x^(((p-1)/d1))) + (a * x^(((p-1)/d2))) + b # El polinomio con a,a
+            for i in range (0, p): # deja correr las i
+                value = f(alpha^i) #calcula el valor del poly evaluado en la potencia de alpha
+                if value == 0: # si el poly evaluado = 0 rompe y se mueve a otro par a,a
+                    works = False
+            if works:
+                l.add((a,b))
+    print "Esto es l: ", len(l)
+    return l
+
 
 def findaa(p,d1,d2, m):
-        """ Dado p primo, d1, d2 que dividan p-1, imprime todos los pares (a,b) tal que el polinomio general
-         es un polinomio de permutacion y la cantidad de pares. Los devuelve tambien en forma de lista. """
 
         l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
 
@@ -144,11 +170,12 @@ def findaa(p,d1,d2, m):
 
         R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
 
-        alpha = primitive_root(p)
+        alpha = k.primitive_element()
 
         d = lcm(d1, d2)
 
         l = getaa(p, d1, d2) # busca las a que satisfacen la primera cond
+
 
         for a in l: # para cada a
 
@@ -167,7 +194,6 @@ def findaa(p,d1,d2, m):
                         value2 = m * r2 + log(f(alpha^r2), alpha) # calcula segundo valor
 
                         if (value2%d) == (value1%d): #checa si son iguales
-                            print 'No funciona con: ', a, r1, r2 
                             flag = False
                             break #rompe si lo son
 
@@ -177,6 +203,7 @@ def findaa(p,d1,d2, m):
             if flag == True: #si no son iguales 
                 print 'Funciona con: ', a #entoces el poly de a,a produce pp
 
+<<<<<<< HEAD
 def findaa_general(p,d1,d2):
         """ Dado p primo, d1, d2 que dividan p-1, imprime todos los pares (a,b) tal que el polinomio general
          es un polinomio de permutacion y la cantidad de pares. Los devuelve tambien en forma de lista. """
@@ -184,12 +211,6 @@ def findaa_general(p,d1,d2):
         count = 0 # cuente los PP       
 
         l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
-
-
-        k = GF(p) # Crea el Cuerpo Finito F_p  
-
-        R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
-
         pares = []
         
         for a in range(1, p): # Fija a
@@ -210,6 +231,55 @@ def findaa_general(p,d1,d2):
         print len(pares)
         print pares
         return pares
+
+def findab_ive(p,d1,d2, m):
+        """ Dado p primo, d1, d2 que dividan p-1, imprime todos los pares (a,b) tal que el polinomio general
+         es un polinomio de permutacion y la cantidad de pares. Los devuelve tambien en forma de lista. """
+
+        l = set() # Guarda los PP evaluados para verificar que no se repitan los resultados     
+
+        k = GF(p) # Crea el Cuerpo Finito F_p  
+
+        R.<x> = PolynomialRing(GF(p),1,"x") # Crea el anillo de polinomios utilizando el cuerpo finito
+        
+        alpha = k.primitive_element()
+
+        d = lcm(d1, d2)
+
+        l = getab(p, d1, d2) # busca las a que satisfacen la primera cond
+        count = 0
+
+        for tup in l: # para cada a
+            a = tup[0]
+            b = tup[1]
+            flag  = True
+
+
+            f = (x^(((p-1)/d1))) + (a * x^(((p-1)/d2))) + b # El polinomio
+            print "a: %s, b: %s" % (a,b)
+            for r1 in range (0, d): # deja correr los residuos para check la segunda cond
+
+                for r2 in range (1, d):  # deja correr los residuos para check la segunda cond
+
+                    if r1 != r2:
+
+                        value1 = m * r1 + log(f(alpha^r1), alpha) # calcula primer valor
+
+                        value2 = m * r2 + log(f(alpha^r2), alpha) # calcula segundo valor
+
+                        if (value2%d) == (value1%d): #checa si son iguales
+                            flag = False
+                            print "r1: %s, r2: %s" % (r1, r2)
+                            break #rompe si lo son
+
+                if flag == False:
+                    count = count + 1
+                    break #rompe si lo son
+
+            if flag == True: #si no son iguales 
+                print 'Funciona con: ', a, b #entoces el poly de a,a produce pp
+
+        print "la cuenta es: ", count
 
 def get_valueset(p, f):
         """ Dado p primo y f un polinomio calcula el value set de f sobre F_p """
