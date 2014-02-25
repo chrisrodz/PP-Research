@@ -27,7 +27,8 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
-
+\usepackage[nodisplayskipstretch]{setspace}
+\setstretch{.2}
 
 \newtheorem{proposition}{Proposition}
 \newtheorem{conjecture}{Conjecture}
@@ -87,7 +88,11 @@ Alex D. Santos}
   \end{definition*}
 
   \begin{example}
-    $\mathbb{F}_7 = {0,1,2,3,4,5,6}$
+    $$\mathbb{F}_7 = \left\{0,1,2,3,4,5,6\right\}$$
+    \textbf{Addition:}\linebreak
+    $2+2$ over $\mathbb{F}_7 = 4$ but $4+4$ over $\mathbb{F}_7 = 8$ mod $7 = 1$
+    \textbf{Multiplication:}\linebreak
+    $2\times2$ over $\mathbb{F}_7 = 4 $ but $ 4\times4$ over $\mathbb{F}_7 = 16$ mod $7 = 2$
   \end{example}
 \end{frame}
 
@@ -161,13 +166,14 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 \section{Our Problem} % (fold)
 \label{sec:our_problem}
 
+
 % section our_problem (end)
 
 \begin{frame}{Our Polynomial}
   
   \setbeamercovered{transparent}
 
-  Let $d_1, d_2 \in \mathbb{F}_q$ such that $d_1 \mid (q-1)$ y $d_2 \mid (q-1)$. We are interested in the polynomial:
+  Let $d_1, d_2 \in \mathbb{Z}$ such that $d_1 \mid (q-1)$ y $d_2 \mid (q-1)$. We are interested in the polynomial:
   {\Large$$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ }
   with $a,b \in \mathbb{F}_q^{\times}$. 
   \pause 
@@ -185,13 +191,12 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 \section{Results} % (fold)
 \label{sec:results}
 
-\begin{frame}{Polynomials Results}
-  \includegraphics[width=11cm, height=6cm]{clases}
-\end{frame}
+% \subsection{Families of polynomials with same size value sets} % (fold)
+% \label{sub:families_of_polynomials_with_same_size_value_sets}
 
 \begin{frame}{The class of equivalence $[a,b]$}
   
-  {\Large $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+  {\Large $$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$}
 
   $$$$
 
@@ -206,19 +211,28 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 \end{frame}
 
 \begin{frame}{The class of equivalence $[a,b]$}
+
+  \begin{example}
+    Let $q = 13, d_1 = 2, d_2 = 3$, then we have $\alpha = 2$ and take $a = 4 = 2^2, b = 8 = 2^3$. Now $(a,b) \sim (a',b')$ if and only if
+    $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(a,b) \sim (3,5)$
+  \end{example}
+
+\end{frame}
+
+\begin{frame}{The class of equivalence $[a,b]$}
   
   \begin{lemma}
-    The relation $\sim$ defined above is an equivalence relation.
+    The relation $\sim$ defined previously is an equivalence relation.
   \end{lemma}
 
-  The previous relation induces an equivalence relation in the set of trinomials $f_{a,b}$ with equivalence classes:
+  $f_{a,b}$ with equivalence classes:
   $$ [f_{a,b}] = [f_{\alpha^i, \alpha^j}] = \left\{ f_{a',b'} \mid (a,b) \sim (a',b') \right\} $$
 
 \end{frame}
 
 \begin{frame}{Value set correspondence}
 
-  {\Large $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+  {\Large $$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$}
 
   $$$$
 
@@ -236,7 +250,7 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 
 \begin{frame}{Size of equivalence classes}
   
-  {\Large $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+  {\Large $$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$}
 
   $$$$
 
@@ -250,6 +264,10 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
   \end{example}
 \end{frame}
 
+\begin{frame}{Polynomials Results}
+  \includegraphics[width=11cm, height=6cm]{clases}
+\end{frame}
+
 \begin{frame}{Polynomial Results}
     \begin{proposition}
     The number of polynomials of the form $f_{a, b}(X)$ with $|V(f_{a, b})| = n$ is a multiple of $lcm(d_1, d_2)$
@@ -259,6 +277,23 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
     The number of permutation polynomials of the form $f_{a, b}(X)$ is a multiple of $lcm(d_1, d_2)$
   \end{corollary}
 \end{frame}
+
+% subsection families_of_polynomials_with_same_size_value_sets (end)
+
+% \subsection{Construction of families of permutation trinomials} % (fold)
+% \label{sub:construction_of_families_of_permutation_trinomials}
+
+% \begin{frame}\frametitle{Constructing permutation trinomials}
+    
+% The following proposition gives us sufficient conditions for $f_{a,b}$ to be a permutation polynomial.
+
+% \begin{proposition}
+%   Suppose that $d\mid q-1$, $a, b \in \mathbb{F}_{q}$, $gcd(r, \frac{q^m-1}{r})=1$, and $h(X)=X^{\frac{d}{d_1}}+aX^{\frac{d}{d_2}}+b$. Let $gara = \alpha^{\frac{q-1}{d}}$, where $\alpha$ is a primitive root in $\mathbb{F}_{q}$. If $ (h(gara^i)/h(gara^j))^{\frac{q-1}{d}}=1 $ for all $0\leq i < j < d$, then $f_{a,b}(X)$ is a permutation polynomial of $\mathbb{F}_{q}$. 
+% \end{proposition}
+
+% \end{frame}
+
+% subsection construction_of_families_of_permutation_trinomials (end)
 
 \begin{frame}{Future Work}
   \begin{itemize}
