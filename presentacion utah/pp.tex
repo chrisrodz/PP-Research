@@ -225,18 +225,20 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
   Let $a = \alpha^i, b = \alpha^j$, $\alpha$ a primitive root in $\mathbb{F}_q$ and $\sim$ the relation defined as $(a,b) \sim (a', b')$ 
   $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$
 
-  \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3$, then we have $\alpha = 2$ and take $a = 4 = 2^2, b = 8 = 2^3$. Now $(a,b) \sim (a',b')$ if and only if
-    $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(a,b) \sim (3,5)$
-  \end{example}
-
 \end{frame}
 
 \begin{frame}{The class of equivalence $[a,b]$}
 
   \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3$, then we have $\alpha = 2$ and take $a = 4 = 2^2, b = 8 = 2^3$. Now $(a,b) \sim (a',b')$ if and only if
-    $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(a,b) \sim (3,5)$
+    $q = 13, d_1 = 2, d_2 = 3, \alpha = 2$
+    \linebreak
+    \pause
+    $a = 4 = 2^2, b = 8 = 2^3$.
+    \linebreak
+    Now $(2^2,2^3) \sim (a',b')$ if and only if
+    $a' = 2^{2+2h}, b' = 2^{3+6h}$.
+    \linebreak
+    For example $(2^2,2^3) \sim (2^4,2^9) = (3,5)$.
   \end{example}
 
 \end{frame}
@@ -252,6 +254,10 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 
 \end{frame}
 
+\begin{frame}{Polynomials Results}
+  \includegraphics[width=11cm, height=6cm]{clases}
+\end{frame}
+
 \begin{frame}{Value set correspondence}
 
   {\Large $$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$}
@@ -265,7 +271,7 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
   \end{theorem}
 
   \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(f_{4, 8})| = |V(f_{3, 5})|$
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(2^2,2^3) \sim (2^4,2^9)$ we have that $|V(f_{2^2, 2^3})| = |V(f_{2^4, 2^9})|$
   \end{example}
 
 \end{frame}
@@ -282,7 +288,7 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 
   \begin{example}
     Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $(a,b)$:
-    $$ (4, 8), (3, 5), (12, 8), (9, 5), (10, 8), (1, 5), (4,8) $$
+    $$ (2^2, 2^3), (2^4, 2^9), (2^6, 2^3), (2^8, 2^9), (2^10, 2^3), (2^{12}, 2^9), (2^2, 2^3) $$
   \end{example}
 \end{frame}
 
