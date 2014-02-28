@@ -89,10 +89,18 @@ Alex D. Santos}
 
   \begin{example}
     $$\mathbb{F}_7 = \left\{0,1,2,3,4,5,6\right\}$$
-    \textbf{Addition:}\linebreak
-    $2+2$ over $\mathbb{F}_7 = 4$ but $4+4$ over $\mathbb{F}_7 = 8$ mod $7 = 1$
-    \textbf{Multiplication:}\linebreak
-    $2\times2$ over $\mathbb{F}_7 = 4 $ but $ 4\times4$ over $\mathbb{F}_7 = 16$ mod $7 = 2$
+
+    \begin{columns}[c] % the "c" option specifies center vertical alignment
+    \column{.3\textwidth} % column designated by a command
+          \textbf{Addition:} \\
+    $2+2=4$ \\
+    $4+4=8\pmod 7 = 1$
+    \column{.3\textwidth}
+      \textbf{Multiplication:} \\
+    $2\cdot2=4$ \\
+    $ 4\cdot 4=16 \pmod 7 = 2$
+    \end{columns}
+    
   \end{example}
 \end{frame}
 
@@ -148,16 +156,30 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 \end{definition*}
 
 \pause
-
-\begin{example}
-  Consider $\mathbb{F}_{7}$. Since $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4,$ $ 3^5 = 5, 3^6 = 1$, $3$ is a primitive root of $\mathbb{F}_{7}$.
-\end{example}
-
+  
+{\Large $$\mathbb{F}_{7}$$}
 \pause
-
-\begin{example}
-  Consider $\mathbb{F}_{7}$. Since $2^1 = 2, 2^2 = 4, 2^3 = 1, 2^4 = 2,$ $ 2^5 = 4, 2^6 = 1$, $2$ is not a primitive root of $\mathbb{F}_{7}$.
-\end{example}
+\begin{columns}[t] % the "c" option specifies center vertical alignment
+\column{.10\textwidth} % column designated by a command
+{\Large \begin{tabular}{ l  r }
+  $3^1=$ & 3 \\
+  $3^2=$ & 2 \\
+  $3^3=$ & 6 \\
+  $3^4=$ & 4 \\
+  $3^5=$ & 5 \\
+  $3^6=$ & 1 \\
+\end{tabular}}
+\pause
+\column{.10\textwidth}
+{\Large \begin{tabular}{ l  r }
+  $2^1=$ & 2 \\
+  $2^2=$ & 4 \\
+  $2^3=$ & 1 \\
+  $2^4=$ & 2 \\
+  $2^5=$ & 4 \\
+  $2^6=$ & 1 \\
+\end{tabular}}
+\end{columns}
 
 \end{frame}
 
