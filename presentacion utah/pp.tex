@@ -27,7 +27,8 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
-
+\usepackage[nodisplayskipstretch]{setspace}
+\setstretch{.2}
 
 \newtheorem{proposition}{Proposition}
 \newtheorem{conjecture}{Conjecture}
@@ -87,7 +88,19 @@ Alex D. Santos}
   \end{definition*}
 
   \begin{example}
-    $\mathbb{F}_7 = {0,1,2,3,4,5,6}$
+    $$\mathbb{F}_7 = \left\{0,1,2,3,4,5,6\right\}$$
+
+    \begin{columns}[c] % the "c" option specifies center vertical alignment
+    \column{.3\textwidth} % column designated by a command
+          \textbf{Addition:} \\
+    $2+2=4$ \\
+    $4+4=8\pmod 7 = 1$
+    \column{.3\textwidth}
+      \textbf{Multiplication:} \\
+    $2\cdot2=4$ \\
+    $ 4\cdot 4=16 \pmod 7 = 2$
+    \end{columns}
+    
   \end{example}
 \end{frame}
 
@@ -143,16 +156,30 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 \end{definition*}
 
 \pause
-
-\begin{example}
-  Consider $\mathbb{F}_{7}$. Since $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4,$ $ 3^5 = 5, 3^6 = 1$, $3$ is a primitive root of $\mathbb{F}_{7}$.
-\end{example}
-
+  
+{\Large $$\mathbb{F}_{7}$$}
 \pause
-
-\begin{example}
-  Consider $\mathbb{F}_{7}$. Since $2^1 = 2, 2^2 = 4, 2^3 = 1, 2^4 = 2,$ $ 2^5 = 4, 2^6 = 1$, $2$ is not a primitive root of $\mathbb{F}_{7}$.
-\end{example}
+\begin{columns}[t] % the "c" option specifies center vertical alignment
+\column{.10\textwidth} % column designated by a command
+{\Large \begin{tabular}{ l  r }
+  $3^1=$ & 3 \\
+  $3^2=$ & 2 \\
+  $3^3=$ & 6 \\
+  $3^4=$ & 4 \\
+  $3^5=$ & 5 \\
+  $3^6=$ & 1 \\
+\end{tabular}}
+\pause
+\column{.10\textwidth}
+{\Large \begin{tabular}{ l  r }
+  $2^1=$ & 2 \\
+  $2^2=$ & 4 \\
+  $2^3=$ & 1 \\
+  $2^4=$ & 2 \\
+  $2^5=$ & 4 \\
+  $2^6=$ & 1 \\
+\end{tabular}}
+\end{columns}
 
 \end{frame}
 
@@ -161,13 +188,14 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 \section{Our Problem} % (fold)
 \label{sec:our_problem}
 
+
 % section our_problem (end)
 
 \begin{frame}{Our Polynomial}
   
   \setbeamercovered{transparent}
 
-  Let $d_1, d_2 \in \mathbb{F}_q$ such that $d_1 \mid (q-1)$ y $d_2 \mid (q-1)$. We are interested in the polynomial:
+  Let $d_1, d_2 \in \mathbb{Z}$ such that $d_1 \mid (q-1)$ y $d_2 \mid (q-1)$. We are interested in the polynomial:
   {\Large$$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$ }
   with $a,b \in \mathbb{F}_q^{\times}$. 
   \pause 
@@ -185,22 +213,32 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 \section{Results} % (fold)
 \label{sec:results}
 
-\begin{frame}{Polynomials Results}
-  \includegraphics[width=11cm, height=6cm]{clases}
-\end{frame}
+% \subsection{Families of polynomials with same size value sets} % (fold)
+% \label{sub:families_of_polynomials_with_same_size_value_sets}
 
 \begin{frame}{The class of equivalence $[a,b]$}
   
-  {\Large $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+  {\Large $$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$}
 
   $$$$
 
   Let $a = \alpha^i, b = \alpha^j$, $\alpha$ a primitive root in $\mathbb{F}_q$ and $\sim$ the relation defined as $(a,b) \sim (a', b')$ 
   $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$
 
+\end{frame}
+
+\begin{frame}{The class of equivalence $[a,b]$}
+
   \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3$, then we have $\alpha = 2$ and take $a = 4 = 2^2, b = 8 = 2^3$. Now $(a,b) \sim (a',b')$ if and only if
-    $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. For example $(a,b) \sim (3,5)$
+    $q = 13, d_1 = 2, d_2 = 3, \alpha = 2$
+    \linebreak
+    \pause
+    $a = 4 = 2^2, b = 8 = 2^3$.
+    \linebreak
+    Now $(2^2,2^3) \sim (a',b')$ if and only if
+    $a' = 2^{2+2h}, b' = 2^{3+6h}$.
+    \linebreak
+    For example $(2^2,2^3) \sim (2^4,2^9) = (3,5)$.
   \end{example}
 
 \end{frame}
@@ -208,17 +246,21 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 \begin{frame}{The class of equivalence $[a,b]$}
   
   \begin{lemma}
-    The relation $\sim$ defined above is an equivalence relation.
+    The relation $\sim$ defined previously is an equivalence relation.
   \end{lemma}
 
-  The previous relation induces an equivalence relation in the set of trinomials $f_{a,b}$ with equivalence classes:
+  $f_{a,b}$ with equivalence classes:
   $$ [f_{a,b}] = [f_{\alpha^i, \alpha^j}] = \left\{ f_{a',b'} \mid (a,b) \sim (a',b') \right\} $$
 
 \end{frame}
 
+\begin{frame}{Polynomials Results}
+  \includegraphics[width=11cm, height=6cm]{clases1}
+\end{frame}
+
 \begin{frame}{Value set correspondence}
 
-  {\Large $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+  {\Large $$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$}
 
   $$$$
 
@@ -229,14 +271,14 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
   \end{theorem}
 
   \begin{example}
-    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(f_{4, 8})| = |V(f_{3, 5})|$
+    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(2^2,2^3) \sim (2^4,2^9)$ we have that $|V(f_{2^2, 2^3})| = |V(f_{2^4, 2^9})|$
   \end{example}
 
 \end{frame}
 
 \begin{frame}{Size of equivalence classes}
   
-  {\Large $f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$}
+  {\Large $$f_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$}
 
   $$$$
 
@@ -246,8 +288,12 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
 
   \begin{example}
     Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Note that $lcm(2,3) = 6$ These are the elements of $(a,b)$:
-    $$ (4, 8), (3, 5), (12, 8), (9, 5), (10, 8), (1, 5), (4,8) $$
+    $$ (2^2, 2^3), (2^4, 2^9), (2^6, 2^3), (2^8, 2^9), (2^10, 2^3), (2^{12}, 2^9), (2^2, 2^3) $$
   \end{example}
+\end{frame}
+
+\begin{frame}{Polynomials Results}
+  \includegraphics[width=11cm, height=6cm]{clases}
 \end{frame}
 
 \begin{frame}{Polynomial Results}
@@ -259,6 +305,23 @@ Let $f(x) = x^2$ over $\mathbb{F}_{5}$. We have that $V(f) = \left\{0, 1, 4 \rig
     The number of permutation polynomials of the form $f_{a, b}(X)$ is a multiple of $lcm(d_1, d_2)$
   \end{corollary}
 \end{frame}
+
+% subsection families_of_polynomials_with_same_size_value_sets (end)
+
+% \subsection{Construction of families of permutation trinomials} % (fold)
+% \label{sub:construction_of_families_of_permutation_trinomials}
+
+% \begin{frame}\frametitle{Constructing permutation trinomials}
+    
+% The following proposition gives us sufficient conditions for $f_{a,b}$ to be a permutation polynomial.
+
+% \begin{proposition}
+%   Suppose that $d\mid q-1$, $a, b \in \mathbb{F}_{q}$, $gcd(r, \frac{q^m-1}{r})=1$, and $h(X)=X^{\frac{d}{d_1}}+aX^{\frac{d}{d_2}}+b$. Let $gara = \alpha^{\frac{q-1}{d}}$, where $\alpha$ is a primitive root in $\mathbb{F}_{q}$. If $ (h(gara^i)/h(gara^j))^{\frac{q-1}{d}}=1 $ for all $0\leq i < j < d$, then $f_{a,b}(X)$ is a permutation polynomial of $\mathbb{F}_{q}$. 
+% \end{proposition}
+
+% \end{frame}
+
+% subsection construction_of_families_of_permutation_trinomials (end)
 
 \begin{frame}{Future Work}
   \begin{itemize}
