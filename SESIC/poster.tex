@@ -17,14 +17,14 @@
 \usepackage{graphicx}
 \usepackage{spanish}{babel}
 
-\newtheorem{corollary}{Corollary}
-\newtheorem{conjecture}{Conjecture}
-\newtheorem*{example*}{Example}
-\newtheorem*{definition*}{Definition}
-\newtheorem{definition}{Definition}
-\newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{theorem}{Theorem}
+\newtheorem{corolario}{Corolario}
+\newtheorem{conjetura}{Conjetura}
+\newtheorem*{ejemplo*}{Ejemplo}
+\newtheorem*{definicion*}{Definici\'on}
+\newtheorem{definicion}{Definici\'on}
+\newtheorem{proposicion}{Proposici\'on}
+\newtheorem{lema}{Lema}
+\newtheorem{teorema}{Teorema}
 
 \usepackage{graphicx}
 \usepackage{multicol}
@@ -191,7 +191,7 @@ Dado un trinomio de la forma $f_{a,b}(X)=X^r( X^{\frac{q-1}{d_1}}+aX^{\frac{q-1}
 \headerbox{Problema}{name=problem,column=1,row=0}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
        \vspace{0.3em}
-      {\Large Estudiar el value set de polinomios de la forma {\LARGE $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$} sobre cuerpos finitos $\mathbb{F}_q$ y determinar condiciones en $a,b$ tal que el polinomio es un polinomio de permutacion.}
+      {\Large Estudiar el value set de polinomios de la forma {\LARGE $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$} sobre cuerpos finitos $\mathbb{F}_q$ y determinar condiciones en $a,b$ tal que el polinomio es un polinomio de permutaci\'on.}
 
       \vspace{0.3em}
 }\label{Problem}
@@ -200,42 +200,42 @@ Dado un trinomio de la forma $f_{a,b}(X)=X^r( X^{\frac{q-1}{d_1}}+aX^{\frac{q-1}
   \headerbox{Resultados - Value Sets}{name=contribution,column=1,below=problem,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Definimos una relacion para construir clases de equivalencia de polinomios con value sets de la misma cardinalidad.
+Definimos una relaci\'on para construir clases de equivalencia de polinomios con value sets de la misma cardinalidad.
 
 
-\begin{definition}\label{relacion}
+\begin{definicion}\label{relaci\'on}
 
-  Sean $a = \alpha^i, b = \alpha^j$, donde $\alpha$ es una raiz primitiva en $\mathbb{F}_q$, y $\sim$ una relacion en $\mathbb{F}_q^* \times \mathbb{F}_q^*$ definida por: $(a,b) \sim (a', b')$ 
+  Sean $a = \alpha^i, b = \alpha^j$, donde $\alpha$ es una raiz primitiva en $\mathbb{F}_q$, y $\sim$ una relaci\'on en $\mathbb{F}_q^* \times \mathbb{F}_q^*$ definida por: $(a,b) \sim (a', b')$ 
 
   $\Longleftrightarrow a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})}$, donde $h \in \mathbb{Z}$.
 
-\end{definition}
+\end{definicion}
 
-  \begin{example*}
+  \begin{ejemplo*}
     Sean $q = 13, d_1 = 2, d_2 = 3$, entonces tenemos $\alpha = 2$ y $a = 2^2 = 4, b = 2^3 = 8$. Ahora $(a,b) \sim (a',b')$ si y solo si
     $a' = \alpha^{2+2h}, b' = \alpha^{3+6h}$. Por ejemplo $(2^2,2^3) \sim (2^{2+2},2^{3+6})$.
-  \end{example*}
+  \end{ejemplo*}
 
-\begin{lemma}
+\begin{lema}
   
-  La relacion $\sim$ en Def~\ref{relacion} en una relacion de equivalencia en $\mathbb{F}_q^* \times \mathbb{F}_q^*$.
+  La relaci\'on $\sim$ en Def~\ref{relaci\'on} en una relaci\'on de equivalencia en $\mathbb{F}_q^* \times \mathbb{F}_q^*$.
 
-\end{lemma}
+\end{lema}
 
-  La relacion de equivalencia definida anteriorments induce una relacion de equivalencia en el conjunto de polinomios de la forma $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ con clases de equivalencia $[F_{a,b}] = [F_{\alpha^i, \alpha^j}] = \left\{\ F_{a',b'} | a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})} \right\}$.
+  La relaci\'on de equivalencia definida anteriormente induce una relaci\'on de equivalencia en el conjunto de polinomios de la forma $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ con clases de equivalencia $[F_{a,b}] = [F_{\alpha^i, \alpha^j}] = \left\{\ F_{a',b'} | a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})} \right\}$.
 
   Esto provee una construcci\'{o}n para polinomios con value sets de la misma cardinalidad.
-\begin{theorem}
+\begin{teorema}
   
-  Suponer que $F_{a,b} \sim F_{a',b'}$ donde $\sim$ es la relacion de equivalencia en Lemma 1. Entonces $|V(F_{a,b})| = |V(F_{a',b'})|$.
+  Suponer que $F_{a,b} \sim F_{a',b'}$ donde $\sim$ es la relaci\'on de equivalencia en el Lema 1. Entonces $|V(F_{a,b})| = |V(F_{a',b'})|$.
 
-\end{theorem}
+\end{teorema}
 
 \includegraphics[width=11cm, height=6cm]{clases}
 
- % \begin{example*}
+ % \begin{ejemplo*}
  %    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the cardinalities are equal the value sets are not.
- %  \end{example*}
+ %  \end{ejemplo*}
 }\label{Results}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -243,27 +243,27 @@ Definimos una relacion para construir clases de equivalencia de polinomios con v
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.3em}
 
-\begin{definition*}
-  Una \textbf{permutacion} de un conjunto $A$ es un ordenamiento de los elementos de $A$. Una funcion $f: A \rightarrow A$ nos da una permutacion de $A$ si y solo si $f$ es uno a uno y sobre.
-\end{definition*}
+\begin{definicion*}
+  Una \textbf{permutaci\'on} de un conjunto $A$ es un ordenamiento de los elementos de $A$. Una funcion $f: A \rightarrow A$ nos da una permutaci\'on de $A$ si y solo si $f$ es uno a uno y sobre.
+\end{definicion*}
 
-\begin{definition*}
-  Un \textbf{cuerpo finito} $\mathbb{F}_{q}$, $q=p^r$, $p$ primo, es un conjunto con $q=p^r$ elements.
-\end{definition*}
+\begin{definicion*}
+  Un \textbf{cuerpo finito} $\mathbb{F}_{q}$, $q=p^r$, $p$ primo, es un conjunto con $q=p^r$ elementos.
+\end{definicion*}
 
-\begin{definition*}
+\begin{definicion*}
   Una \textbf{raiz primitiva} $\alpha \in \mathbb{F}_q$ es un generador del grupo multiplicativo $\mathbb{F}_{q}^{*}$.
-\end{definition*}
+\end{definicion*}
 
-\begin{example*}
+\begin{ejemplo*}
   Considere el cuerpo finito $\mathbb{F}_{7}$. Tenemos que: $3^1 = 3, 3^2 = 2, 3^3 = 6, 3^4 = 4, 3^5 = 5, 3^6 = 1$, entonces $3$ es una raiz primitiva de $\mathbb{F}_{7}$.
-\end{example*}
+\end{ejemplo*}
 
-\begin{definition*}
+\begin{definicion*}
   Sea $f(x)$ un polinomios definido sobre $\mathbb{F}_{q}$. El \textbf{value set} de $f$ esta definido por $V_{f} = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$.
-\end{definition*}
+\end{definicion*}
 
-Note que un polinomios $f(x)$ definido por $\mathbb{F}_{q}$ es un polinomio de permutacion si y solo si $V_{f} = \mathbb{F}_{q}$.
+Note que un polinomios $f(x)$ definido por $\mathbb{F}_{q}$ es un polinomio de permutaci\'on si y solo si $V_{f} = \mathbb{F}_{q}$.
 
    \vspace{0.3em}
 }\label{Preliminaries}
@@ -272,7 +272,7 @@ Note que un polinomios $f(x)$ definido por $\mathbb{F}_{q}$ es un polinomio de p
   \headerbox{Motivaci\'{o}n}{name=motivation,column=0,below=preliminaries}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
-  Binomios que producen permutaciones de cuerpos finitos han sido estudiados extensivamente. El proximo caso a estudiarse son trinomios. Hemos encontrado que dentro de familias de polinomios de la forma $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ existen muchos polinomios de permutacion. Queremos encontrar condiciones en $a,b$ que garantizan que $F_{a,b}(X)$ sea un polinomio de permutacion y contar cuantos polinomios de permutacion existen en cada familia.
+  Binomios que producen permutaci\'ones de cuerpos finitos han sido estudiados extensamente. El proximo caso a estudiarse son trinomios. Hemos encontrado que dentro de familias de polinomios de la forma $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ existen muchos polinomios de permutaci\'on. Queremos encontrar condiciones en $a,b$ que garanticen que $F_{a,b}(X)$ sea un polinomio de permutaci\'on y contar cuantos polinomios de permutaci\'on existen en cada familia.
 
 }\label{Motivation}
 
@@ -286,36 +286,36 @@ Este trabajo ha sido apoyado por una beca de el \textit{Center of Undergraduate 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Resultados - Polinomios de Permutacion}{name=work,column=2}{
+  \headerbox{Resultados - Polinomios de Permutaci\'on}{name=work,column=2}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{proposition}
+\begin{proposicion}
   
   $|[F_{a, b}]| = lcm(d_1,d_2)$.
 
-\end{proposition}
+\end{proposicion}
 
 Empezando de un polinomio podemos construir $lcm(d_1, d_2)$ otros polinomios con value sets de la misma cardinalidad:
 $$(\alpha^{2}, \alpha^{26}), (\alpha^{8}, \alpha^{8}), (\alpha^{14}, \alpha^{26}), (\alpha^{20}, \alpha^{8}), (\alpha^{26}, \alpha^{26}), (\alpha^{32}, \alpha^{8})$$
   
     \begin{theorem}\label{laprop}
-    El numero de polinomios de la form $F_{a, b}(X)$ con $|V_{a, b}| = n$ es un multiplo de $lcm(d_1,d_2)$.
+    El n\'umero de polinomios de la forma $F_{a, b}(X)$ con $|V_{a, b}| = n$ es un m\'ultiplo de $lcm(d_1,d_2)$.
   \end{theorem}
 
-Un resultado directo del Teorema~\ref{laprop} es el caso particular cuando $|V_{a, b}| = q$, y tenemos polinomios de permutacion. La construccion de arriba nos provee una manera de construir familias de polinomios de permutacion.
+Un resultado directo del Teorema~\ref{laprop} es el caso particular cuando $|V_{a, b}| = q$, y tenemos polinomios de permutaci\'on. La construcci\'on de arriba nos provee una manera de construir familias de polinomios de permutaci\'on.
 
-  \begin{corollary}
-    El numero de polinomios de permutacion de la forma $F_{a, b}(X)$ es un multiplo de $lcm(d_1,d_2)$.
-  \end{corollary}
+  \begin{corolario}
+    El n\'umero de polinomios de permutaci\'on de la forma $F_{a, b}(X)$ es un m\'ultiplo de $lcm(d_1,d_2)$.
+  \end{corolario}
 
   }\label{Future Work}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Trabajo Fututo}{name=future,column=2,below=work}{
+\headerbox{Trabajo Futuro}{name=future,column=2,below=work}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{itemize}
-    \item Find necessary and sufficient conditions such that $V_{a,b} = \mathbb{F}_q$ and $V_{a,b}$ is of minimal cardinality.
-    \item Generalize results to polynomials with more terms and with exponents not divisors of $q-1$: $f_{a,b}(X) = X^r(X^{d_1} + aX^{d_2} +b)$
+    \item Encontrar condiciones suficientes y necesarias tal que $V_{a,b} = \mathbb{F}_q$ y $V_{a,b}$ es de cardinalidad m\'{\i}nima.
+    \item Generalizar los resultados a polinomios con m\'as t\'erminos y con exponentes no divisores de $q-1$: $f_{a,b}(X) = X^r(X^{d_1} + aX^{d_2} +b)$.
   \end{itemize}
 }\label{Applications}
 
@@ -324,9 +324,9 @@ Un resultado directo del Teorema~\ref{laprop} es el caso particular cuando $|V_{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \begin{itemize}
 
- \item El operador de encripcion de algunos sistemos de encripcion es una permutacion de un cuerpo finito $\mathbb{F}_{q}$ y necesita ser computado eficientemente. Expresando ese operador en terminos de un polinomio es una solucion simple y eficiente.
+ \item El operador de encripci\'on de algunos sistemas de encripci\'on es una permutaci\'on de un cuerpo finito $\mathbb{F}_{q}$ y necesita ser computado eficientemente. Expresando ese operador en terminos de un polinomio es una soluci\'on simple y eficiente.
 
- \item Polinomios con value sets minimos estan relacionados a curvas con un numero grande de puntos racionales.  
+ \item Polinomios con value sets m\'{\i}nimos est\'an relaci\'onados a curvas con un n\'umero grande de puntos racionales.  
 
  \end{itemize}
 }\label{Applications}
