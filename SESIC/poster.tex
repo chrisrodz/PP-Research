@@ -1,4 +1,4 @@
-\documentclass[landscape,final,paperwidth=48in,paperheight=36in]{baposter}
+\documentclass[landscape,final,paperwidth=24in,paperheight=36in]{baposter}
 
 \usepackage{calc}
 \usepackage{graphicx}
@@ -126,7 +126,7 @@
   grid=false,
   % Column spacing
   colspacing=1em,
-  columns=3,
+  columns=2,
   % Color style
   bgColorOne=gray,
   bgColorTwo=white,
@@ -231,7 +231,7 @@ Definimos una relaci\'on para construir clases de equivalencia de polinomios con
 
 \end{teorema}
 
-\includegraphics[width=11cm, height=6cm]{clases}
+\includegraphics[width=11cm, height=6cm]{clases-espa}
 
  % \begin{ejemplo*}
  %    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the cardinalities are equal the value sets are not.
@@ -269,80 +269,12 @@ Note que un polinomios $f(x)$ definido por $\mathbb{F}_{q}$ es un polinomio de p
 }\label{Preliminaries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Motivaci\'{o}n}{name=motivation,column=0,below=preliminaries}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
-  Binomios que producen permutaci\'ones de cuerpos finitos han sido estudiados extensamente. El proximo caso a estudiarse son trinomios. Hemos encontrado que dentro de familias de polinomios de la forma $F_{a,b}(X) =X\left(X^{\frac{q-1}{d_1}} + a X^{\frac{q-1}{d_2}} + b \right),$ existen muchos polinomios de permutaci\'on. Queremos encontrar condiciones en $a,b$ que garanticen que $F_{a,b}(X)$ sea un polinomio de permutaci\'on y contar cuantos polinomios de permutaci\'on existen en cada familia.
-
-}\label{Motivation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Agradecimientos}{name=acknowledgement,column=0,below=motivation,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Este trabajo ha sido apoyado por una beca de el \textit{Center of Undergraduate Research in Matematics} (CURM) de \textit{Brigham Young University}.
 
 }\label{Motivation}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Resultados - Polinomios de Permutaci\'on}{name=work,column=2}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{proposicion}
-  
-  $|[F_{a, b}]| = lcm(d_1,d_2)$.
-
-\end{proposicion}
-
-Empezando de un polinomio podemos construir $lcm(d_1, d_2)$ otros polinomios con value sets de la misma cardinalidad:
-$$(\alpha^{2}, \alpha^{26}), (\alpha^{8}, \alpha^{8}), (\alpha^{14}, \alpha^{26}), (\alpha^{20}, \alpha^{8}), (\alpha^{26}, \alpha^{26}), (\alpha^{32}, \alpha^{8})$$
-  
-    \begin{theorem}\label{laprop}
-    El n\'umero de polinomios de la forma $F_{a, b}(X)$ con $|V_{a, b}| = n$ es un m\'ultiplo de $lcm(d_1,d_2)$.
-  \end{theorem}
-
-Un resultado directo del Teorema~\ref{laprop} es el caso particular cuando $|V_{a, b}| = q$, y tenemos polinomios de permutaci\'on. La construcci\'on de arriba nos provee una manera de construir familias de polinomios de permutaci\'on.
-
-  \begin{corolario}
-    El n\'umero de polinomios de permutaci\'on de la forma $F_{a, b}(X)$ es un m\'ultiplo de $lcm(d_1,d_2)$.
-  \end{corolario}
-
-  }\label{Future Work}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Trabajo Futuro}{name=future,column=2,below=work}{
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{itemize}
-    \item Encontrar condiciones suficientes y necesarias tal que $V_{a,b} = \mathbb{F}_q$ y $V_{a,b}$ es de cardinalidad m\'{\i}nima.
-    \item Generalizar los resultados a polinomios con m\'as t\'erminos y con exponentes no divisores de $q-1$: $f_{a,b}(X) = X^r(X^{d_1} + aX^{d_2} +b)$.
-  \end{itemize}
-}\label{Applications}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Applicaciones}{name=applications,column=2,below=future}{
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \begin{itemize}
-
- \item El operador de encripci\'on de algunos sistemas de encripci\'on es una permutaci\'on de un cuerpo finito $\mathbb{F}_{q}$ y necesita ser computado eficientemente. Expresando ese operador en terminos de un polinomio es una soluci\'on simple y eficiente.
-
- \item Polinomios con value sets m\'{\i}nimos est\'an relaci\'onados a curvas con un n\'umero grande de puntos racionales.  
-
- \end{itemize}
-}\label{Applications}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Referencias}{name=references,column=2,above=bottom,below=applications}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begingroup
-  \renewcommand{\section}[2]{}%
-  {\small \begin{thebibliography}{}
-      \bibitem{main} Panario, D., Mullen, G., \textit{Handbook of Finite Fields}. CRC Press (2013).
-      \bibitem{main} Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
-      \bibitem{main} Borges, H., Conceicao R. \textit{On the characterization of minimal value set polynomial}. Journal of Number Theory 133 (2013) 2021-2035.
-    \end{thebibliography}}
-   \endgroup
-  }\label{References}
 
 \end{poster}
 
