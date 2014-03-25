@@ -15,7 +15,6 @@
 \usepackage{amsmath}
 
 \usepackage{graphicx}
-\usepackage{spanish}{babel}
 
 \newtheorem{corolario}{Corolario}
 \newtheorem{conjetura}{Conjetura}
@@ -146,7 +145,7 @@
   headershape=roundedright,
   headershade=shadelr,
   headerfont=\Large\textsc, %Sans Serif,
-  textfont=\large{\setlength{\parindent}{1.5em}},
+  textfont=\scriptsize{\setlength{\parindent}{1.5em}},
   boxshade=plain,
 %  background=shade-tb,
   background=plain,
@@ -157,10 +156,10 @@
   % Title
   {\bf\textsc{Number of Permutation Polynomials}\vspace{0.1em}}
   % Authors
-  {\color{white}{\textsc{Christian A. Rodr\'{\i}guez; Alex D. Santos; Ivelisse Rubio; Francis Castro; \\ Department of Computer Science, \\ University of Puerto Rico, Rio Piedras Campus}}}
+  {\color{white}{Christian A. Rodr\'{\i}guez; Alex D. Santos \\ Department of Computer Science, \\ University of Puerto Rico, Rio Piedras Campus}}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
-    \includegraphics[height=8em,keepaspectratio=true]{images/logo_curm}
+    
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -179,7 +178,16 @@
       \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Abstract}{name=abstract,column=0,row=0}{
+\headerbox{Problema}{name=problem,column=0,row=0,span=2}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       \vspace{0.3em}
+      Estudiar el value set de polinomios de la forma {\large $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$} sobre cuerpos finitos $\mathbb{F}_q$ y determinar condiciones en $a,b$ tal que el polinomio es un polinomio de permutaci\'on.
+
+      \vspace{0.3em}
+}\label{Problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Abstract}{name=abstract,column=0,below=problem}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \vspace{0.3em}
 Dado un trinomio de la forma $f_{a,b}(X)=X^r( X^{\frac{q-1}{d_1}}+aX^{\frac{q-1}{d_2}}+b )$ sobre un cuerpo finito $\mathbb{F}_q$ con tama\~{n}o de value set $s$, constru\'{\i}mos $d=lcm(d_1, d_2)$ otros trinomios en $\mathbb{F}_q$ con el mismo tama\~{n}o de value set. En particular, dado un polinomio de permutaci\'{o}n de la forma $f_{a,b}$, constru\'{\i}mos $d=lcm(d_1,d_2)$ otros polinomios de permutaci\'{o}n en $\mathbb{F}_q$. Tambi\'{e}n constru\'{\i}mos secuencias $P_{q^{m_1}}, P_{q^{m_2}}, \cdots,$ donde $P_{q^{m_i}}$ es un polinomio de permutaci\'{o}n en $\mathbb{F}_{q^{m_i}}$.
@@ -188,16 +196,7 @@ Dado un trinomio de la forma $f_{a,b}(X)=X^r( X^{\frac{q-1}{d_1}}+aX^{\frac{q-1}
  }\label{Abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Problema}{name=problem,column=1,row=0}{
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-       \vspace{0.3em}
-      {\Large Estudiar el value set de polinomios de la forma {\LARGE $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$} sobre cuerpos finitos $\mathbb{F}_q$ y determinar condiciones en $a,b$ tal que el polinomio es un polinomio de permutaci\'on.}
-
-      \vspace{0.3em}
-}\label{Problem}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Resultados - Value Sets}{name=contribution,column=1,below=problem,above=bottom}{
+  \headerbox{Resultados}{name=contribution,column=1,below=problem,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Definimos una relaci\'on para construir clases de equivalencia de polinomios con value sets de la misma cardinalidad.
@@ -231,11 +230,27 @@ Definimos una relaci\'on para construir clases de equivalencia de polinomios con
 
 \end{teorema}
 
-\includegraphics[width=11cm, height=6cm]{clases-espa}
+\begin{proposicion}
+  
+  $|[F_{a, b}]| = lcm(d_1,d_2)$.
 
- % \begin{ejemplo*}
- %    Let $q = 13, d_1 = 2, d_2 = 3, a = 4, b = 8$. Since $(4,8) \sim (3,5)$ we have that $|V(F_{4, 8})| = |V(F_{3, 5})|$. In fact $V(F_{4, 8}) = \left\{0, 1, 2, 3, 10, 11, 12\right\}$, $V(F_{3, 5}) = \left\{0, 2, 4, 6, 7, 9, 11\right\}$. Note that even though the cardinalities are equal the value sets are not.
- %  \end{ejemplo*}
+\end{proposicion}
+
+Empezando de un polinomio podemos construir $lcm(d_1, d_2)$ otros polinomios con value sets de la misma cardinalidad:
+$$(\alpha^{2}, \alpha^{26}), (\alpha^{8}, \alpha^{8}), (\alpha^{14}, \alpha^{26}), (\alpha^{20}, \alpha^{8}), (\alpha^{26}, \alpha^{26}), (\alpha^{32}, \alpha^{8})$$
+  
+    \begin{teorema}\label{laprop}
+    El n\'umero de polinomios de la forma $F_{a, b}(X)$ con $|V_{a, b}| = n$ es un m\'ultiplo de $lcm(d_1,d_2)$.
+  \end{teorema}
+
+Un resultado directo del Teorema~\ref{laprop} es el caso particular cuando $|V_{a, b}| = q$, y tenemos polinomios de permutaci\'on. La construcci\'on de arriba nos provee una manera de construir familias de polinomios de permutaci\'on.
+
+  \begin{corolario}
+    El n\'umero de polinomios de permutaci\'on de la forma $F_{a, b}(X)$ es un m\'ultiplo de $lcm(d_1,d_2)$.
+  \end{corolario}
+
+  \includegraphics[width=8cm, height=6cm]{clases-espa}
+
 }\label{Results}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -269,12 +284,25 @@ Note que un polinomios $f(x)$ definido por $\mathbb{F}_{q}$ es un polinomio de p
 }\label{Preliminaries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Agradecimientos}{name=acknowledgement,column=0,below=motivation,above=bottom}{
+  \headerbox{Agradecimientos}{name=acknowledgement,column=0,below=preliminaries}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Este trabajo ha sido apoyado por una beca de el \textit{Center of Undergraduate Research in Matematics} (CURM) de \textit{Brigham Young University}.
 
 }\label{Motivation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Referencias}{name=references,column=0,above=bottom,below=acknowledgement}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begingroup
+  \renewcommand{\section}[2]{}%
+   \begin{thebibliography}{}
+      \bibitem{main} Panario, D., Mullen, G., \textit{Handbook of Finite Fields}. CRC Press (2013).
+      \bibitem{main} Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
+      \bibitem{main} Borges, H., Conceicao R. \textit{On the characterization of minimal value set polynomial}. Journal of Number Theory 133 (2013) 2021-2035.
+    \end{thebibliography}
+   \endgroup
+  }\label{References}
 
 \end{poster}
 
