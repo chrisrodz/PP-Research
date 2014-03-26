@@ -154,12 +154,12 @@
   % Eye Catcher
   {\includegraphics[height=8em,keepaspectratio=true]{images/logo_uprrp}} 
   % Title
-  {\bf {\LARGE Generating Families of Permutation Trinomials}}
+  {\bf {\LARGE Generando Familias de Polinomios de Permutaci\'on}}
   % Authors
-  {\color{white}{{\normalsize Christian A. Rodr\'{\i}guez; Alex D. Santos \\ Department of Computer Science, \\ University of Puerto Rico, Rio Piedras Campus}}}
+  {\color{white}{{\normalsize Christian A. Rodr\'{\i}guez y Alex D. Santos  \\ Departamento de Ciencia de C\'omputos, \\ Universidad de Puerto Rico, Recinto de R\'{\i}o Piedras \\ Ivelisse Rubio y Francis Castro (mentores) }}}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
-    
+    \includegraphics[height=7em,keepaspectratio=true]{gallo}
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -177,26 +177,18 @@
     \newcommand{\colouredcircle}{%
       \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Problema}{name=problem,column=1,row=0}{
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
-Estudiar el conjunto de valores de polinomios de la forma {\large $$F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$} sobre cuerpos finitos $\mathbb{F}_q$ y determinar condiciones en $a,b$ tal que el polinomio es un polinomio de permutaci\'on.
-
-
-}\label{Problem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Resumen}{name=abstract,column=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Dado un trinomio de la forma $f_{a,b}(X)=X^r( X^{\frac{q-1}{d_1}}+aX^{\frac{q-1}{d_2}}+b )$ sobre un cuerpo finito $\mathbb{F}_q$ con un conjunto de valores de tama\~{n}o  $s$, \linebreak constru\'{\i}mos otros $d$ trinomios en $\mathbb{F}_q$ con el mismo tama\~{n}o de conjunto de valores, donde $d=mcm(d_1, d_2)$. En particular, dado un polinomio de permutaci\'{o}n de la forma $f_{a,b}$, constru\'{\i}mos $d$ otros polinomios de permutaci\'{o}n en $\mathbb{F}_q$. Tambi\'{e}n generamos secuencias $P_{q^{m_1}}, P_{q^{m_2}}, \cdots,$ donde $P_{q^{m_i}}$ es un polinomio de permutaci\'{o}n en $\mathbb{F}_{q^{m_i}}$.
+Dado un trinomio de la forma $F_{a,b}(X)=X^r( X^{\frac{q-1}{d_1}}+aX^{\frac{q-1}{d_2}}+b )$ sobre un cuerpo finito $\mathbb{F}_q$ con un conjunto de valores de tama\~{n}o  $s$, \linebreak constru\'{\i}mos otros $d$ trinomios en $\mathbb{F}_q$ con el mismo tama\~{n}o de conjunto de valores, donde $d=mcm(d_1, d_2)$. En particular, dado un polinomio de permutaci\'{o}n de la forma $F_{a,b}$, constru\'{\i}mos otros $d$ polinomios de permutaci\'{o}n en $\mathbb{F}_q$. 
    
 
  }\label{Abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Resultados - Permutaci\'on}{name=contribution,column=1,below=problem}{
+  \headerbox{Resultados - Permutaciones}{name=contribution,column=1}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -224,16 +216,16 @@ Un resultado directo del Teorema~\ref{laprop} es el caso particular cuando $|V_{
 }\label{Results}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Trabajo Futuro}{name=future,column=1,below=contribution}{
+\headerbox{Problema}{name=problem,column=0,row=0, below=abstract}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{itemize}
-    \item Encontrar condiciones suficientes y necesarias tal que $V_{a,b} = \mathbb{F}_q$ y $V_{a,b}$ sea de cardinalidad m\'{\i}nima.
-    \item Generalizar los resultados a polinomios con m\'as t\'erminos y con exponentes no divisores de $q-1$: $f_{a,b}(X) = X^r(X^{d_1} + aX^{d_2} +b)$.
-  \end{itemize}
-}\label{Applications}
+  
+Estudiar el conjunto de valores de polinomios de la forma {\large $$F_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$$} sobre cuerpos finitos $\mathbb{F}_q$ y determinar condiciones en $a,b$ tal que el polinomio es un polinomio de permutaci\'on.
+
+
+}\label{Problem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Preliminares}{name=preliminaries,column=0,below=abstract}{
+  \headerbox{Preliminares}{name=preliminaries,column=0,below=problem}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{definicion*}
@@ -241,7 +233,7 @@ Un resultado directo del Teorema~\ref{laprop} es el caso particular cuando $|V_{
 \end{definicion*}
 
 \begin{definicion*}
-  Un \textbf{cuerpo finito} $\mathbb{F}_{q}$, $q=p^r$, $p$ primo, es un conjunto con $q=p^r$ elementos.
+  Un \textbf{cuerpo finito} $\mathbb{F}_{q}$ es un conjunto con $q=p^r$ elementos donde $p$ es un primo.
 \end{definicion*}
 
 \begin{definicion*}
@@ -253,27 +245,38 @@ Un resultado directo del Teorema~\ref{laprop} es el caso particular cuando $|V_{
 \end{ejemplo*}
 
 \begin{definicion*}
-  Sea $f(x)$ un polinomio definido sobre $\mathbb{F}_{q}$. El \textbf{conjunto de valores} de $f$ esta definido por $V_{f} = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$.
+  Sea $f(x)$ un polinomio definido sobre $\mathbb{F}_{q}$. El \textbf{conjunto de valores} de $f$ est\'a definido por $V(f) = \left\{f(a) \mid a \in \mathbb{F}_{q} \right\}$.
 \end{definicion*}
 
-Note que un polinomio $f(x)$ definido en $\mathbb{F}_{q}$ es un polinomio de permutaci\'on si y solo si $V_{f} = \mathbb{F}_{q}$.
+Note que un polinomio $f(x)$ definido en $\mathbb{F}_{q}$ es un polinomio de permutaci\'on si y solo si $V(f) = \mathbb{F}_{q}$.
 
 }\label{Preliminaries}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Aplicaciones}{name=applications,column=0,below=preliminaries}{
+\headerbox{Aplicaciones}{name=applications,column=1,below=contribution}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \begin{itemize}
 
- \item El operador de encripci\'on de algunos sistemas de encripci\'on es una permutaci\'on de un cuerpo finito $\mathbb{F}_{q}$ y necesita ser computado eficientemente. Si expresamos ese operador en t\'erminos de un polinomio, computarlo es simple y eficiente.
+ \item  El operador de encripci\'on de algunos sistemas de encripci\'on es una permutaci\'on de un cuerpo finito $\mathbb{F}_{q}$ y necesita ser computado eficientemente. Si expresamos ese operador en t\'erminos de un polinomio, computarlo es simple y eficiente.
 
- \item Polinomios con conjuntos de valores m\'{\i}nimos est\'an relaci\'onados a curvas con un n\'umero grande de puntos racionales.  
+ \item Polinomios con conjuntos de valores m\'{\i}nimos est\'an relaci\'onados a curvas con un n\'umero grande de puntos racionales. Estas curvas son \'utiles para c\'odigos correctores de errores.
 
  \end{itemize}
 }\label{Applications}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Resultados - conjuntos de valores}{name=valuesets,column=0, below=applications, above=bottom}{
+\headerbox{Trabajo Futuro}{name=future,column=1,below=applications}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{itemize}
+    \item Encontrar condiciones suficientes y necesarias para que $V_{a,b} = \mathbb{F}_q$ y para que $V_{a,b}$ sea de cardinalidad m\'{\i}nima.
+    \item Generalizar los resultados a polinomios con m\'as t\'erminos y con exponentes no divisores de $q-1$.
+  \end{itemize}
+}\label{Applications}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Resultados - conjuntos de valores}{name=valuesets,column=0, below=preliminaries, above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Definimos una relaci\'on para construir clases de equivalencia de polinomios con conjuntos de valores de la misma cardinalidad.
@@ -298,7 +301,7 @@ Definimos una relaci\'on para construir clases de equivalencia de polinomios con
 
 \end{lema}
 
-  El Lema 1 induce una relaci\'on de equivalencia en el conjunto de polinomios de la forma $F_{a,b}(X) = X(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ con clases de equivalencia $[F_{a,b}] = [F_{\alpha^i, \alpha^j}] = \left\{\ F_{a',b'} | a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})} \right\}$.
+  El Lema 1 induce una relaci\'on de equivalencia en el conjunto de polinomios de la forma $F_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ con clases de equivalencia $[F_{a,b}] = [F_{\alpha^i, \alpha^j}] = \left\{\ F_{a',b'} | a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})} \right\}$.
 
   Esto provee una construcci\'{o}n para polinomios con conjuntos de valores de la misma cardinalidad.
 \begin{teorema}
@@ -311,21 +314,31 @@ Definimos una relaci\'on para construir clases de equivalencia de polinomios con
  }\label{valuesets}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Agradecimientos}{name=acknowledgement,column=1,below=future}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+Este trabajo ha sido auspiciado por una propuesta de el \textit{Center of Undergraduate Research in Mathematics} (CURM) de \textit{Brigham Young University}.
 
+}\label{Motivation}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Referencias}{name=references,column=1,above=bottom,below=future}{
+  \headerbox{Referencias}{name=references,column=1,above=bottom,below=acknowledgement}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begingroup
   \renewcommand{\section}[2]{}%
    \begin{thebibliography}{}
       \bibitem{main} Panario, D., Mullen, G., \textit{Handbook of Finite Fields}. CRC Press (2013).
+      \vspace{-0.2cm}
       \bibitem{main} Wan, D., Lidl, R. \textit{Permutation Polynomials of the Form $x^{r}f(x^{\frac{q-1}{d}})$ and Their Group Structure}. Mh. Math. 112, 149-163 (1991).
+      \vspace{-0.2cm}
       \bibitem{main} Borges, H., Conceicao R. \textit{On the characterization of minimal conjunto de valores polynomial}. Journal of Number Theory 133 (2013) 2021-2035.
     \end{thebibliography}
    \endgroup
   }\label{References}
+
+
 
 \end{poster}
 
