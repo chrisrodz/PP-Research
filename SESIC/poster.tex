@@ -152,14 +152,14 @@
   linewidth=2pt
   }
   % Eye Catcher
-  {\includegraphics[height=8em,keepaspectratio=true]{images/logo_uprrp}} 
+  {\includegraphics[height=8em,width=8em,keepaspectratio=true]{images/logo_uprrp}} 
   % Title
   {\bf {\LARGE Generando Familias de Polinomios de Permutaci\'on}}
   % Authors
   {\color{white}{{\normalsize Christian A. Rodr\'{\i}guez y Alex D. Santos  \\ Departamento de Ciencia de C\'omputos, \\ Universidad de Puerto Rico, Recinto de R\'{\i}o Piedras \\ Ivelisse Rubio y Francis Castro (mentores) }}}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
-    \includegraphics[height=7em,keepaspectratio=true]{gallo}
+    \includegraphics[height=7em,width=8em,keepaspectratio=true]{gallo}
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -278,9 +278,9 @@ Note que un polinomio $f(x)$ definido en $\mathbb{F}_{q}$ es un polinomio de per
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Resultados - conjuntos de valores}{name=valuesets,column=0, below=preliminaries, above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{0.2cm}
 
 Definimos una relaci\'on para construir clases de equivalencia de polinomios con conjuntos de valores de la misma cardinalidad.
-
 
 \begin{definicion}\label{relaci\'on}
 
@@ -301,14 +301,21 @@ Definimos una relaci\'on para construir clases de equivalencia de polinomios con
 
 \end{lema}
 
-  El Lema 1 induce una relaci\'on de equivalencia en el conjunto de polinomios de la forma $F_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ con clases de equivalencia $[F_{a,b}] = [F_{\alpha^i, \alpha^j}] = \left\{\ F_{a',b'} | a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})} \right\}$.
+\vspace{0.2cm}
 
+  El Lema 1 induce una relaci\'on de equivalencia en el conjunto de polinomios de la forma $F_{a,b}(X) = X^r(X^{\frac{q-1}{d_1}} + aX^{\frac{q-1}{d_2}} +b)$ con clases de equivalencia $[F_{a,b}] = [F_{\alpha^i, \alpha^j}] = \left\{\ F_{a',b'} | a' = \alpha^{i+h(\frac{q-1}{d_1} - \frac{q-1}{d_2})}, b' = \alpha^{j+h(\frac{q-1}{d_1})} \right\}$.
+  \vspace{0.2cm}
   Esto provee una construcci\'{o}n para polinomios con conjuntos de valores de la misma cardinalidad.
+
+  \vspace{0.2cm}
+
 \begin{teorema}
   
   Suponer que $F_{a,b} \sim F_{a',b'}$ donde $\sim$ es la relaci\'on de equivalencia en el Lema 1. Entonces $|V(F_{a,b})| = |V(F_{a',b'})|$.
 
 \end{teorema}
+
+\vspace{0.2cm}
    
 
  }\label{valuesets}
